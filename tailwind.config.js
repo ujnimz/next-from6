@@ -1,0 +1,83 @@
+module.exports = {
+  mode: 'jit',
+  purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
+  darkMode: 'class', // or 'media' or 'class'
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ['FSMe', 'sans-serif'],
+        'mikado-black': ['Mikado Black', 'sans-serif'],
+      },
+      fill: {
+        current: 'currentColor',
+      },
+      colors: {
+        'green': '#c8da38',
+        'green-light': '#cfdf5a',
+      },
+    },
+  },
+  variants: {
+    extend: {},
+  },
+  plugins: [require('@tailwindcss/typography'), require('daisyui')],
+
+  daisyui: {
+    styled: true,
+    themes: true,
+    base: true,
+    utils: true,
+    logs: true,
+    rtl: false,
+    themes: [
+      {
+        dark: {
+          primary: '#004fa4',
+          'primary-focus': '#003c7d',
+          'primary-content': '#ffffff',
+          secondary: '#c31887',
+          'secondary-focus': '#bd0091',
+          'secondary-content': '#ffffff',
+          accent: '#6ecff6',
+          'accent-focus': '#2aa79b',
+          'accent-content': '#ffffff',
+          neutral: '#ffffff',
+          'neutral-focus': '#16181d',
+          'neutral-content': '#ffffff',
+          'base-100': '#3d4451',
+          'base-200': '#2a2e37',
+          'base-300': '#16181d',
+          'base-400': '#ffffff',
+          'base-content': '#ebecf0',
+          info: '#66c6ff',
+          success: '#87d039',
+          warning: '#e2d562',
+          error: '#ff6f6f',
+        },
+        light: {
+          primary: '#004fa4',
+          'primary-focus': '#003c7d',
+          'primary-content': '#ffffff',
+          secondary: '#c31887',
+          'secondary-focus': '#bd0091',
+          'secondary-content': '#ffffff',
+          accent: '#6ecff6',
+          'accent-focus': '#00aeef',
+          'accent-content': '#ffffff',
+          neutral: '#004fa4',
+          'neutral-focus': '#2a2e37',
+          'neutral-content': '#ffffff',
+          'base-100': '#ffffff',
+          'base-200': '#f2f2f2',
+          'base-300': '#cccccc',
+          'base-400': '#58585a',
+          'base-content': '#1f2937',
+          info: '#2094f3',
+          success: '#009485',
+          warning: '#ff9900',
+          error: '#ff5724',
+        },
+      },
+    ],
+  },
+};
