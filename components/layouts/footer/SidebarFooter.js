@@ -51,31 +51,27 @@ const MainFooter = ({open}) => {
       link: '/',
     },
     {
-      id: 'youtube',
-      link: '/',
-    },
-    {
       id: 'linkedin',
       link: '/',
     },
   ];
 
   const itemVariants = {
-    closed: {
+    hide: {
       opacity: 0,
       x: -10,
     },
-    opened: {opacity: 1, x: 0},
+    show: {opacity: 1, x: 0},
   };
 
   const mainVariants = {
-    closed: {
+    hide: {
       transition: {
         staggerChildren: 0.2,
         staggerDirection: -1,
       },
     },
-    opened: {
+    show: {
       transition: {
         staggerChildren: 0.2,
         staggerDirection: 1,
@@ -87,8 +83,8 @@ const MainFooter = ({open}) => {
     <div className='flex flex-col'>
       <motion.ul
         className='flex justify-between mb-3'
-        initial='closed'
-        animate={open ? 'opened' : 'closed'}
+        initial='hide'
+        animate='show'
         variants={mainVariants}
       >
         {socialArray.map(item => (
@@ -96,7 +92,7 @@ const MainFooter = ({open}) => {
             <Link href={item.link}>
               <a>
                 <svg
-                  className='fill-current text-white'
+                  className='fill-current text-secondary'
                   id={item.id}
                   xmlns='http://www.w3.org/2000/svg'
                   viewBox='0 0 512 512'
@@ -108,20 +104,11 @@ const MainFooter = ({open}) => {
         ))}
       </motion.ul>
       <p
-        className='text-xs leading-3 mb-2 text-primary-content'
+        className='text-xs leading-3 mb-2 text-secondary'
         style={{fontSize: 10}}
       >
-        © 2021 Bahrain Financing Company. Licensed by the CBB as a Money
-        Changer.
+        © 2022 From6.
       </p>
-      <ul
-        className='flex justify-between text-primary-content'
-        style={{fontSize: 10}}
-      >
-        <li>Terms of Use</li>
-        <li>Privacy Policy</li>
-        <li>Cookie Settings</li>
-      </ul>
     </div>
   );
 };

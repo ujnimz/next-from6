@@ -1,146 +1,57 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Link from 'next/link';
 import {motion} from 'framer-motion';
 
-const MainNavigation = ({open, navOpen}) => {
+const MainNavigation = () => {
+  const [isHovered, setHovered] = useState({hover: false, key: null});
+
   const navArray = [
     {
       id: 0,
-      title: 'Money Transfer',
+      title: 'About',
       link: '/',
-      sub: [
-        {
-          id: 0,
-          title: 'Check Latest Rates',
-          link: '/',
-        },
-        {
-          id: 1,
-          title: 'Use Currency Converter',
-          link: '/',
-        },
-        {
-          id: 2,
-          title: 'Send Money Online',
-          link: '/',
-        },
-        {
-          id: 3,
-          title: 'View Money Transfer Options',
-          link: '/',
-        },
-      ],
     },
     {
       id: 1,
-      title: 'Currency Exchange',
+      title: 'Services',
       link: '/',
-      sub: [
-        {
-          id: 0,
-          title: 'Check Latest Rates',
-          link: '/',
-        },
-        {
-          id: 1,
-          title: 'Use Currency Converter',
-          link: '/',
-        },
-        {
-          id: 2,
-          title: 'Currency Buy Back',
-          link: '/',
-        },
-      ],
     },
     {
       id: 2,
-      title: 'Bill Payments',
+      title: 'Work',
       link: '/',
-      sub: [
-        {
-          id: 0,
-          title: 'Credit Card Payments',
-          link: '/',
-        },
-        {
-          id: 1,
-          title: 'Social Security Payments',
-          link: '/',
-        },
-        {
-          id: 2,
-          title: 'Insurance Payments',
-          link: '/',
-        },
-        {
-          id: 3,
-          title: 'Telecom Payments',
-          link: '/',
-        },
-        {
-          id: 4,
-          title: 'LMRA & Flexi Permit Monthly Payments',
-          link: '/',
-        },
-        {
-          id: 5,
-          title: 'Rent Payments',
-          link: '/',
-        },
-        {
-          id: 6,
-          title: 'Fee Payments',
-          link: '/',
-        },
-        {
-          id: 7,
-          title: 'International Utility Bill Payments',
-          link: '/',
-        },
-      ],
     },
     {
       id: 3,
-      title: 'Branches',
+      title: 'Blog',
       link: '/',
     },
     {
       id: 4,
-      title: 'News',
-      link: '/',
-    },
-    {
-      id: 5,
-      title: 'FAQs',
-      link: '/',
-    },
-    {
-      id: 6,
-      title: 'About Us',
+      title: 'Contact',
       link: '/',
     },
   ];
 
   const itemVariants = {
-    closed: {
+    hide: {
       opacity: 0,
       x: -10,
     },
-    opened: {opacity: 1, x: 0},
+    show: {opacity: 1, x: 0},
   };
 
   const mainVariants = {
-    closed: {
+    hide: {
       transition: {
         staggerChildren: 0.2,
         staggerDirection: -1,
       },
     },
-    opened: {
+    show: {
       transition: {
-        delayChildren: 0.5,
-        staggerChildren: 0.1,
+        delayChildren: 2,
+        staggerChildren: 0.2,
         staggerDirection: 1,
       },
     },
@@ -149,38 +60,34 @@ const MainNavigation = ({open, navOpen}) => {
   return (
     <div className='flex flex-1 items-center'>
       <nav>
-        <motion.ul className='text-base-content text-sm text-primary-content'>
+        <motion.ul
+          className='text-base-content text-sm font-light text-secondary pt-10'
+          initial='hide'
+          animate='show'
+          variants={mainVariants}
+        >
           {navArray.map(item => (
-            <motion.li
-              key={item.id}
-              className='mb-1'
-              onClick={() => navOpen(!open)}
-            >
+            <motion.li key={item.id} className='mb-0.5' variants={itemVariants}>
               <Link href={item.link}>
-                <a className='block p-1'>{item.title}</a>
-              </Link>
-              {item.sub ? (
-                <motion.ul
-                  className='text-base-content text-xs ml-3 text-accent'
-                  initial='closed'
-                  animate={open ? 'opened' : 'closed'}
-                  variants={mainVariants}
+                <a
+                  className='block p-0.5'
+                  onMouseEnter={() => setHovered({hover: true, key: item.id})}
+                  onMouseLeave={() => setHovered({hover: false, key: item.id})}
                 >
-                  {item.sub.map(subItem => (
-                    <motion.li
-                      key={subItem.id}
-                      variants={itemVariants}
-                      whileHover={{scale: 1.1}}
-                    >
-                      <Link href={subItem.link}>
-                        <a className='block p-1'>{subItem.title}</a>
-                      </Link>
-                    </motion.li>
-                  ))}
-                </motion.ul>
-              ) : (
-                ''
-              )}
+                  {item.title}
+                  <motion.div
+                    className='bg-primary rounded h-0.5'
+                    initial={false}
+                    animate={{
+                      width:
+                        isHovered.hover && isHovered.key === item.id
+                          ? '100%'
+                          : 0,
+                    }}
+                    transition={{ease: 'anticipate', duration: 0.5}}
+                  ></motion.div>
+                </a>
+              </Link>
             </motion.li>
           ))}
         </motion.ul>
