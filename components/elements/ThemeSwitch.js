@@ -1,4 +1,5 @@
 import React from 'react';
+import {motion} from 'framer-motion';
 import useDarkMode from '../../themes/useDarkMode';
 
 const ThemeSwitch = () => {
@@ -8,17 +9,29 @@ const ThemeSwitch = () => {
   };
 
   return (
-    <div className='flex'>
-      <button className='p-5' onClick={() => changeTheme()}>
+    <motion.div
+      variants={{
+        closed: {opacity: 1},
+        open: {
+          opacity: 1,
+          transition: {duration: 0.2, delay: 0.3},
+        },
+      }}
+    >
+      <button
+        className='flex justify-center items-center cursor-pointer'
+        style={{width: 50, height: 50}}
+        onClick={() => changeTheme()}
+      >
         {colorTheme === 'light' ? (
           <svg
             className='w-6 h-6'
             xmlns='http://www.w3.org/2000/svg'
             fill='none'
             viewBox='0 0 24 24'
-            stroke='black'
           >
             <path
+              className='stroke-current text-primary-content'
               strokeLinecap='round'
               strokeLinejoin='round'
               strokeWidth={2}
@@ -31,9 +44,9 @@ const ThemeSwitch = () => {
             xmlns='http://www.w3.org/2000/svg'
             fill='none'
             viewBox='0 0 24 24'
-            stroke='white'
           >
             <path
+              className='stroke-current text-primary-content'
               strokeLinecap='round'
               strokeLinejoin='round'
               strokeWidth={2}
@@ -42,7 +55,7 @@ const ThemeSwitch = () => {
           </svg>
         )}
       </button>
-    </div>
+    </motion.div>
   );
 };
 

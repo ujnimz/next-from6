@@ -134,7 +134,7 @@ const Logo = ({open}) => {
 
   return (
     <Link href='/'>
-      <a className='flow-root'>
+      <a className=''>
         <div
           className='flex justify-center p-1 overflow-hidden'
           style={{width: 150, height: 70}}

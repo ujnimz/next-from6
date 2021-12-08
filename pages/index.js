@@ -4,6 +4,8 @@ export default function Home() {
   return (
     <div className=''>
       <HomeSlider />
+      <HomeSlider />
+      <HomeSlider />
     </div>
   );
 }

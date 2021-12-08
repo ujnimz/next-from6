@@ -18,6 +18,9 @@ module.exports = {
         'lime': '#6cbd4a',
         'lime': '#6cbd4a',
       },
+      zIndex: {
+        '-10': '-10',
+      },
     },
   },
   variants: {

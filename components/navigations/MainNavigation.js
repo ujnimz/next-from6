@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
 import Link from 'next/link';
-import {motion} from 'framer-motion';
+import {motion, useCycle} from 'framer-motion';
+import MenuIcon from '../elements/MenuIcon';
+import ThemeSwitch from '../elements/ThemeSwitch';
 
 const MainNavigation = () => {
-  const [isHovered, setHovered] = useState({hover: false, key: null});
+  const [isOpen, toggleOpen] = useCycle(false, true);
 
   const navArray = [
     {
@@ -33,65 +35,89 @@ const MainNavigation = () => {
     },
   ];
 
-  const itemVariants = {
-    hide: {
+  const menuVariants = {
+    open: {
+      transition: {staggerChildren: 0.07, delayChildren: 0.2},
+    },
+    closed: {
+      transition: {staggerChildren: 0.05, staggerDirection: 1},
+    },
+  };
+
+  const menuItemVariants = {
+    open: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        y: {stiffness: 1000, velocity: -100},
+      },
+    },
+    closed: {
+      y: -20,
       opacity: 0,
-      x: -10,
-    },
-    show: {opacity: 1, x: 0},
-  };
-
-  const mainVariants = {
-    hide: {
       transition: {
-        staggerChildren: 0.2,
-        staggerDirection: -1,
-      },
-    },
-    show: {
-      transition: {
-        delayChildren: 2,
-        staggerChildren: 0.2,
-        staggerDirection: 1,
+        y: {stiffness: 1000, velocity: -100},
       },
     },
   };
 
+  const sidebar = {
+    open: {
+      height: 195,
+      width: 150,
+      transition: {
+        type: 'spring',
+        stiffness: 400,
+        damping: 40,
+      },
+    },
+    closed: {
+      height: 50,
+      width: 100,
+      transition: {
+        delay: 0.5,
+        type: 'spring',
+        stiffness: 400,
+        damping: 40,
+      },
+    },
+  };
   return (
-    <div className='flex flex-1 items-center'>
-      <nav>
-        <motion.ul
-          className='text-base-content text-sm font-light text-secondary pt-10'
-          initial='hide'
-          animate='show'
-          variants={mainVariants}
-        >
+    <div className='relative flex flex-col'>
+      <motion.nav
+        initial='open'
+        animate={isOpen ? 'open' : 'closed'}
+        variants={sidebar}
+      >
+        <motion.div
+          className='absolute top-0 right-0 bottom-0 bg-primary -z-10 rounded-2xl'
+          style={{width: 100, height: 50}}
+          variants={sidebar}
+        />
+
+        <div className='flex justify-between'>
+          <MenuIcon toggleOpen={toggleOpen} isOpen={isOpen} />
+          <ThemeSwitch />
+        </div>
+
+        <motion.ul className='px-3 pb-9' variants={menuVariants}>
           {navArray.map(item => (
-            <motion.li key={item.id} className='mb-0.5' variants={itemVariants}>
+            <motion.li
+              key={item.id}
+              className='mb-0.5'
+              variants={menuItemVariants}
+              whileHover={{scale: 1.1}}
+              whileTap={{scale: 0.95}}
+            >
               <Link href={item.link}>
-                <a
-                  className='block p-0.5'
-                  onMouseEnter={() => setHovered({hover: true, key: item.id})}
-                  onMouseLeave={() => setHovered({hover: false, key: item.id})}
-                >
+                <a className='text-primary-content text-sm font-light text-right block p-0.5'>
                   {item.title}
-                  <motion.div
-                    className='bg-primary rounded h-0.5'
-                    initial={false}
-                    animate={{
-                      width:
-                        isHovered.hover && isHovered.key === item.id
-                          ? '100%'
-                          : 0,
-                    }}
-                    transition={{ease: 'anticipate', duration: 0.5}}
-                  ></motion.div>
                 </a>
               </Link>
             </motion.li>
           ))}
         </motion.ul>
-      </nav>
+      </motion.nav>
     </div>
   );
 };
