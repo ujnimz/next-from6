@@ -37,10 +37,12 @@ const MainNavigation = () => {
 
   const menuVariants = {
     open: {
+      display: 'block',
       transition: {staggerChildren: 0.07, delayChildren: 0.2},
     },
     closed: {
-      transition: {staggerChildren: 0.05, staggerDirection: 1},
+      display: 'none',
+      transition: {staggerChildren: 0.05, staggerDirection: 1, delay: 0.5},
     },
   };
 
@@ -83,8 +85,9 @@ const MainNavigation = () => {
     },
   };
   return (
-    <div className='relative flex flex-col'>
+    <div className='relative flex flex-col pr-6 pt-6'>
       <motion.nav
+        className='relative'
         initial='open'
         animate={isOpen ? 'open' : 'closed'}
         variants={sidebar}
@@ -100,7 +103,11 @@ const MainNavigation = () => {
           <ThemeSwitch />
         </div>
 
-        <motion.ul className='px-3 pb-9' variants={menuVariants}>
+        <motion.ul
+          className='px-3 pb-9'
+          animate={isOpen ? 'open' : 'closed'}
+          variants={menuVariants}
+        >
           {navArray.map(item => (
             <motion.li
               key={item.id}

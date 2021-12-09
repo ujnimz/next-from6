@@ -134,10 +134,10 @@ const Logo = ({open}) => {
 
   return (
     <Link href='/'>
-      <a className=''>
+      <a className='px-8 py-4 bg-base-100 notch'>
         <div
           className='flex justify-center p-1 overflow-hidden'
-          style={{width: 150, height: 70}}
+          style={{width: 120, height: 62}}
         >
           <motion.svg
             id='From6_Logo'
@@ -146,6 +146,7 @@ const Logo = ({open}) => {
             initial='hide'
             animate='show'
             variants={mainVariants}
+            //className='fill-current text-accent'
           >
             {from6Logo.map(item =>
               item.transform ? (

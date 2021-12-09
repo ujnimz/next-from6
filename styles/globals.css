@@ -3,3 +3,41 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.notch {
+  --notchSize: 2.2rem;
+
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - var(--notchSize)),
+    calc(100% - var(--notchSize)) 100%,
+    0 100%
+  );
+}
+
+.lg-notch {
+  --notchSize: 0px;
+
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - var(--notchSize)),
+    calc(100% - var(--notchSize)) 100%,
+    0 100%
+  );
+}
+
+@screen lg {
+  .lg-notch {
+    --notchSize: 2.2rem;
+
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% calc(100% - var(--notchSize)),
+      calc(100% - var(--notchSize)) 100%,
+      0 100%
+    );
+  }
+}

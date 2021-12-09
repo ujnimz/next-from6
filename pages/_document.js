@@ -9,7 +9,9 @@ class MyDocument extends Document {
   render() {
     return (
       <Html data-theme=''>
-        <Head />
+        <Head>
+          <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js'></script>
+        </Head>
         <body className='font-serif'>
           <Main />
           <NextScript />

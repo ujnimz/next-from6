@@ -13,11 +13,13 @@
     "daisyui": "^1.16.2",
     "framer-motion": "^5.3.3",
     "next": "12.0.4",
+    "pietile-carousel": "^3.2.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-intersection-observer": "^8.32.5",
     "react-router-dom": "^6.0.2",
-    "react-youtube": "^7.13.1"
+    "react-youtube": "^7.13.1",
+    "vanta": "^0.5.21"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.0",
