@@ -1,7 +1,7 @@
 import React from 'react';
 import {motion} from 'framer-motion';
 
-const Atom = () => {
+const Atom = ({colorClass = 'primary'}) => {
   const getMovement = (min = -15, max = 15) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
   };
@@ -18,7 +18,7 @@ const Atom = () => {
     >
       <svg
         id='Atom'
-        className='stroke-current text-primary'
+        className={`stroke-current text-${colorClass}`}
         xmlns='http://www.w3.org/2000/svg'
         viewBox='0 0 279.77 298.34'
       >

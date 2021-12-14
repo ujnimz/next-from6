@@ -134,7 +134,7 @@ const Logo = ({open}) => {
 
   return (
     <Link href='/'>
-      <a className='px-8 py-4 bg-base-100 notch'>
+      <a className='px-8 py-4 bg-base-100 notch-large'>
         <div
           className='flex justify-center p-1 overflow-hidden'
           style={{width: 120, height: 62}}

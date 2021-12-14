@@ -102,7 +102,7 @@ const RecentWork = () => {
         animate={controls}
       >
         <motion.div
-          className='w-full lg:w-2/3 lg-notch'
+          className='w-full lg:w-2/3 mobile-notch-large'
           key='left'
           variants={childVariants}
         >
@@ -124,7 +124,7 @@ const RecentWork = () => {
           <Link href='/'>
             <a className='cursor-pointer'>
               <motion.div
-                className='bg-secondary p-3 lg:p-10 notch hidden lg:block'
+                className='bg-secondary p-3 lg:p-10 notch-large hidden lg:block'
                 style={{y: y2, x: -150}}
                 initial={{y: 200, x: -150}}
                 onHoverStart={() => setOnLink(true)}
@@ -152,7 +152,7 @@ const RecentWork = () => {
                 </div>
               </motion.div>
 
-              <motion.div className='bg-secondary p-3 lg:p-10 notch block lg:hidden'>
+              <motion.div className='bg-secondary p-3 lg:p-10 notch-large block lg:hidden'>
                 <div className='mb-6'>
                   <h3 className='text-secondary-content font-regular text-xl'>
                     Innovative UI/UX for{' '}

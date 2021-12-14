@@ -4,7 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
-.notch {
+.notch-large {
   --notchSize: 2.2rem;
 
   clip-path: polygon(
@@ -16,7 +16,7 @@
   );
 }
 
-.lg-notch {
+.mobile-notch-large {
   --notchSize: 0px;
 
   clip-path: polygon(
@@ -29,7 +29,7 @@
 }
 
 @screen lg {
-  .lg-notch {
+  .mobile-notch-large {
     --notchSize: 2.2rem;
 
     clip-path: polygon(

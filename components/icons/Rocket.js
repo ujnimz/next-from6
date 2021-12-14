@@ -1,7 +1,7 @@
 import React from 'react';
 import {motion} from 'framer-motion';
 
-const Rocket = () => {
+const Rocket = ({colorClass = 'primary'}) => {
   const getMovement = (min = -15, max = 15) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
   };
@@ -18,7 +18,7 @@ const Rocket = () => {
     >
       <motion.svg
         id='Rocket'
-        className='fill-current text-primary'
+        className={`fill-current text-${colorClass}`}
         xmlns='http://www.w3.org/2000/svg'
         viewBox='0 0 268.24 271.71'
       >

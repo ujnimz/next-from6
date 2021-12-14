@@ -3,36 +3,66 @@ import {motion, useAnimation} from 'framer-motion';
 import {useInView} from 'react-intersection-observer';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import ServiceItem from '../../elements/ServiceItem';
+import LogoItem from '../../elements/LogoItem';
 
-const services = [
+const logos = [
   {
     id: 0,
-    image: '/images/brand-and-design@2x.jpeg',
-    title: 'Brand & Design',
+    image: '/images/logos/aubh-logo.png',
+    title: 'AUBH',
     link: '/',
   },
   {
     id: 1,
-    image: '/images/digital-and-social@2x.jpeg',
-    title: 'Digital & Social Media',
+    image: '/images/logos/bfc-logo.png',
+    title: 'BFC',
     link: '/',
   },
   {
     id: 2,
-    image: '/images/integrated-coms@2x.jpeg',
-    title: 'Integrated Communications',
+    image: '/images/logos/bisb-logo.png',
+    title: 'BisB',
     link: '/',
   },
   {
     id: 3,
-    image: '/images/web-and-app@2x.jpeg',
-    title: 'Website & App Design',
+    image: '/images/logos/edb-logo.png',
+    title: 'EDB',
+    link: '/',
+  },
+  {
+    id: 4,
+    image: '/images/logos/gib-logo.png',
+    title: 'EDB',
+    link: '/',
+  },
+  {
+    id: 5,
+    image: '/images/logos/ila-logo.png',
+    title: 'EDB',
+    link: '/',
+  },
+  {
+    id: 6,
+    image: '/images/logos/kooheji-logo.png',
+    title: 'EDB',
+    link: '/',
+  },
+  {
+    id: 7,
+    image: '/images/logos/mumtalakat-logo.png',
+    title: 'EDB',
+    link: '/',
+  },
+  {
+    id: 8,
+    image: '/images/logos/nbb-logo.png',
+    title: 'EDB',
     link: '/',
   },
 ];
 
-const ServicesSlider = () => {
+function LogoSlider() {
   // Viewport animation
   const [viewRef, inView] = useInView({threshold: 0.5});
   const controls = useAnimation();
@@ -47,19 +77,19 @@ const ServicesSlider = () => {
     superLargeDesktop: {
       // the naming can be any, depends on you.
       breakpoint: {max: 4000, min: 3000},
-      items: 4,
+      items: 6,
     },
     desktop: {
       breakpoint: {max: 3000, min: 1024},
-      items: 4,
+      items: 5,
     },
     tablet: {
       breakpoint: {max: 1024, min: 464},
-      items: 2,
+      items: 4,
     },
     mobile: {
       breakpoint: {max: 464, min: 0},
-      items: 1,
+      items: 2,
     },
   };
 
@@ -86,22 +116,22 @@ const ServicesSlider = () => {
       >
         <Carousel
           containerClass='flex justify-between w-full flex-wrap'
-          itemClass='flex overflow-hidden border-8 border-base-100 mb-10'
+          itemClass='flex overflow-hidden border-8 border-base-100'
           responsive={responsive}
-          autoPlaySpeed={4000}
+          autoPlaySpeed={2000}
           removeArrowOnDeviceType={['tablet', 'mobile']}
           arrows={false}
-          showDots
+          showDots={false}
           infinite
           autoPlay
         >
-          {services.map((service, index) => (
-            <ServiceItem service={service} key={index} />
+          {logos.map((logo, index) => (
+            <LogoItem logo={logo} key={index} />
           ))}
         </Carousel>
       </motion.div>
     </div>
   );
-};
+}
 
-export default ServicesSlider;
+export default LogoSlider;
