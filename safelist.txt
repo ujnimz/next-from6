@@ -1,0 +1,15 @@
+border-base-300
+after:border-base-300
+border-base-200
+after:border-base-200
+border-base-100
+after:border-base-100
+border-base-content
+after:border-base-content
+border-primary
+after:border-primary
+border-primary-content
+after:border-primary-content
+border-secondary
+after:border-secondary
+hover:fill-primary-content

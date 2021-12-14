@@ -5,6 +5,8 @@ import ServicesSlider from '../components/layouts/body/ServicesSlider';
 import LogoSlider from '../components/layouts/body/LogoSlider';
 import TestimonialSlider from '../components/layouts/body/TestimonialSlider';
 import CallToAction from '../components/layouts/body/CallToAction';
+import CallToAction2 from '../components/layouts/body/CallToAction2';
+import RecentBlog from '../components/layouts/body/RecentBlog';
 
 export default function Home() {
   return (
@@ -20,6 +22,8 @@ export default function Home() {
       <TestimonialSlider />
       <CallToAction />
       <Heading title='[See what we’re thinking about] on our brand and communication blog' />
+      <RecentBlog />
+      <CallToAction2 />
     </div>
   );
 }

@@ -86,7 +86,7 @@ const ServicesSlider = () => {
       >
         <Carousel
           containerClass='flex justify-between w-full flex-wrap'
-          itemClass='flex overflow-hidden border-8 border-base-100 mb-10'
+          itemClass='flex overflow-hidden border-8 p-1 border-base-100 mb-10'
           responsive={responsive}
           autoPlaySpeed={4000}
           removeArrowOnDeviceType={['tablet', 'mobile']}

@@ -1,14 +1,12 @@
 import React, {useEffect} from 'react';
 import {motion, useAnimation} from 'framer-motion';
 import {useInView} from 'react-intersection-observer';
-import Magnifier from '../../icons/Magnifier';
-import Heart from '../../icons/Heart';
 import From6Button from '../../elements/From6Button';
 
-const title =
-  'Use the from6 brand health tool to [test your brand and find areas to grow]';
+const title = '[Let’s work] together';
+const image = '/images/get-in-touch-bg.jpeg';
 
-const CallToAction = () => {
+const CallToAction2 = () => {
   // Viewport animation
   const [viewRef, inView] = useInView({threshold: 0.7});
 
@@ -34,17 +32,16 @@ const CallToAction = () => {
   };
 
   const newTitle = title
-    .replace('[', "<span class='font-bold text-base-100'>")
+    .replace('[', "<span class='font-bold text-primary'>")
     .replace(']', '</span>');
 
   return (
-    <div ref={viewRef} className='flex justify-center bg-tangerine'>
+    <div
+      ref={viewRef}
+      className={`flex justify-center bg-primary bg-cover bg-center bg-no-repeat`}
+      style={{backgroundImage: "url('/images/get_in_touch_bg.jpeg')"}}
+    >
       <div className='container flex justify-around items-center flex-wrap py-10 lg:py-14'>
-        <div className='flex justify-center w-full md:w-1/4'>
-          <div className='w-52 h-52 opacity-50 p-3'>
-            <Magnifier colorClass='primary-content' />
-          </div>
-        </div>
         <div className='flex flex-col items-center justify-between w-full md:w-2/4 p-10'>
           <motion.div
             className='mb-10'
@@ -64,22 +61,16 @@ const CallToAction = () => {
             animate={controls}
           >
             <From6Button
-              title='Start Now'
-              textColorClass='base-300'
-              borderColorClass='primary-content'
-              iconColorClass='base-100'
+              solid
+              title='Get In Touch'
+              textColorClass='base-400'
+              bgColorClass='base-100'
             />
           </motion.div>
-        </div>
-
-        <div className='flex justify-center w-full md:w-1/4'>
-          <div className='w-52 h-52 opacity-50 p-3'>
-            <Heart colorClass='primary-content' />
-          </div>
         </div>
       </div>
     </div>
   );
 };
 
-export default CallToAction;
+export default CallToAction2;

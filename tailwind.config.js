@@ -1,6 +1,10 @@
 module.exports = {
   mode: 'jit',
-  purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
+  purge: [
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}',
+    './safelist.txt',
+  ],
   darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {
@@ -53,7 +57,6 @@ module.exports = {
           'base-100': '#24282a',
           'base-200': '#3a3e3f',
           'base-300': '#505354',
-          'base-400': '#66696a',
           'base-content': '#ffffff',
           info: '#0099be',
           success: '#6cbd4a',
@@ -75,8 +78,7 @@ module.exports = {
           'neutral-content': '#ffffff',
           'base-100': '#ffffff',
           'base-200': '#e8e9e9',
-          'base-300': '#d3d4d4',
-          'base-400': '#bdbebe',
+          'base-300': '#24282a',
           'base-content': '#24282a',
           info: '#0099be',
           success: '#6cbd4a',

@@ -96,7 +96,7 @@ const RecentWork = () => {
   return (
     <div ref={viewRef} className='flex justify-center overflow-hidden'>
       <motion.div
-        className='container flex px-6 lg:px-0 py-10 lg:py-14 flex flex-wrap'
+        className='container flex px-3 lg:px-0 py-10 lg:py-14 flex flex-wrap'
         variants={parentVariants}
         initial='hidden'
         animate={controls}
@@ -131,7 +131,7 @@ const RecentWork = () => {
                 onHoverEnd={() => setOnLink(false)}
               >
                 <div className='mb-6'>
-                  <h3 className='text-secondary-content font-regular text-2xl'>
+                  <h3 className='text-secondary-content font-regular text-3xl'>
                     Innovative UI/UX for{' '}
                     <span className='text-primary'>mobile payments app</span>
                   </h3>

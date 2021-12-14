@@ -16,6 +16,18 @@
   );
 }
 
+.notch-small {
+  --notchSize: 1.2rem;
+
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - var(--notchSize)),
+    calc(100% - var(--notchSize)) 100%,
+    0 100%
+  );
+}
+
 .mobile-notch-large {
   --notchSize: 0px;
 

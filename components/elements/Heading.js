@@ -35,7 +35,7 @@ const Heading = ({title}) => {
     <div ref={viewRef} className='flex justify-center'>
       <div className='container flex justify-center px-6 lg:px-0 py-10 lg:py-14'>
         <motion.h2
-          className='text-4xl font-light text-charcole text-center max-w-2xl'
+          className='text-4xl md:text-5xl font-light text-charcole text-center max-w-3xl'
           dangerouslySetInnerHTML={{__html: newTitle}}
           variants={textVariants}
           initial='hidden'
