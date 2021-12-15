@@ -11,7 +11,7 @@ const MainNavigation = () => {
     {
       id: 0,
       title: 'About',
-      link: '/',
+      link: '/about',
     },
     {
       id: 1,

@@ -133,45 +133,43 @@ const Logo = ({open}) => {
   };
 
   return (
-    <Link href='/'>
-      <a className='px-8 py-4 bg-base-100 notch-large'>
-        <div
-          className='flex justify-center p-1 overflow-hidden'
-          style={{width: 120, height: 62}}
+    <div className='px-8 py-4 bg-base-100 notch-large'>
+      <div
+        className='flex justify-center p-1 overflow-hidden'
+        style={{width: 120, height: 62}}
+      >
+        <motion.svg
+          id='From6_Logo'
+          xmlns='http://www.w3.org/2000/svg'
+          viewBox='0 0 435.73 180.05'
+          initial='hide'
+          animate='show'
+          variants={mainVariants}
+          //className='fill-current text-accent'
         >
-          <motion.svg
-            id='From6_Logo'
-            xmlns='http://www.w3.org/2000/svg'
-            viewBox='0 0 435.73 180.05'
-            initial='hide'
-            animate='show'
-            variants={mainVariants}
-            //className='fill-current text-accent'
-          >
-            {from6Logo.map(item =>
-              item.transform ? (
-                <motion.path
-                  key={item.id}
-                  d={item.path}
-                  className={`fill-current text-${item.color}`}
-                  //className='fill-current text-primary'
-                  variants={itemVariants}
-                />
-              ) : (
-                <motion.path
-                  key={item.id}
-                  d={item.path}
-                  transform='translate(-203 -207.28)'
-                  className={`fill-current text-${item.color}`}
-                  //className='fill-current text-primary'
-                  variants={itemVariants}
-                />
-              ),
-            )}
-          </motion.svg>
-        </div>
-      </a>
-    </Link>
+          {from6Logo.map(item =>
+            item.transform ? (
+              <motion.path
+                key={item.id}
+                d={item.path}
+                className={`fill-current text-${item.color}`}
+                //className='fill-current text-primary'
+                variants={itemVariants}
+              />
+            ) : (
+              <motion.path
+                key={item.id}
+                d={item.path}
+                transform='translate(-203 -207.28)'
+                className={`fill-current text-${item.color}`}
+                //className='fill-current text-primary'
+                variants={itemVariants}
+              />
+            ),
+          )}
+        </motion.svg>
+      </div>
+    </div>
   );
 };
 
