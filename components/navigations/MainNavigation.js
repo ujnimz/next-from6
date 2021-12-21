@@ -16,22 +16,22 @@ const MainNavigation = () => {
     {
       id: 1,
       title: 'Services',
-      link: '/',
+      link: '/services',
     },
     {
       id: 2,
-      title: 'Work',
-      link: '/',
+      title: 'Works',
+      link: '/works',
     },
     {
       id: 3,
       title: 'Blog',
-      link: '/',
+      link: '/blog',
     },
     {
       id: 4,
       title: 'Contact',
-      link: '/',
+      link: '/contact',
     },
   ];
 

@@ -12,7 +12,7 @@ class MyDocument extends Document {
         <Head>
           <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js'></script>
         </Head>
-        <body className='font-serif'>
+        <body className='font-serif antialiased'>
           <Main />
           <NextScript />
         </body>

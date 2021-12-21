@@ -4,13 +4,13 @@ import RecentWork from '../components/layouts/body/RecentWork';
 import ServicesSlider from '../components/layouts/body/ServicesSlider';
 import LogoSlider from '../components/layouts/body/LogoSlider';
 import TestimonialSlider from '../components/layouts/body/TestimonialSlider';
-import CallToAction from '../components/layouts/body/CallToAction';
-import CallToAction2 from '../components/layouts/body/CallToAction2';
+import CallToActionSolid from '../components/layouts/body/CallToActionSolid';
+import CallToActionImage from '../components/layouts/body/CallToActionImage';
 import RecentBlog from '../components/layouts/body/RecentBlog';
 
 export default function Home() {
   return (
-    <div className=''>
+    <main className=''>
       <HomeSlider />
       <Heading title='Check out some of [our latest projects below]' />
       <RecentWork />
@@ -20,10 +20,19 @@ export default function Home() {
       <LogoSlider />
       <Heading title='See what clients say about [working with us]' />
       <TestimonialSlider />
-      <CallToAction />
+      <CallToActionSolid
+        title='Use the from6 brand health tool to [test your brand and find areas to grow]'
+        buttonText='Start Now'
+        link='/'
+      />
       <Heading title='[See what we’re thinking about] on our brand and communication blog' />
       <RecentBlog />
-      <CallToAction2 />
-    </div>
+      <CallToActionImage
+        bgImage='/images/get_in_touch_bg.jpeg'
+        title='[Let’s work] together'
+        buttonText='Get In Touch'
+        buttonLink='/contact'
+      />
+    </main>
   );
 }

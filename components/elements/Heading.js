@@ -32,10 +32,10 @@ const Heading = ({title}) => {
     .replace(']', '</span>');
 
   return (
-    <div ref={viewRef} className='flex justify-center'>
-      <div className='container flex justify-center px-6 lg:px-0 py-10 lg:py-14'>
+    <div ref={viewRef} className='flex justify-center py-6 lg:py-10'>
+      <div className='container flex justify-center px-6 lg:px-0'>
         <motion.h2
-          className='text-4xl md:text-5xl font-light text-charcole text-center max-w-3xl'
+          className='text-4xl md:text-5xl font-light text-base-content text-center max-w-3xl'
           dangerouslySetInnerHTML={{__html: newTitle}}
           variants={textVariants}
           initial='hidden'

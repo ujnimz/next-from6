@@ -5,6 +5,7 @@ import NextArrow from '../icons/NextArrow';
 
 const From6Button = ({
   solid,
+  buttonLink = '/',
   title = 'Button Text',
   textColorClass = 'base-400',
   bgColorClass = 'base-200',
@@ -14,7 +15,7 @@ const From6Button = ({
   const [onLink, setOnLink] = useState(false);
 
   return (
-    <Link href='/'>
+    <Link href={buttonLink}>
       <div className='overflow-hidden'>
         <motion.a
           className={

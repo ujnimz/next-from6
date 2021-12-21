@@ -1,5 +1,5 @@
 {
-  "name": "next-bfc",
+  "name": "next-from6",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -12,9 +12,11 @@
     "@tailwindcss/typography": "^0.4.1",
     "daisyui": "^1.16.2",
     "framer-motion": "^5.3.3",
+    "isotope-layout": "^3.0.6",
     "next": "12.0.4",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-google-maps": "^9.4.5",
     "react-intersection-observer": "^8.32.5",
     "react-multi-carousel": "^2.6.5",
     "react-router-dom": "^6.0.2",
