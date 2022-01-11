@@ -20,7 +20,6 @@ module.exports = {
         'charcoal': '#24282a',
         'atlantic': '#009abf',
         'lime': '#6cbd4a',
-        'lime': '#6cbd4a',
       },
       zIndex: {
         '-10': '-10',
@@ -31,7 +30,6 @@ module.exports = {
     extend: {},
   },
   plugins: [require('@tailwindcss/typography'), require('daisyui')],
-
   daisyui: {
     styled: true,
     themes: true,
@@ -49,7 +47,7 @@ module.exports = {
           'secondary-focus': '#24282a',
           'secondary-content': '#ffffff',
           accent: '#898c8d',
-          'accent-focus': '#7b7e7f',
+          'accent-focus': '#24282a',
           'accent-content': '#a7a9a9',
           neutral: '#1aa4c5',
           'neutral-focus': '#0099be',
@@ -71,7 +69,7 @@ module.exports = {
           'secondary-focus': '#505354',
           'secondary-content': '#ffffff',
           accent: '#898c8d',
-          'accent-focus': '#7b7e7f',
+          'accent-focus': '#f5f4f4',
           'accent-content': '#ffffff',
           neutral: '#1aa4c5',
           'neutral-focus': '#0099be',

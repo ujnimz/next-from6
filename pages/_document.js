@@ -10,7 +10,7 @@ class MyDocument extends Document {
     return (
       <Html data-theme=''>
         <Head>
-          <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js'></script>
+          <script src=''></script>
         </Head>
         <body className='font-serif antialiased'>
           <Main />

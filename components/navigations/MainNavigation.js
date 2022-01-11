@@ -4,36 +4,8 @@ import {motion, useCycle} from 'framer-motion';
 import MenuIcon from '../elements/MenuIcon';
 import ThemeSwitch from '../elements/ThemeSwitch';
 
-const MainNavigation = () => {
+const MainNavigation = ({navItems}) => {
   const [isOpen, toggleOpen] = useCycle(false, true);
-
-  const navArray = [
-    {
-      id: 0,
-      title: 'About',
-      link: '/about',
-    },
-    {
-      id: 1,
-      title: 'Services',
-      link: '/services',
-    },
-    {
-      id: 2,
-      title: 'Works',
-      link: '/works',
-    },
-    {
-      id: 3,
-      title: 'Blog',
-      link: '/blog',
-    },
-    {
-      id: 4,
-      title: 'Contact',
-      link: '/contact',
-    },
-  ];
 
   const menuVariants = {
     open: {
@@ -108,9 +80,9 @@ const MainNavigation = () => {
           animate={isOpen ? 'open' : 'closed'}
           variants={menuVariants}
         >
-          {navArray.map(item => (
+          {navItems.map((item, index) => (
             <motion.li
-              key={item.id}
+              key={index}
               className='mb-0.5'
               variants={menuItemVariants}
               whileHover={{scale: 1.1}}
@@ -118,7 +90,7 @@ const MainNavigation = () => {
             >
               <Link href={item.link}>
                 <a className='text-primary-content text-sm font-light text-right block p-0.5'>
-                  {item.title}
+                  {item.text}
                 </a>
               </Link>
             </motion.li>

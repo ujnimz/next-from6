@@ -1,7 +1,7 @@
 import React from 'react';
 import {motion} from 'framer-motion';
 
-const CloudA = ({colorClass = 'primary'}) => {
+const CloudA = ({colorClass = 'text-primary'}) => {
   const getMovement = (min = -10, max = 10) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
   };
@@ -18,7 +18,7 @@ const CloudA = ({colorClass = 'primary'}) => {
     >
       <svg
         id='CloudA'
-        className={`fill-current text-${colorClass}`}
+        className={`fill-current ${colorClass}`}
         xmlns='http://www.w3.org/2000/svg'
         viewBox='0 0 294.96 169.78'
       >

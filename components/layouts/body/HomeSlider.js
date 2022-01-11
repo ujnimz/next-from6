@@ -5,8 +5,7 @@ import {
   useViewportScroll,
   useTransform,
 } from 'framer-motion';
-
-import NET from 'vanta/dist/vanta.net.min';
+import ParticlesCavas from '../../elements/ParticlesCavas';
 import Bulb from '../../icons/Bulb';
 import Rocket from '../../icons/Rocket';
 import Atom from '../../icons/Atom';
@@ -17,8 +16,6 @@ import AnimatedText from '../../elements/AnimatedText';
 
 const HomeSlider = () => {
   const [windowHeight, setWindowHeight] = useState(null);
-  const [vantaEffect, setVantaEffect] = useState(0);
-  const myRef = useRef(null);
 
   useEffect(() => {
     setWindowHeight(window.innerHeight);
@@ -26,26 +23,6 @@ const HomeSlider = () => {
       setWindowHeight(null);
     };
   }, []);
-
-  useEffect(() => {
-    if (!vantaEffect) {
-      setVantaEffect(
-        NET({
-          alpha: true,
-          el: myRef.current,
-          color: 0xff9e16,
-          backgroundColor: 0x24282a,
-          scale: 1.0,
-          scaleMobile: 1.0,
-          spacing: 20.0,
-          backgroundOpacity: 0.1,
-        }),
-      );
-    }
-    return () => {
-      if (vantaEffect) vantaEffect.destroy();
-    };
-  }, [vantaEffect]);
 
   const {scrollY} = useViewportScroll();
 
@@ -60,14 +37,14 @@ const HomeSlider = () => {
   const yAtom = useTransform(scrollY, [0, windowHeight], [-120, -100]);
   const xAtom = useTransform(scrollY, [0, windowHeight], [50, 500]);
   const yText = useTransform(scrollY, [0, windowHeight], [0, -200]);
+
   return (
     <AnimatePresence>
-      <header className='relative flex h-screen overflow-hidden mb-8 lg:mb-14'>
+      <header className='relative flex h-screen overflow-hidden'>
         <div className='relative flex flex-col justify-between w-full z-30 p-5'>
-          <div
-            ref={myRef}
-            className='absolute top-0 left-0 h-screen w-full opacity-60'
-          />
+          <div className='absolute top-0 left-0 h-screen w-full overflow-hidden'>
+            <ParticlesCavas />
+          </div>
           <div className='flex justify-evenly mt-28 p-10'>
             <motion.div
               className='w-36 h-36'
@@ -177,7 +154,7 @@ const HomeSlider = () => {
           autoPlay
           loop
           muted
-          className='absolute z-10 w-auto min-w-full min-h-full max-w-none filter blur-sm transform scale-110 object-fill'
+          className='absolute z-10 w-screen h-screen top-0 left-0 filter blur-xs transform scale-110 object-cover'
         >
           <source src='/video.mp4' type='video/mp4' />
           Your browser does not support the video tag.

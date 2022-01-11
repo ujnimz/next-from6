@@ -6,6 +6,7 @@ import {motion} from 'framer-motion';
 const LogoItem = ({logo}) => {
   const [onLink, setOnLink] = useState(false);
 
+  const {image} = logo;
   return (
     <motion.div
       className='flex flex-col flex-1'
@@ -22,11 +23,11 @@ const LogoItem = ({logo}) => {
             className={`transition-grayscale ${
               onLink ? 'grayscale-0' : 'grayscale'
             }`}
-            src={logo.image}
-            alt={logo.title}
             layout='responsive'
-            height={60}
-            width={130}
+            src={`http://localhost:1337${image.data.attributes.url}`}
+            alt={image.data.attributes.alternativeText}
+            height={image.data.attributes.height}
+            width={image.data.attributes.width}
           />
         </motion.div>
       </div>

@@ -13,3 +13,8 @@ after:border-primary-content
 border-secondary
 after:border-secondary
 hover:fill-primary-content
+bg-tangerine
+bg-charcoal
+bg-atlantic
+bg-lime
+bg-primary

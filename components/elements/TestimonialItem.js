@@ -6,6 +6,8 @@ import {motion} from 'framer-motion';
 const TestimonialItem = ({testimonial}) => {
   const [onLink, setOnLink] = useState(false);
 
+  const {message, name, jobTitle, company, avatar} = testimonial.attributes;
+
   return (
     <motion.div
       className='flex justify-center items-center flex-col max-w-3xl'
@@ -13,7 +15,7 @@ const TestimonialItem = ({testimonial}) => {
       onHoverEnd={() => setOnLink(false)}
     >
       <div className='mb-4'>
-        <p className='font-light text-xl text-center'>{testimonial.text}</p>
+        <p className='font-light text-xl text-center'>{message}</p>
       </div>
       <motion.div
         className='w-16 h-16 rounded-full'
@@ -23,22 +25,22 @@ const TestimonialItem = ({testimonial}) => {
         <Image
           //loader={myLoader}
           className='rounded-full'
-          src={testimonial.avatar}
-          alt={testimonial.author}
+          src={`http://localhost:1337${avatar.data.attributes.url}`}
+          alt={avatar.data.attributes.alternativeText}
           layout='responsive'
-          height={60}
-          width={60}
+          height={avatar.data.attributes.height}
+          width={avatar.data.attributes.width}
         />
       </motion.div>
       <div>
-        <span className='text-lg text-center'>{testimonial.author}</span>
+        <span className='text-lg text-center'>{name}</span>
       </div>
       <div className='mb-2'>
-        <span className='text-sm text-center italic'>{testimonial.title}</span>
+        <span className='text-sm text-center italic'>{jobTitle}</span>
       </div>
       <div className='h-0.5 w-5 bg-primary' />
       <div className='mb-3'>
-        <span className='text-sm text-center'>{testimonial.company}</span>
+        <span className='text-sm text-center'>{company}</span>
       </div>
     </motion.div>
   );

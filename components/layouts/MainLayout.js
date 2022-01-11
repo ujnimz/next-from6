@@ -2,12 +2,13 @@ import React from 'react';
 import MainHeader from './header/MainHeader';
 import MainFooter from './footer/MainFooter';
 
-const MainLayout = ({children}) => {
+const MainLayout = ({children, data}) => {
+  const {footer, navigation} = data;
   return (
     <div className='content'>
-      <MainHeader />
+      <MainHeader data={navigation} />
       {children}
-      <MainFooter />
+      <MainFooter data={footer} />
     </div>
   );
 };

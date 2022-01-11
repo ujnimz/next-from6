@@ -5,7 +5,7 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import TestimonialItem from '../../elements/TestimonialItem';
 
-const testimonials = [
+const testimonialsss = [
   {
     id: 0,
     avatar: '/images/testimonials/testimonial-image-1.jpeg',
@@ -19,7 +19,7 @@ const testimonials = [
     avatar: '/images/testimonials/testimonial-image-1.jpeg',
     text: 'When we embarked on our journey of transformation, From6’s “inside-out” approach was key in shaping and communicating our values, purpose, mission and brand promise across all internal and external touch points.',
     author: 'Hisham Abu Alfateh',
-    title: 'Manager – Marketing and Corporate Communications',
+    title: 'Manager Marketing and Corporate Communications',
     company: 'National Bank of Bahrain',
   },
   {
@@ -48,7 +48,8 @@ const testimonials = [
   },
 ];
 
-function LogoSlider() {
+function LogoSlider({testimonials}) {
+  const {data} = testimonials;
   // Viewport animation
   const [viewRef, inView] = useInView({threshold: 0.5});
   const controls = useAnimation();
@@ -110,7 +111,7 @@ function LogoSlider() {
           infinite
           autoPlay
         >
-          {testimonials.map((testimonial, index) => (
+          {data.map((testimonial, index) => (
             <TestimonialItem testimonial={testimonial} key={index} />
           ))}
         </Carousel>

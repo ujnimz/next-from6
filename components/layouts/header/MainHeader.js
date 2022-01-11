@@ -3,7 +3,8 @@ import Link from 'next/link';
 import Logo from '../../elements/Logo';
 import MainNavigation from '../../navigations/MainNavigation';
 
-const MainHeader = () => {
+const MainHeader = ({data}) => {
+  const {navItems} = data.data.attributes;
   return (
     <div className='fixed w-full z-50'>
       <div className='flex justify-between items-start flex-wrap'>
@@ -13,7 +14,7 @@ const MainHeader = () => {
           </a>
         </Link>
 
-        <MainNavigation />
+        <MainNavigation navItems={navItems} />
       </div>
     </div>
   );

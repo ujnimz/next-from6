@@ -1,19 +1,7 @@
-import React, {useEffect} from 'react';
-import {motion, useAnimation} from 'framer-motion';
-import {useInView} from 'react-intersection-observer';
+import React from 'react';
+import {motion} from 'framer-motion';
 
-const Heading = ({title}) => {
-  // Viewport animation
-  const [viewRef, inView] = useInView({threshold: 0.7});
-
-  const controls = useAnimation();
-
-  useEffect(() => {
-    if (inView) {
-      controls.start('visible');
-    }
-  }, [controls, inView]);
-
+const Heading = ({title, tag, textColor, spanColor, controls}) => {
   const textVariants = {
     hidden: {
       opacity: 0,
@@ -28,21 +16,24 @@ const Heading = ({title}) => {
   };
 
   const newTitle = title
-    .replace('[', "<span class='font-bold text-primary'>")
+    .replace('[', `<span class='font-bold ${spanColor}'>`)
     .replace(']', '</span>');
 
+  const HeadingTag = `${tag}`;
+
   return (
-    <div ref={viewRef} className='flex justify-center py-6 lg:py-10'>
-      <div className='container flex justify-center px-6 lg:px-0'>
-        <motion.h2
-          className='text-4xl md:text-5xl font-light text-base-content text-center max-w-3xl'
-          dangerouslySetInnerHTML={{__html: newTitle}}
-          variants={textVariants}
-          initial='hidden'
-          animate={controls}
-        />
-      </div>
-    </div>
+    <motion.div
+      className='text-center max-w-3xl'
+      variants={textVariants}
+      initial='hidden'
+      animate={controls}
+    >
+      <HeadingTag
+        className={`text-4xl md:text-5xl font-light text-center leading-none md:leading-tight ${textColor}`}
+      >
+        <span dangerouslySetInnerHTML={{__html: newTitle}} />
+      </HeadingTag>
+    </motion.div>
   );
 };
 

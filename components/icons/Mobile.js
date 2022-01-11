@@ -1,11 +1,11 @@
 import React from 'react';
 import {motion} from 'framer-motion';
 
-const Mobile = ({colorClass = 'primary'}) => {
+const Mobile = ({colorClass = 'text-primary'}) => {
   return (
     <motion.div>
       <svg
-        className={`fill-current text-${colorClass}`}
+        className={`fill-current ${colorClass}`}
         xmlns='http://www.w3.org/2000/svg'
         viewBox='0 0 32.764 47.656'
       >

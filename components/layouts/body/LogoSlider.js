@@ -1,68 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {motion, useAnimation} from 'framer-motion';
 import {useInView} from 'react-intersection-observer';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import LogoItem from '../../elements/LogoItem';
 
-const logos = [
-  {
-    id: 0,
-    image: '/images/logos/aubh-logo.png',
-    title: 'AUBH',
-    link: '/',
-  },
-  {
-    id: 1,
-    image: '/images/logos/bfc-logo.png',
-    title: 'BFC',
-    link: '/',
-  },
-  {
-    id: 2,
-    image: '/images/logos/bisb-logo.png',
-    title: 'BisB',
-    link: '/',
-  },
-  {
-    id: 3,
-    image: '/images/logos/edb-logo.png',
-    title: 'EDB',
-    link: '/',
-  },
-  {
-    id: 4,
-    image: '/images/logos/gib-logo.png',
-    title: 'EDB',
-    link: '/',
-  },
-  {
-    id: 5,
-    image: '/images/logos/ila-logo.png',
-    title: 'EDB',
-    link: '/',
-  },
-  {
-    id: 6,
-    image: '/images/logos/kooheji-logo.png',
-    title: 'EDB',
-    link: '/',
-  },
-  {
-    id: 7,
-    image: '/images/logos/mumtalakat-logo.png',
-    title: 'EDB',
-    link: '/',
-  },
-  {
-    id: 8,
-    image: '/images/logos/nbb-logo.png',
-    title: 'EDB',
-    link: '/',
-  },
-];
-
-function LogoSlider() {
+const LogoSlider = ({logos, sliderType}) => {
   // Viewport animation
   const [viewRef, inView] = useInView({threshold: 0.5});
   const controls = useAnimation();
@@ -107,31 +50,41 @@ function LogoSlider() {
   };
 
   return (
-    <div ref={viewRef} className='flex justify-center'>
+    <div ref={viewRef} className='flex justify-center bg-accent-focus'>
       <motion.div
         className='container py-10 lg:py-14'
         variants={divVariants}
         initial='hidden'
         animate={controls}
       >
-        <Carousel
-          containerClass='flex justify-between w-full flex-wrap'
-          itemClass='flex overflow-hidden border-8 border-base-100'
-          responsive={responsive}
-          autoPlaySpeed={2000}
-          removeArrowOnDeviceType={['tablet', 'mobile']}
-          arrows={false}
-          showDots={false}
-          infinite
-          autoPlay
-        >
-          {logos.map((logo, index) => (
-            <LogoItem logo={logo} key={index} />
-          ))}
-        </Carousel>
+        {sliderType === 'carousel' ? (
+          <Carousel
+            containerClass='flex justify-between w-full flex-wrap'
+            itemClass='flex overflow-hidden border-8 border-accent'
+            responsive={responsive}
+            autoPlaySpeed={2000}
+            removeArrowOnDeviceType={['tablet', 'mobile']}
+            arrows={false}
+            showDots={false}
+            infinite
+            autoPlay
+          >
+            {logos.map((logo, index) => (
+              <LogoItem logo={logo} key={index} />
+            ))}
+          </Carousel>
+        ) : (
+          <div className='flex justify-center flex-wrap'>
+            {logos.map((logo, index) => (
+              <div key={index} className='w-1/6'>
+                <LogoItem logo={logo} key={index} />
+              </div>
+            ))}
+          </div>
+        )}
       </motion.div>
     </div>
   );
-}
+};
 
 export default LogoSlider;

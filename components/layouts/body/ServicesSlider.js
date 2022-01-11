@@ -5,34 +5,7 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import ServiceItem from '../../elements/ServiceItem';
 
-const services = [
-  {
-    id: 0,
-    image: '/images/brand-and-design@2x.jpeg',
-    title: 'Brand & Design',
-    link: '/',
-  },
-  {
-    id: 1,
-    image: '/images/digital-and-social@2x.jpeg',
-    title: 'Digital & Social Media',
-    link: '/',
-  },
-  {
-    id: 2,
-    image: '/images/integrated-coms@2x.jpeg',
-    title: 'Integrated Communications',
-    link: '/',
-  },
-  {
-    id: 3,
-    image: '/images/web-and-app@2x.jpeg',
-    title: 'Website & App Design',
-    link: '/',
-  },
-];
-
-const ServicesSlider = () => {
+const ServicesSlider = ({services, spacing}) => {
   // Viewport animation
   const [viewRef, inView] = useInView({threshold: 0.5});
   const controls = useAnimation();
@@ -79,7 +52,9 @@ const ServicesSlider = () => {
   return (
     <div ref={viewRef} className='flex justify-center'>
       <motion.div
-        className='container py-10 lg:py-14'
+        className={`container ${
+          spacing === 'none' ? 'py-0 lg:py-0' : 'py-10 lg:py-14'
+        }`}
         variants={divVariants}
         initial='hidden'
         animate={controls}
@@ -95,7 +70,7 @@ const ServicesSlider = () => {
           infinite
           autoPlay
         >
-          {services.map((service, index) => (
+          {services.data.map((service, index) => (
             <ServiceItem service={service} key={index} />
           ))}
         </Carousel>

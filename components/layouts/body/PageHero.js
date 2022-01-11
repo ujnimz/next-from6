@@ -1,19 +1,17 @@
 import React from 'react';
 import Image from 'next/image';
 
-const PageHero = ({hero}) => {
+const PageHero = ({image}) => {
   return (
     <div className='flex justify-center items-center overflow-hidden mb-6 lg:mb-10'>
       <div className='w-full'>
         <Image
           priority
-          //loader={myLoader}
-          className='block'
-          src={hero.image}
-          alt='ALT tag'
           layout='responsive'
-          height={760}
-          width={1920}
+          src={`http://localhost:1337${image.data.attributes.url}`}
+          alt={image.data.attributes.alternativeText}
+          height={image.data.attributes.height}
+          width={image.data.attributes.width}
         />
       </div>
     </div>

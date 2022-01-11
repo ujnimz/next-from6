@@ -1,10 +1,11 @@
 import React from 'react';
 
-const NextArrow = ({iconColorClass = 'primary'}) => {
+const NextArrow = ({colorClass = 'text-primary'}) => {
+  console.log();
   return (
     <svg
       id='NextArrow'
-      className={`fill-current text-${iconColorClass} transition-all duration-300 ease-in-out`}
+      className={`fill-current ${colorClass} transition-all duration-300 ease-in-out`}
       xmlns='http://www.w3.org/2000/svg'
       viewBox='0 0 18.06 18.06'
     >

@@ -1,7 +1,7 @@
 import React from 'react';
 import {motion} from 'framer-motion';
 
-const Social = ({type = '', colorClass = 'primary'}) => {
+const Social = ({type = '', colorClass = 'text-primary'}) => {
   const getSocialIcons = name => {
     switch (name) {
       case 'facebook':
@@ -39,7 +39,7 @@ const Social = ({type = '', colorClass = 'primary'}) => {
   return (
     <motion.div>
       <svg
-        className={`fill-current text-${colorClass} hover:text-primary transition-all duration-300 ease-in-out`}
+        className={`fill-current ${colorClass} hover:text-primary transition-all duration-300 ease-in-out`}
         xmlns='http://www.w3.org/2000/svg'
         viewBox='0 0 512 512'
         dangerouslySetInnerHTML={getSocialIcons(type)}

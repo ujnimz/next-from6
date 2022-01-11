@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {motion, useAnimation} from 'framer-motion';
 import {useInView} from 'react-intersection-observer';
-import TeamItem from '../../elements/TeamItem';
+import TeamMember from '../../elements/TeamMember';
 
 const team = [
   {
@@ -48,7 +48,8 @@ const team = [
   },
 ];
 
-const Team = () => {
+const Team = ({members}) => {
+  console.log(members);
   // Viewport animation
   const [viewRef, inView] = useInView({threshold: 0.5});
   const controls = useAnimation();
@@ -75,13 +76,13 @@ const Team = () => {
   return (
     <div ref={viewRef} className='flex justify-center py-10 lg:py-14'>
       <motion.div
-        className='container flex justify-between flex-wrap'
+        className='container flex justify-center flex-wrap'
         variants={divVariants}
         initial='hidden'
         animate={controls}
       >
-        {team.map((member, index) => (
-          <TeamItem member={member} key={index} />
+        {members.map((member, index) => (
+          <TeamMember member={member} key={index} />
         ))}
       </motion.div>
     </div>
