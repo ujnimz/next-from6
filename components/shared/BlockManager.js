@@ -1,10 +1,11 @@
 import HeadingBlock from '../layouts/body/HeadingBlock';
 import TextBlock from '../layouts/body/TextBlock';
 import FeaturedWork from '../layouts/body/FeaturedWork';
-import LogoSlider from '../layouts/body/LogoSlider';
+import Clientele from '../layouts/body/Clientele';
 import FeaturedBox from '../layouts/body/FeaturedBox';
 import TestimonialSlider from '../layouts/body/TestimonialSlider';
 import ServicesSlider from '../layouts/body/ServicesSlider';
+import ServicesList from '../layouts/body/ServicesList';
 import ParallaxImage from '../layouts/body/ParallaxImage';
 import Team from '../layouts/body/Team';
 import BlogPosts from '../layouts/body/BlogPosts';
@@ -22,8 +23,8 @@ const getBlockComponent = ({__typename, ...rest}, index) => {
     case 'ComponentBlocksFeaturedWork':
       Block = FeaturedWork;
       break;
-    case 'ComponentBlocksLogos':
-      Block = LogoSlider;
+    case 'ComponentBlocksClientele':
+      Block = Clientele;
       break;
     case 'ComponentBlocksFeaturedBox':
       Block = FeaturedBox;
@@ -33,6 +34,9 @@ const getBlockComponent = ({__typename, ...rest}, index) => {
       break;
     case 'ComponentBlocksServicesSlider':
       Block = ServicesSlider;
+      break;
+    case 'ComponentBlocksServicesList':
+      Block = ServicesList;
       break;
     case 'ComponentBlocksImage':
       Block = ParallaxImage;

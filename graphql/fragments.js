@@ -89,10 +89,34 @@ export const SERVICES_SLIDER_CONTENT = gql`
   }
 `;
 
-export const LOGOS_CONTENT = gql`
-  fragment LogosFields on ComponentBlocksLogos {
+export const SERVICES_LIST_CONTENT = gql`
+  fragment ServicesListFields on ComponentBlocksServicesList {
+    services {
+      data {
+        attributes {
+          title
+          slug
+          subServices
+          image {
+            data {
+              attributes {
+                url
+                width
+                height
+                alternativeText
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const CLIENTELE_CONTENT = gql`
+  fragment ClienteleFields on ComponentBlocksClientele {
     sliderType
-    logos {
+    clientele {
       id
       image {
         data {

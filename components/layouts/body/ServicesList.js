@@ -241,7 +241,7 @@ const servicesList = [
   },
 ];
 
-const ServicesList = () => {
+const ServicesList = ({services}) => {
   // Viewport animation
   const [viewRef, inView] = useInView({threshold: 0.5});
   const controls = useAnimation();
@@ -273,7 +273,7 @@ const ServicesList = () => {
         initial='hidden'
         animate={controls}
       >
-        {servicesList.map((service, index) => (
+        {services.data.map((service, index) => (
           <ServicesListItem service={service} key={index} />
         ))}
       </motion.div>

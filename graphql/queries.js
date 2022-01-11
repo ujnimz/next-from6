@@ -5,7 +5,8 @@ import {
   FEATURED_WORK_CONTENT,
   FEATURED_BOX_CONTENT,
   SERVICES_SLIDER_CONTENT,
-  LOGOS_CONTENT,
+  SERVICES_LIST_CONTENT,
+  CLIENTELE_CONTENT,
   RECENT_TESTIMONIALS_CONTENT,
   IMAGE_CONTENT,
   MEMBERS_CONTENT,
@@ -17,7 +18,8 @@ export const GET_HOME = gql`
   ${FEATURED_WORK_CONTENT}
   ${FEATURED_BOX_CONTENT}
   ${SERVICES_SLIDER_CONTENT}
-  ${LOGOS_CONTENT}
+  ${SERVICES_LIST_CONTENT}
+  ${CLIENTELE_CONTENT}
   ${RECENT_TESTIMONIALS_CONTENT}
   ${IMAGE_CONTENT}
   ${MEMBERS_CONTENT}
@@ -37,7 +39,8 @@ export const GET_HOME = gql`
             ...FeaturedWorkFields
             ...FeaturedBoxFields
             ...ServicesSliderFields
-            ...LogosFields
+            ...ServicesListFields
+            ...ClienteleFields
             ...RecentTestimonialsFields
             ...ImageFields
             ...MembersFields
@@ -54,12 +57,13 @@ export const GET_ABOUT = gql`
   ${FEATURED_WORK_CONTENT}
   ${FEATURED_BOX_CONTENT}
   ${SERVICES_SLIDER_CONTENT}
-  ${LOGOS_CONTENT}
+  ${SERVICES_LIST_CONTENT}
+  ${CLIENTELE_CONTENT}
   ${RECENT_TESTIMONIALS_CONTENT}
   ${IMAGE_CONTENT}
   ${MEMBERS_CONTENT}
   query getAboutPage {
-    about {
+    aboutPage {
       data {
         attributes {
           title
@@ -84,7 +88,204 @@ export const GET_ABOUT = gql`
             ...FeaturedWorkFields
             ...FeaturedBoxFields
             ...ServicesSliderFields
-            ...LogosFields
+            ...ServicesListFields
+            ...ClienteleFields
+            ...RecentTestimonialsFields
+            ...ImageFields
+            ...MembersFields
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const GET_SERVICES = gql`
+  ${HEADING_CONTENT}
+  ${TEXT_CONTENT}
+  ${FEATURED_WORK_CONTENT}
+  ${FEATURED_BOX_CONTENT}
+  ${SERVICES_SLIDER_CONTENT}
+  ${SERVICES_LIST_CONTENT}
+  ${CLIENTELE_CONTENT}
+  ${RECENT_TESTIMONIALS_CONTENT}
+  ${IMAGE_CONTENT}
+  ${MEMBERS_CONTENT}
+  query getServicesPage {
+    servicesPage {
+      data {
+        attributes {
+          title
+          seoContent {
+            metaTitle
+            metaDescription
+          }
+          heroImage {
+            data {
+              attributes {
+                url
+                width
+                height
+                alternativeText
+              }
+            }
+          }
+          pageContent {
+            __typename
+            ...HeadingFields
+            ...TextFields
+            ...FeaturedWorkFields
+            ...FeaturedBoxFields
+            ...ServicesSliderFields
+            ...ServicesListFields
+            ...ClienteleFields
+            ...RecentTestimonialsFields
+            ...ImageFields
+            ...MembersFields
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const GET_WORK = gql`
+  ${HEADING_CONTENT}
+  ${TEXT_CONTENT}
+  ${FEATURED_WORK_CONTENT}
+  ${FEATURED_BOX_CONTENT}
+  ${SERVICES_SLIDER_CONTENT}
+  ${SERVICES_LIST_CONTENT}
+  ${CLIENTELE_CONTENT}
+  ${RECENT_TESTIMONIALS_CONTENT}
+  ${IMAGE_CONTENT}
+  ${MEMBERS_CONTENT}
+  query getWorkPage {
+    workPage {
+      data {
+        attributes {
+          title
+          seoContent {
+            metaTitle
+            metaDescription
+          }
+          heroImage {
+            data {
+              attributes {
+                url
+                width
+                height
+                alternativeText
+              }
+            }
+          }
+          pageContent {
+            __typename
+            ...HeadingFields
+            ...TextFields
+            ...FeaturedWorkFields
+            ...FeaturedBoxFields
+            ...ServicesSliderFields
+            ...ServicesListFields
+            ...ClienteleFields
+            ...RecentTestimonialsFields
+            ...ImageFields
+            ...MembersFields
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const GET_BLOG = gql`
+  ${HEADING_CONTENT}
+  ${TEXT_CONTENT}
+  ${FEATURED_WORK_CONTENT}
+  ${FEATURED_BOX_CONTENT}
+  ${SERVICES_SLIDER_CONTENT}
+  ${SERVICES_LIST_CONTENT}
+  ${CLIENTELE_CONTENT}
+  ${RECENT_TESTIMONIALS_CONTENT}
+  ${IMAGE_CONTENT}
+  ${MEMBERS_CONTENT}
+  query getBlogPage {
+    blogPage {
+      data {
+        attributes {
+          title
+          seoContent {
+            metaTitle
+            metaDescription
+          }
+          heroImage {
+            data {
+              attributes {
+                url
+                width
+                height
+                alternativeText
+              }
+            }
+          }
+          pageContent {
+            __typename
+            ...HeadingFields
+            ...TextFields
+            ...FeaturedWorkFields
+            ...FeaturedBoxFields
+            ...ServicesSliderFields
+            ...ServicesListFields
+            ...ClienteleFields
+            ...RecentTestimonialsFields
+            ...ImageFields
+            ...MembersFields
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const GET_CONTACT = gql`
+  ${HEADING_CONTENT}
+  ${TEXT_CONTENT}
+  ${FEATURED_WORK_CONTENT}
+  ${FEATURED_BOX_CONTENT}
+  ${SERVICES_SLIDER_CONTENT}
+  ${SERVICES_LIST_CONTENT}
+  ${CLIENTELE_CONTENT}
+  ${RECENT_TESTIMONIALS_CONTENT}
+  ${IMAGE_CONTENT}
+  ${MEMBERS_CONTENT}
+  query getContactPage {
+    contactPage {
+      data {
+        attributes {
+          title
+          seoContent {
+            metaTitle
+            metaDescription
+          }
+          heroImage {
+            data {
+              attributes {
+                url
+                width
+                height
+                alternativeText
+              }
+            }
+          }
+          pageContent {
+            __typename
+            ...HeadingFields
+            ...TextFields
+            ...FeaturedWorkFields
+            ...FeaturedBoxFields
+            ...ServicesSliderFields
+            ...ServicesListFields
+            ...ClienteleFields
             ...RecentTestimonialsFields
             ...ImageFields
             ...MembersFields

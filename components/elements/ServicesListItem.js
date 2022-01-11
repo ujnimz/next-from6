@@ -5,6 +5,12 @@ import {motion} from 'framer-motion';
 const ServicesListItem = ({service}) => {
   const [onLink, setOnLink] = useState(false);
 
+  const {title, subServices} = service.attributes;
+
+  const subServicesList = subServices
+    .split('\n')
+    .map(item => item.replace(/- /g, ''));
+
   const itemVariants = {
     hidden: {
       opacity: 0,
@@ -37,21 +43,19 @@ const ServicesListItem = ({service}) => {
         onHoverStart={() => setOnLink(true)}
         onHoverEnd={() => setOnLink(false)}
       >
-        <div className='flex flex-col items-start justify-between flex-1 pr-4'>
-          <h3 className='text-tangerine text-xl lg:text-2xl mb-4'>
-            {service.title}
-          </h3>
+        <div className='flex flex-col items-start justify-between pr-4'>
+          <h3 className='text-tangerine text-xl lg:text-2xl mb-4'>{title}</h3>
           <div className='h-px w-full bg-accent' />
         </div>
 
         <div className='py-4'>
           <ul className='list-inside list-disc'>
-            {service.subList.map((item, index) => (
+            {subServicesList.map((item, index) => (
               <li
                 className='list-item font-light text-xl leading-relaxed '
                 key={index}
               >
-                {item.title}
+                {item}
               </li>
             ))}
           </ul>

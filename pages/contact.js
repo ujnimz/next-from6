@@ -1,39 +1,46 @@
-import React from 'react';
 import PageHero from '../components/layouts/body/PageHero';
-import Heading from '../components/elements/Heading';
-import TextBlock from '../components/layouts/body/TextBlock';
-import CallToActionSolid from '../components/layouts/body/CallToActionSolid';
-import ContactsGrid from '../components/layouts/body/ContactsGrid';
-import LocationMap from '../components/layouts/body/LocationMap';
+import BlockManager from '../components/shared/BlockManager';
+import CustomHeader from '../components/shared/CustomHeader';
+// GET DATA
+import {apolloCon} from '../con/apolloCon';
+import {GET_CONTACT} from '../graphql/queries';
 
-const Contact = () => {
-  const hero = {
-    image: '/images/hero/contact-us-hero.jpeg',
-  };
-  const paragraphs1 = [
-    {
-      id: 0,
-      text: 'If you’re interested in working with us, then you should get in touch. Here’s our contact info.',
-    },
-  ];
+const Contact = ({data, loading}) => {
+  if (loading) return <div>Loading...</div>;
+
+  if (data.contactPage.data) {
+    const {seoContent, heroImage, pageContent} =
+      data.contactPage.data.attributes;
+
+    return (
+      <>
+        <CustomHeader seoMeta={seoContent} />
+
+        <main>
+          <PageHero image={heroImage} />
+          <BlockManager blocks={pageContent} />
+        </main>
+      </>
+    );
+  }
 
   return (
-    <main className='min-h-screen'>
-      <PageHero hero={hero} />
-      <Heading title='[Let’s talk] about you' />
-      <TextBlock paragraphs={paragraphs1} />
-      <ContactsGrid />
-      <LocationMap
-        isMarkerShown
-        googleMapURL='https://maps.googleapis.com/maps/api/js?key=AIzaSyC4R6AN7SmujjPUIGKdyao2Kqitzr1kiRg&v=3.exp&libraries=geometry,drawing,places'
-      />
-      <CallToActionSolid
-        title='We are always looking for great talent, [send your CV to zahra@from6.com] if you have a passion for getting great work done!'
-        // buttonText='Send Now'
-        // link='mailto:zahra@from6.com'
-      />
-    </main>
+    <div className='flex justify-center py-12 lg:py-20 bg-accent'>
+      <h1>No data. Please publish the page.</h1>
+    </div>
   );
+};
+
+export const getStaticProps = async () => {
+  const {data, loading, error} = await apolloCon.query({
+    query: GET_CONTACT,
+  });
+  return {
+    props: {
+      data,
+      loading,
+    },
+  };
 };
 
 export default Contact;

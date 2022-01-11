@@ -6,19 +6,27 @@ import {apolloCon} from '../con/apolloCon';
 import {GET_HOME} from '../graphql/queries';
 
 const Home = ({data, loading}) => {
-  const {seoContent, pageContent} = data.homePage.data.attributes;
-
   if (loading) return <div>Loading...</div>;
 
-  return (
-    <>
-      <CustomHeader seoMeta={seoContent} />
+  if (data.homePage.data) {
+    const {seoContent, pageContent} = data.homePage.data.attributes;
 
-      <main className=''>
-        <HomeSlider />
-        <BlockManager blocks={pageContent} />
-      </main>
-    </>
+    return (
+      <>
+        <CustomHeader seoMeta={seoContent} />
+
+        <main>
+          <HomeSlider />
+          <BlockManager blocks={pageContent} />
+        </main>
+      </>
+    );
+  }
+
+  return (
+    <div className='flex justify-center py-12 lg:py-20 bg-accent'>
+      <h1>No data. Please publish the page.</h1>
+    </div>
   );
 };
 

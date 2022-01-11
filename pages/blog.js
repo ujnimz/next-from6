@@ -1,36 +1,45 @@
 import PageHero from '../components/layouts/body/PageHero';
-import Heading from '../components/elements/Heading';
-import ParallaxImage from '../components/elements/ParallaxImage';
-import TextBlock from '../components/layouts/body/TextBlock';
-import CallToActionImage from '../components/layouts/body/CallToActionImage';
-import BlogPosts from '../components/layouts/body/BlogPosts';
+import BlockManager from '../components/shared/BlockManager';
+import CustomHeader from '../components/shared/CustomHeader';
+// GET DATA
+import {apolloCon} from '../con/apolloCon';
+import {GET_BLOG} from '../graphql/queries';
 
-const Blog = () => {
-  const hero = {
-    image: '/images/hero/our-blog-hero.jpeg',
-  };
-  const paragraphs1 = [
-    {
-      id: 0,
-      text: 'Exciting things are always happening and we’re interested in learning more about them.',
-    },
-  ];
+const Blog = ({data, loading}) => {
+  if (loading) return <div>Loading...</div>;
+
+  if (data.blogPage.data) {
+    const {seoContent, heroImage, pageContent} = data.blogPage.data.attributes;
+
+    return (
+      <>
+        <CustomHeader seoMeta={seoContent} />
+
+        <main>
+          <PageHero image={heroImage} />
+          <BlockManager blocks={pageContent} />
+        </main>
+      </>
+    );
+  }
 
   return (
-    <main className='min-h-screen'>
-      <PageHero hero={hero} />
-      <Heading title='What we’re [thinking about]' />
-      <TextBlock paragraphs={paragraphs1} />
-
-      <BlogPosts />
-      <CallToActionImage
-        bgImage='/images/get_in_touch_bg.jpeg'
-        title='[Let’s work] together'
-        buttonText='Get In Touch'
-        buttonLink='/contact'
-      />
-    </main>
+    <div className='flex justify-center py-12 lg:py-20 bg-accent'>
+      <h1>No data. Please publish the page.</h1>
+    </div>
   );
+};
+
+export const getStaticProps = async () => {
+  const {data, loading, error} = await apolloCon.query({
+    query: GET_BLOG,
+  });
+  return {
+    props: {
+      data,
+      loading,
+    },
+  };
 };
 
 export default Blog;

@@ -5,7 +5,7 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import LogoItem from '../../elements/LogoItem';
 
-const LogoSlider = ({logos, sliderType}) => {
+const Clientele = ({clientele, sliderType}) => {
   // Viewport animation
   const [viewRef, inView] = useInView({threshold: 0.5});
   const controls = useAnimation();
@@ -60,7 +60,7 @@ const LogoSlider = ({logos, sliderType}) => {
         {sliderType === 'carousel' ? (
           <Carousel
             containerClass='flex justify-between w-full flex-wrap'
-            itemClass='flex overflow-hidden border-8 border-accent'
+            itemClass='flex overflow-hidden border-8 border-accent-focus'
             responsive={responsive}
             autoPlaySpeed={2000}
             removeArrowOnDeviceType={['tablet', 'mobile']}
@@ -69,13 +69,13 @@ const LogoSlider = ({logos, sliderType}) => {
             infinite
             autoPlay
           >
-            {logos.map((logo, index) => (
+            {clientele.map((logo, index) => (
               <LogoItem logo={logo} key={index} />
             ))}
           </Carousel>
         ) : (
           <div className='flex justify-center flex-wrap'>
-            {logos.map((logo, index) => (
+            {clientele.map((logo, index) => (
               <div key={index} className='w-1/6'>
                 <LogoItem logo={logo} key={index} />
               </div>
@@ -87,4 +87,4 @@ const LogoSlider = ({logos, sliderType}) => {
   );
 };
 
-export default LogoSlider;
+export default Clientele;

@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const PageHero = ({image}) => {
   return (
-    <div className='flex justify-center items-center overflow-hidden mb-6 lg:mb-10'>
+    <div className='flex justify-center items-center overflow-hidden'>
       <div className='w-full'>
         <Image
           priority
