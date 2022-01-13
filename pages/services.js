@@ -3,7 +3,7 @@ import BlockManager from '../components/shared/BlockManager';
 import CustomHeader from '../components/shared/CustomHeader';
 // GET DATA
 import {apolloCon} from '../con/apolloCon';
-import {GET_SERVICES} from '../graphql/queries';
+import {GET_SERVICES_PAGE} from '../graphql/queries';
 
 const Services = ({data, loading}) => {
   if (loading) return <div>Loading...</div>;
@@ -33,7 +33,7 @@ const Services = ({data, loading}) => {
 
 export const getStaticProps = async () => {
   const {data, loading, error} = await apolloCon.query({
-    query: GET_SERVICES,
+    query: GET_SERVICES_PAGE,
   });
   return {
     props: {

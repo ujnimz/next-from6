@@ -10,7 +10,7 @@ class MyDocument extends Document {
     return (
       <Html data-theme=''>
         <Head>
-          <script src=''></script>
+          <script src='https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js'></script>
         </Head>
         <body className='font-serif antialiased'>
           <Main />

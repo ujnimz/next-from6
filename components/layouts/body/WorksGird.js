@@ -1,8 +1,8 @@
 import React, {useEffect, useState, useRef} from 'react';
-import Isotope from 'isotope-layout';
+//import Isotope from 'isotope-layout';
 import WorkItem from '../../elements/WorkItem';
 
-const works = [
+const workss = [
   {
     id: 0,
     thumbnail: '/images/works/thumbs/bisb-brand-campaign-thumb.jpeg',
@@ -144,7 +144,7 @@ const allCategories = [
   },
 ];
 
-const WorksGird = () => {
+const WorksGird = ({works}) => {
   // init one ref to store the future isotope object
   const isotope = useRef();
   // store the filter keyword in a state
@@ -188,7 +188,7 @@ const WorksGird = () => {
         </ul>
 
         <div className='filter-container flex'>
-          {works.map((work, index) => (
+          {works.data.map((work, index) => (
             <WorkItem key={index} work={work} />
           ))}
         </div>
@@ -198,3 +198,14 @@ const WorksGird = () => {
 };
 
 export default WorksGird;
+
+// function WorksGird({data}) {
+//   console.log(data);
+//   return (
+//     <div>
+//       <h1>ko</h1>
+//     </div>
+//   );
+// }
+
+// export default WorksGird;

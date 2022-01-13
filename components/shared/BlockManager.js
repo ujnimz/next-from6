@@ -8,6 +8,7 @@ import ServicesSlider from '../layouts/body/ServicesSlider';
 import ServicesList from '../layouts/body/ServicesList';
 import ParallaxImage from '../layouts/body/ParallaxImage';
 import Team from '../layouts/body/Team';
+import WorksGird from '../layouts/body/WorksGird';
 import BlogPosts from '../layouts/body/BlogPosts';
 
 const getBlockComponent = ({__typename, ...rest}, index) => {
@@ -43,6 +44,9 @@ const getBlockComponent = ({__typename, ...rest}, index) => {
       break;
     case 'ComponentBlocksMembers':
       Block = Team;
+      break;
+    case 'ComponentBlocksWorksGrid':
+      Block = WorksGird;
       break;
     default:
       break;

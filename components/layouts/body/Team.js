@@ -49,7 +49,6 @@ const team = [
 ];
 
 const Team = ({members}) => {
-  console.log(members);
   // Viewport animation
   const [viewRef, inView] = useInView({threshold: 0.5});
   const controls = useAnimation();

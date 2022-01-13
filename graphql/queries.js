@@ -10,9 +10,10 @@ import {
   RECENT_TESTIMONIALS_CONTENT,
   IMAGE_CONTENT,
   MEMBERS_CONTENT,
+  WORKS_GRID_CONTENT,
 } from './fragments';
 
-export const GET_HOME = gql`
+export const GET_HOME_PAGE = gql`
   ${HEADING_CONTENT}
   ${TEXT_CONTENT}
   ${FEATURED_WORK_CONTENT}
@@ -23,6 +24,7 @@ export const GET_HOME = gql`
   ${RECENT_TESTIMONIALS_CONTENT}
   ${IMAGE_CONTENT}
   ${MEMBERS_CONTENT}
+  ${WORKS_GRID_CONTENT}
   query getHomePage {
     homePage {
       data {
@@ -44,6 +46,7 @@ export const GET_HOME = gql`
             ...RecentTestimonialsFields
             ...ImageFields
             ...MembersFields
+            ...WorksGridFields
           }
         }
       }
@@ -51,7 +54,7 @@ export const GET_HOME = gql`
   }
 `;
 
-export const GET_ABOUT = gql`
+export const GET_ABOUT_PAGE = gql`
   ${HEADING_CONTENT}
   ${TEXT_CONTENT}
   ${FEATURED_WORK_CONTENT}
@@ -62,6 +65,7 @@ export const GET_ABOUT = gql`
   ${RECENT_TESTIMONIALS_CONTENT}
   ${IMAGE_CONTENT}
   ${MEMBERS_CONTENT}
+  ${WORKS_GRID_CONTENT}
   query getAboutPage {
     aboutPage {
       data {
@@ -93,6 +97,7 @@ export const GET_ABOUT = gql`
             ...RecentTestimonialsFields
             ...ImageFields
             ...MembersFields
+            ...WorksGridFields
           }
         }
       }
@@ -100,7 +105,7 @@ export const GET_ABOUT = gql`
   }
 `;
 
-export const GET_SERVICES = gql`
+export const GET_SERVICES_PAGE = gql`
   ${HEADING_CONTENT}
   ${TEXT_CONTENT}
   ${FEATURED_WORK_CONTENT}
@@ -111,6 +116,7 @@ export const GET_SERVICES = gql`
   ${RECENT_TESTIMONIALS_CONTENT}
   ${IMAGE_CONTENT}
   ${MEMBERS_CONTENT}
+  ${WORKS_GRID_CONTENT}
   query getServicesPage {
     servicesPage {
       data {
@@ -142,6 +148,7 @@ export const GET_SERVICES = gql`
             ...RecentTestimonialsFields
             ...ImageFields
             ...MembersFields
+            ...WorksGridFields
           }
         }
       }
@@ -149,7 +156,7 @@ export const GET_SERVICES = gql`
   }
 `;
 
-export const GET_WORK = gql`
+export const GET_WORK_PAGE = gql`
   ${HEADING_CONTENT}
   ${TEXT_CONTENT}
   ${FEATURED_WORK_CONTENT}
@@ -160,6 +167,7 @@ export const GET_WORK = gql`
   ${RECENT_TESTIMONIALS_CONTENT}
   ${IMAGE_CONTENT}
   ${MEMBERS_CONTENT}
+  ${WORKS_GRID_CONTENT}
   query getWorkPage {
     workPage {
       data {
@@ -191,6 +199,7 @@ export const GET_WORK = gql`
             ...RecentTestimonialsFields
             ...ImageFields
             ...MembersFields
+            ...WorksGridFields
           }
         }
       }
@@ -198,7 +207,7 @@ export const GET_WORK = gql`
   }
 `;
 
-export const GET_BLOG = gql`
+export const GET_BLOG_PAGE = gql`
   ${HEADING_CONTENT}
   ${TEXT_CONTENT}
   ${FEATURED_WORK_CONTENT}
@@ -209,6 +218,7 @@ export const GET_BLOG = gql`
   ${RECENT_TESTIMONIALS_CONTENT}
   ${IMAGE_CONTENT}
   ${MEMBERS_CONTENT}
+  ${WORKS_GRID_CONTENT}
   query getBlogPage {
     blogPage {
       data {
@@ -240,6 +250,7 @@ export const GET_BLOG = gql`
             ...RecentTestimonialsFields
             ...ImageFields
             ...MembersFields
+            ...WorksGridFields
           }
         }
       }
@@ -247,7 +258,7 @@ export const GET_BLOG = gql`
   }
 `;
 
-export const GET_CONTACT = gql`
+export const GET_CONTACT_PAGE = gql`
   ${HEADING_CONTENT}
   ${TEXT_CONTENT}
   ${FEATURED_WORK_CONTENT}
@@ -258,6 +269,7 @@ export const GET_CONTACT = gql`
   ${RECENT_TESTIMONIALS_CONTENT}
   ${IMAGE_CONTENT}
   ${MEMBERS_CONTENT}
+  ${WORKS_GRID_CONTENT}
   query getContactPage {
     contactPage {
       data {
@@ -289,12 +301,57 @@ export const GET_CONTACT = gql`
             ...RecentTestimonialsFields
             ...ImageFields
             ...MembersFields
+            ...WorksGridFields
           }
         }
       }
     }
   }
 `;
+
+// export const GET_WORKS = gql`
+//   query getWorks {
+//     works {
+//       data {
+//         attributes {
+//           title
+//           slug
+//           clientName
+//           work_categories {
+//             data {
+//               attributes {
+//                 title
+//               }
+//             }
+//           }
+//           thumbnail {
+//             data {
+//               attributes {
+//                 url
+//                 width
+//                 height
+//                 alternativeText
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// `;
+
+// export const GET_SINGLE_WORK = gql`
+//   query getSingleWork($slug: String!) {
+//     work(slug: $slug) {
+//       data {
+//         attributes {
+//           title
+//           slug
+//         }
+//       }
+//     }
+//   }
+// `;
 
 export const GET_SETTINGS = gql`
   query getSettings {

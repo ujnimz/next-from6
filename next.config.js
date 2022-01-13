@@ -1,7 +1,9 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    loader: 'imgix',
-    domains: ['localhost', 'http://localhost:1337'],
+    //deviceSizes: [320, 420, 768, 1024, 1200, 1920],
+    //loader: 'imgix',
+    //path: 'https://fromsix.imgix.net/',
+    domains: ['fromsix.imgix.net', 'storage.googleapis.com', 'localhost'],
   },
 };

@@ -202,3 +202,35 @@ export const MEMBERS_CONTENT = gql`
     }
   }
 `;
+
+export const WORKS_GRID_CONTENT = gql`
+  fragment WorksGridFields on ComponentBlocksWorksGrid {
+    works {
+      data {
+        attributes {
+          title
+          slug
+          clientName
+          work_categories {
+            data {
+              attributes {
+                title
+                slug
+              }
+            }
+          }
+          thumbnail {
+            data {
+              attributes {
+                url
+                width
+                height
+                alternativeText
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
