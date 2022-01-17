@@ -6,7 +6,7 @@ import {apolloCon} from '../con/apolloCon';
 import {GET_WORK_PAGE} from '../graphql/queries';
 
 const Works = ({data, loading}) => {
-  console.log(data);
+  //console.log(data.workCategories.data);
   if (loading) return <div>Loading...</div>;
 
   if (data.workPage.data) {

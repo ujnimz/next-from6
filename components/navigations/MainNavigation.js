@@ -88,7 +88,7 @@ const MainNavigation = ({navItems}) => {
               whileHover={{scale: 1.1}}
               whileTap={{scale: 0.95}}
             >
-              <Link href={item.link}>
+              <Link href={`/${item.link}`}>
                 <a className='text-primary-content text-sm font-light text-right block p-0.5'>
                   {item.text}
                 </a>

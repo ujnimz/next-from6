@@ -204,6 +204,14 @@ export const GET_WORK_PAGE = gql`
         }
       }
     }
+    workCategories {
+      data {
+        attributes {
+          title
+          slug
+        }
+      }
+    }
   }
 `;
 
@@ -309,49 +317,107 @@ export const GET_CONTACT_PAGE = gql`
   }
 `;
 
-// export const GET_WORKS = gql`
-//   query getWorks {
-//     works {
-//       data {
-//         attributes {
-//           title
-//           slug
-//           clientName
-//           work_categories {
-//             data {
-//               attributes {
-//                 title
-//               }
-//             }
-//           }
-//           thumbnail {
-//             data {
-//               attributes {
-//                 url
-//                 width
-//                 height
-//                 alternativeText
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// `;
+export const GET_WORKS = gql`
+  query getWorks {
+    works {
+      data {
+        attributes {
+          title
+          slug
+          clientName
+          workCategories {
+            data {
+              attributes {
+                slug
+                title
+              }
+            }
+          }
+          thumbnail {
+            data {
+              attributes {
+                url
+                width
+                height
+                alternativeText
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
 
-// export const GET_SINGLE_WORK = gql`
-//   query getSingleWork($slug: String!) {
-//     work(slug: $slug) {
-//       data {
-//         attributes {
-//           title
-//           slug
-//         }
-//       }
-//     }
-//   }
-// `;
+export const GET_SINGLE_WORK = gql`
+  ${HEADING_CONTENT}
+  ${TEXT_CONTENT}
+  ${FEATURED_WORK_CONTENT}
+  ${FEATURED_BOX_CONTENT}
+  ${SERVICES_SLIDER_CONTENT}
+  ${SERVICES_LIST_CONTENT}
+  ${CLIENTELE_CONTENT}
+  ${RECENT_TESTIMONIALS_CONTENT}
+  ${IMAGE_CONTENT}
+  ${MEMBERS_CONTENT}
+  ${WORKS_GRID_CONTENT}
+  query getSingleWork($slug: String!) {
+    works(filters: {slug: {eq: $slug}}) {
+      data {
+        attributes {
+          title
+          slug
+          seoContent {
+            metaTitle
+            metaDescription
+          }
+          workCategories {
+            data {
+              attributes {
+                slug
+                title
+              }
+            }
+          }
+          thumbnail {
+            data {
+              attributes {
+                url
+                width
+                height
+                alternativeText
+              }
+            }
+          }
+          heroImage {
+            data {
+              attributes {
+                url
+                width
+                height
+                alternativeText
+              }
+            }
+          }
+          pageContent {
+            __typename
+            ...HeadingFields
+            ...TextFields
+            ...FeaturedWorkFields
+            ...FeaturedBoxFields
+            ...ServicesSliderFields
+            ...ServicesListFields
+            ...ClienteleFields
+            ...RecentTestimonialsFields
+            ...ImageFields
+            ...MembersFields
+            ...WorksGridFields
+          }
+        }
+      }
+    }
+  }
+`;
 
 export const GET_SETTINGS = gql`
   query getSettings {

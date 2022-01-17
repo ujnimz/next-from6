@@ -23,7 +23,7 @@ const Heading = ({title, tag, textColor, spanColor, controls}) => {
 
   return (
     <motion.div
-      className='text-center max-w-3xl'
+      className='text-center max-w-5xl'
       variants={textVariants}
       initial='hidden'
       animate={controls}

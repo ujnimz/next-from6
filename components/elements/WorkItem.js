@@ -6,11 +6,11 @@ import SingleImage from './SingleImage';
 
 const WorkItem = ({work}) => {
   const [onLink, setOnLink] = useState(false);
-  const {title, slug, clientName, thumbnail, work_categories} = work.attributes;
-  console.log(title);
+  const {title, slug, clientName, thumbnail, workCategories} = work.attributes;
+
   return (
     <div
-      className={`filter-item ${work_categories.data
+      className={`filter-item ${workCategories.data
         .map(cat => cat.attributes.slug)
         .join(
           ' ',
@@ -26,24 +26,17 @@ const WorkItem = ({work}) => {
             animate={onLink ? {scale: 1.1} : {scale: 1}}
             transition={{duration: 0.3, ease: 'easeInOut'}}
           >
-            <Link href={`/${slug}`}>
-              <SingleImage image={thumbnail} />
-              {/* <Image
-                //loader={myLoader}
-                className='block cursor-pointer'
-                src={work.thumbnail}
-                alt='alt'
-                layout='responsive'
-                height={450}
-                width={650}
-              /> */}
+            <Link href={`/works/${slug}`}>
+              <a className='cursor-pointer'>
+                <SingleImage image={thumbnail} />
+              </a>
             </Link>
           </motion.div>
         </div>
 
         <div className='flex flex-col justify-between mr-3 lg:mr-10'>
-          <Link href={`/${slug}`}>
-            <a className='text-tangerine font-bold text-lg lg:text-xl mb-1'>
+          <Link href={`/works/${slug}`}>
+            <a className='text-tangerine font-bold text-lg lg:text-xl mb-1 cursor-pointer'>
               {title}
             </a>
           </Link>
@@ -51,7 +44,7 @@ const WorkItem = ({work}) => {
             Client: {clientName}
           </span>
           <span className='text-base-content text-sm font-light'>
-            {work_categories.data.map(cat => cat.attributes.title).join(' | ')}
+            {workCategories.data.map(cat => cat.attributes.title).join(' | ')}
           </span>
         </div>
         <div className='h-6' />

@@ -1,15 +1,15 @@
-import PageHero from '../../components/shared/BlockManager';
+import PageHero from '../../components/layouts/body/PageHero';
 import BlockManager from '../../components/shared/BlockManager';
 import CustomHeader from '../../components/shared/CustomHeader';
 // GET DATA
-import {apolloCon} from '../con/apolloCon';
-import {GET_ABOUT} from '../../graphql/queries';
+import {apolloCon} from '../../con/apolloCon';
+import {GET_WORKS, GET_SINGLE_WORK} from '../../graphql/queries';
 
 const SingleWork = ({data, loading}) => {
   if (loading) return <div>Loading...</div>;
 
-  if (data.aboutPage.data) {
-    const {seoContent, heroImage, pageContent} = data.aboutPage.data.attributes;
+  if (data) {
+    const {seoContent, heroImage, pageContent} = data.attributes;
 
     return (
       <>
@@ -30,33 +30,29 @@ const SingleWork = ({data, loading}) => {
   );
 };
 
-// export const getStaticPaths = async () => {
-//   const {data, loading, error} = await apolloCon.query({
-//     query: GET_WORKS,
-//   });
-//   console.log(data);
-//   const {works} = data;
-//   return {
-//     paths: works.map(item => ({
-//       params: {
-//         slug: item.slug,
-//       },
-//     })),
-//     fallback: false,
-//   };
-// };
-
-export const getStaticProps = async ({params}) => {
+export const getStaticPaths = async () => {
   const {data, loading, error} = await apolloCon.query({
-    query: GET_ABOUT,
+    query: GET_WORKS,
+  });
+
+  // Get the paths we want to pre-render based on posts
+  const paths = data.works.data.map(post => ({
+    params: {slug: post.attributes.slug},
+  }));
+
+  // We'll pre-render only these paths at build time.
+  // { fallback: false } means other routes should 404.
+  return {paths, fallback: false};
+};
+
+export async function getStaticProps({params}) {
+  // Get single work data for params.slug
+  const {data, loading, error} = await apolloCon.query({
+    query: GET_SINGLE_WORK,
     variables: {slug: params.slug},
   });
-  return {
-    props: {
-      data,
-      loading,
-    },
-  };
-};
+  // Pass post data to the page via props
+  return {props: {data: data.works.data[0], loading}};
+}
 
 export default SingleWork;

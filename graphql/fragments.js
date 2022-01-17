@@ -211,7 +211,7 @@ export const WORKS_GRID_CONTENT = gql`
           title
           slug
           clientName
-          work_categories {
+          workCategories {
             data {
               attributes {
                 title
