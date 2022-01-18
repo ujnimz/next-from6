@@ -6,7 +6,11 @@ const TextBlock = ({paragraphs}) => {
     <div className='flex justify-center py-6 lg:py-10'>
       <div className='container flex flex-col items-center px-6 lg:px-0'>
         {paragraphs.map((paragraph, index) => (
-          <Paragraph key={index} text={paragraph.text} />
+          <Paragraph
+            key={index}
+            text={paragraph.text}
+            align={paragraph.align}
+          />
         ))}
       </div>
     </div>

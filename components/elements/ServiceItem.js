@@ -49,7 +49,7 @@ const ServiceItem = ({service}) => {
             }
           >
             <NextArrow
-              iconColorClass={onLink ? 'primary-content' : 'primary'}
+              colorClass={onLink ? 'text-primary-content' : 'text-primary'}
             />
           </motion.div>
         </div>

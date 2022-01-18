@@ -1,7 +1,7 @@
 import React from 'react';
 import {motion} from 'framer-motion';
 
-const Heading = ({title, tag, textColor, spanColor, controls}) => {
+const Heading = ({title, tag, align, textColor, spanColor, controls}) => {
   const textVariants = {
     hidden: {
       opacity: 0,
@@ -21,15 +21,21 @@ const Heading = ({title, tag, textColor, spanColor, controls}) => {
 
   const HeadingTag = `${tag}`;
 
+  const styleConfig = {
+    left: {textAlign: 'text-left', containerWidth: 'max-w-full'},
+    center: {textAlign: 'text-center', containerWidth: 'max-w-5xl'},
+    right: {textAlign: 'text-right', containerWidth: 'max-w-full'},
+  };
+
   return (
     <motion.div
-      className='text-center max-w-5xl'
+      className={`flex-1 ${styleConfig[align].containerWidth}`}
       variants={textVariants}
       initial='hidden'
       animate={controls}
     >
       <HeadingTag
-        className={`text-4xl md:text-5xl font-light text-center leading-none md:leading-tight ${textColor}`}
+        className={`text-4xl md:text-5xl font-light leading-none md:leading-tight ${styleConfig[align].textAlign} ${textColor}`}
       >
         <span dangerouslySetInnerHTML={{__html: newTitle}} />
       </HeadingTag>

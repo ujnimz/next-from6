@@ -1,7 +1,6 @@
 import React from 'react';
 
 const NextArrow = ({colorClass = 'text-primary'}) => {
-  console.log();
   return (
     <svg
       id='NextArrow'

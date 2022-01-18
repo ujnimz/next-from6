@@ -21,7 +21,6 @@
     "next-optimized-images": "^2.6.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-google-maps": "^9.4.5",
     "react-intersection-observer": "^8.32.5",
     "react-multi-carousel": "^2.6.5",
     "react-router-dom": "^6.0.2",

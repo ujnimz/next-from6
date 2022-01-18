@@ -40,9 +40,9 @@ const WorksGird = ({works}) => {
   ];
 
   return (
-    <div className='flex justify-center py-10 lg:py-14'>
+    <div className='flex justify-center py-6 lg:py-10'>
       <div className='container'>
-        <ul className='flex space-x-4 p-4'>
+        <ul className='flex space-x-4 px-4 mb-4'>
           <li onClick={handleFilterKeyChange('*')} className='cursor-pointer'>
             Show All
           </li>

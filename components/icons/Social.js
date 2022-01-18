@@ -1,7 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {motion} from 'framer-motion';
 
 const Social = ({type = '', colorClass = 'text-primary'}) => {
+  const [onLink, setOnLink] = useState(false);
+
   const getSocialIcons = name => {
     switch (name) {
       case 'facebook':
@@ -37,7 +39,12 @@ const Social = ({type = '', colorClass = 'text-primary'}) => {
   };
 
   return (
-    <motion.div>
+    <motion.div
+      onHoverStart={() => setOnLink(true)}
+      onHoverEnd={() => setOnLink(false)}
+      animate={onLink ? {scale: 1.1, y: -3} : {scale: 1, y: 0}}
+      transition={{duration: 0.5, ease: 'easeInOut'}}
+    >
       <svg
         className={`fill-current ${colorClass} hover:text-primary transition-all duration-300 ease-in-out`}
         xmlns='http://www.w3.org/2000/svg'

@@ -5,6 +5,7 @@ export const HEADING_CONTENT = gql`
     title
     tag
     headingStyle
+    align
     bgImage {
       data {
         attributes {
@@ -22,7 +23,25 @@ export const TEXT_CONTENT = gql`
   fragment TextFields on ComponentBlocksTextBlock {
     paragraphs {
       text
+      align
     }
+  }
+`;
+
+export const CONTACTS_CONTENT = gql`
+  fragment ContactsFields on ComponentBlocksContactsBlock {
+    contacts {
+      text
+      link
+      icon
+    }
+  }
+`;
+
+export const LOCATION_MAP_CONTENT = gql`
+  fragment LocationMapFields on ComponentBlocksLocationMap {
+    iframeSrc
+    mapHeight
   }
 `;
 
@@ -219,6 +238,30 @@ export const WORKS_GRID_CONTENT = gql`
               }
             }
           }
+          thumbnail {
+            data {
+              attributes {
+                url
+                width
+                height
+                alternativeText
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const POSTS_GRID_CONTENT = gql`
+  fragment PostsGridFields on ComponentBlocksPostsGrid {
+    posts(sort: "date:desc") {
+      data {
+        attributes {
+          title
+          slug
+          date
           thumbnail {
             data {
               attributes {

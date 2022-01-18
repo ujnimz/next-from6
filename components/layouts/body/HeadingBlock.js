@@ -3,7 +3,7 @@ import {useInView} from 'react-intersection-observer';
 import {useAnimation} from 'framer-motion';
 import Heading from '../../elements/Heading';
 
-const HeadingBlock = ({title, tag, headingStyle, bgImage}) => {
+const HeadingBlock = ({title, tag, headingStyle, align, bgImage}) => {
   // Viewport animation
   const [viewRef, inView] = useInView({threshold: 0.7});
   const controls = useAnimation();
@@ -60,12 +60,13 @@ const HeadingBlock = ({title, tag, headingStyle, bgImage}) => {
     >
       <div
         ref={viewRef}
-        className={`flex justify-center py-12 lg:py-20 ${styleConfig[headingStyle].bgColor}`}
+        className={`flex justify-center py-6 lg:py-10 ${styleConfig[headingStyle].bgColor}`}
       >
         <div className='container flex justify-center px-6 lg:px-0'>
           <Heading
             title={title}
             tag={tag}
+            align={align}
             textColor={styleConfig[headingStyle].color}
             spanColor={styleConfig[headingStyle].spanColor}
             controls={controls}

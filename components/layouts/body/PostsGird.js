@@ -3,7 +3,7 @@ import {motion, useAnimation} from 'framer-motion';
 import {useInView} from 'react-intersection-observer';
 import BlogItem from '../../elements/BlogItem';
 
-const posts = [
+const postss = [
   {
     id: 0,
     image:
@@ -50,7 +50,8 @@ const posts = [
   },
 ];
 
-const RecentBlog = () => {
+const PostsGird = ({posts}) => {
+  console.log(posts);
   // Viewport animation
   const [viewRef, inView] = useInView({threshold: 0.5});
   const controls = useAnimation();
@@ -82,7 +83,7 @@ const RecentBlog = () => {
         initial='hidden'
         animate={controls}
       >
-        {posts.map((post, index) => (
+        {posts.data.map((post, index) => (
           <BlogItem post={post} key={index} />
         ))}
       </motion.div>
@@ -90,4 +91,4 @@ const RecentBlog = () => {
   );
 };
 
-export default RecentBlog;
+export default PostsGird;

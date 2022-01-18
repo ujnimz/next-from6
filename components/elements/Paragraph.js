@@ -1,12 +1,21 @@
 import {marked} from 'marked';
 import DOMPurify from 'dompurify';
 
-const Paragraph = ({text}) => {
+const Paragraph = ({text, align}) => {
   var cleanText = DOMPurify.sanitize(marked.parse(text));
+
+  const styleConfig = {
+    left: {textAlign: 'text-left', containerWidth: 'max-w-full'},
+    center: {textAlign: 'text-center', containerWidth: 'max-w-5xl'},
+    right: {textAlign: 'text-right', containerWidth: 'max-w-full'},
+  };
+
   return (
-    <div className='flex justify-center items-center max-w-7xl px-6 lg:px-6 py-2 first:pt-0 last:pb-0'>
+    <div
+      className={`flex-1 mb-6 last:mb-0 ${styleConfig[align].containerWidth}`}
+    >
       <div
-        className='text-center font-light text-xl leading-snug'
+        className={`${styleConfig[align].textAlign} text-base-content font-light text-xl leading-snug`}
         dangerouslySetInnerHTML={{__html: cleanText}}
       />
     </div>

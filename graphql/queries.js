@@ -11,6 +11,9 @@ import {
   IMAGE_CONTENT,
   MEMBERS_CONTENT,
   WORKS_GRID_CONTENT,
+  POSTS_GRID_CONTENT,
+  CONTACTS_CONTENT,
+  LOCATION_MAP_CONTENT,
 } from './fragments';
 
 export const GET_HOME_PAGE = gql`
@@ -25,6 +28,9 @@ export const GET_HOME_PAGE = gql`
   ${IMAGE_CONTENT}
   ${MEMBERS_CONTENT}
   ${WORKS_GRID_CONTENT}
+  ${POSTS_GRID_CONTENT}
+  ${CONTACTS_CONTENT}
+  ${LOCATION_MAP_CONTENT}
   query getHomePage {
     homePage {
       data {
@@ -47,6 +53,9 @@ export const GET_HOME_PAGE = gql`
             ...ImageFields
             ...MembersFields
             ...WorksGridFields
+            ...PostsGridFields
+            ...ContactsFields
+            ...LocationMapFields
           }
         }
       }
@@ -66,6 +75,9 @@ export const GET_ABOUT_PAGE = gql`
   ${IMAGE_CONTENT}
   ${MEMBERS_CONTENT}
   ${WORKS_GRID_CONTENT}
+  ${POSTS_GRID_CONTENT}
+  ${CONTACTS_CONTENT}
+  ${LOCATION_MAP_CONTENT}
   query getAboutPage {
     aboutPage {
       data {
@@ -98,6 +110,9 @@ export const GET_ABOUT_PAGE = gql`
             ...ImageFields
             ...MembersFields
             ...WorksGridFields
+            ...PostsGridFields
+            ...ContactsFields
+            ...LocationMapFields
           }
         }
       }
@@ -117,6 +132,9 @@ export const GET_SERVICES_PAGE = gql`
   ${IMAGE_CONTENT}
   ${MEMBERS_CONTENT}
   ${WORKS_GRID_CONTENT}
+  ${POSTS_GRID_CONTENT}
+  ${CONTACTS_CONTENT}
+  ${LOCATION_MAP_CONTENT}
   query getServicesPage {
     servicesPage {
       data {
@@ -149,6 +167,9 @@ export const GET_SERVICES_PAGE = gql`
             ...ImageFields
             ...MembersFields
             ...WorksGridFields
+            ...PostsGridFields
+            ...ContactsFields
+            ...LocationMapFields
           }
         }
       }
@@ -168,6 +189,9 @@ export const GET_WORK_PAGE = gql`
   ${IMAGE_CONTENT}
   ${MEMBERS_CONTENT}
   ${WORKS_GRID_CONTENT}
+  ${POSTS_GRID_CONTENT}
+  ${CONTACTS_CONTENT}
+  ${LOCATION_MAP_CONTENT}
   query getWorkPage {
     workPage {
       data {
@@ -200,6 +224,9 @@ export const GET_WORK_PAGE = gql`
             ...ImageFields
             ...MembersFields
             ...WorksGridFields
+            ...PostsGridFields
+            ...ContactsFields
+            ...LocationMapFields
           }
         }
       }
@@ -227,6 +254,9 @@ export const GET_BLOG_PAGE = gql`
   ${IMAGE_CONTENT}
   ${MEMBERS_CONTENT}
   ${WORKS_GRID_CONTENT}
+  ${POSTS_GRID_CONTENT}
+  ${CONTACTS_CONTENT}
+  ${LOCATION_MAP_CONTENT}
   query getBlogPage {
     blogPage {
       data {
@@ -259,6 +289,9 @@ export const GET_BLOG_PAGE = gql`
             ...ImageFields
             ...MembersFields
             ...WorksGridFields
+            ...PostsGridFields
+            ...ContactsFields
+            ...LocationMapFields
           }
         }
       }
@@ -278,6 +311,9 @@ export const GET_CONTACT_PAGE = gql`
   ${IMAGE_CONTENT}
   ${MEMBERS_CONTENT}
   ${WORKS_GRID_CONTENT}
+  ${POSTS_GRID_CONTENT}
+  ${CONTACTS_CONTENT}
+  ${LOCATION_MAP_CONTENT}
   query getContactPage {
     contactPage {
       data {
@@ -310,6 +346,9 @@ export const GET_CONTACT_PAGE = gql`
             ...ImageFields
             ...MembersFields
             ...WorksGridFields
+            ...PostsGridFields
+            ...ContactsFields
+            ...LocationMapFields
           }
         }
       }
@@ -361,12 +400,16 @@ export const GET_SINGLE_WORK = gql`
   ${IMAGE_CONTENT}
   ${MEMBERS_CONTENT}
   ${WORKS_GRID_CONTENT}
+  ${POSTS_GRID_CONTENT}
+  ${CONTACTS_CONTENT}
+  ${LOCATION_MAP_CONTENT}
   query getSingleWork($slug: String!) {
     works(filters: {slug: {eq: $slug}}) {
       data {
         attributes {
           title
           slug
+          date
           seoContent {
             metaTitle
             metaDescription
@@ -412,6 +455,102 @@ export const GET_SINGLE_WORK = gql`
             ...ImageFields
             ...MembersFields
             ...WorksGridFields
+            ...PostsGridFields
+            ...ContactsFields
+            ...LocationMapFields
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const GET_POSTS = gql`
+  query getPosts {
+    posts(sort: "date:desc") {
+      data {
+        attributes {
+          title
+          slug
+          date
+          thumbnail {
+            data {
+              attributes {
+                url
+                width
+                height
+                alternativeText
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const GET_SINGLE_POST = gql`
+  ${HEADING_CONTENT}
+  ${TEXT_CONTENT}
+  ${FEATURED_WORK_CONTENT}
+  ${FEATURED_BOX_CONTENT}
+  ${SERVICES_SLIDER_CONTENT}
+  ${SERVICES_LIST_CONTENT}
+  ${CLIENTELE_CONTENT}
+  ${RECENT_TESTIMONIALS_CONTENT}
+  ${IMAGE_CONTENT}
+  ${MEMBERS_CONTENT}
+  ${WORKS_GRID_CONTENT}
+  ${POSTS_GRID_CONTENT}
+  ${CONTACTS_CONTENT}
+  ${LOCATION_MAP_CONTENT}
+  query getSingleWork($slug: String!) {
+    posts(filters: {slug: {eq: $slug}}) {
+      data {
+        attributes {
+          title
+          slug
+          date
+          seoContent {
+            metaTitle
+            metaDescription
+          }
+          thumbnail {
+            data {
+              attributes {
+                url
+                width
+                height
+                alternativeText
+              }
+            }
+          }
+          heroImage {
+            data {
+              attributes {
+                url
+                width
+                height
+                alternativeText
+              }
+            }
+          }
+          pageContent {
+            __typename
+            ...HeadingFields
+            ...TextFields
+            ...FeaturedWorkFields
+            ...FeaturedBoxFields
+            ...ServicesSliderFields
+            ...ServicesListFields
+            ...ClienteleFields
+            ...RecentTestimonialsFields
+            ...ImageFields
+            ...MembersFields
+            ...WorksGridFields
+            ...PostsGridFields
+            ...ContactsFields
+            ...LocationMapFields
           }
         }
       }

@@ -1,31 +1,20 @@
 import React from 'react';
-import {compose, withProps} from 'recompose';
-import {
-  withScriptjs,
-  withGoogleMap,
-  GoogleMap,
-  Marker,
-} from 'react-google-maps';
 
-const LocationMap = compose(
-  withProps({
-    googleMapURL:
-      'https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places',
-    loadingElement: <div style={{height: `100%`}} />,
-    containerElement: <div style={{height: `400px`}} />,
-    mapElement: <div style={{height: `100%`}} />,
-  }),
-  withScriptjs,
-  withGoogleMap,
-)(props => (
-  <GoogleMap defaultZoom={8} defaultCenter={{lat: -34.397, lng: 150.644}}>
-    {props.isMarkerShown && (
-      <Marker
-        position={{lat: -34.397, lng: 150.644}}
-        onClick={props.onMarkerClick}
-      />
-    )}
-  </GoogleMap>
-));
+const LocationMap = ({iframeSrc, mapHeight}) => {
+  return (
+    <div className='w-full'>
+      <iframe
+        src={iframeSrc}
+        width='100%'
+        height={mapHeight}
+        frameBorder='0'
+        style={{border: 0}}
+        allowFullScreen={false}
+        aria-hidden='false'
+        tabIndex='0'
+      ></iframe>
+    </div>
+  );
+};
 
 export default LocationMap;

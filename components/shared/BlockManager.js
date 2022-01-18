@@ -9,7 +9,9 @@ import ServicesList from '../layouts/body/ServicesList';
 import ParallaxImage from '../layouts/body/ParallaxImage';
 import Team from '../layouts/body/Team';
 import WorksGird from '../layouts/body/WorksGird';
-import BlogPosts from '../layouts/body/BlogPosts';
+import PostsGird from '../layouts/body/PostsGird';
+import ContactsBlock from '../layouts/body/ContactsBlock';
+import LocationMap from '../layouts/body/LocationMap';
 
 const getBlockComponent = ({__typename, ...rest}, index) => {
   let Block;
@@ -47,6 +49,15 @@ const getBlockComponent = ({__typename, ...rest}, index) => {
       break;
     case 'ComponentBlocksWorksGrid':
       Block = WorksGird;
+      break;
+    case 'ComponentBlocksPostsGrid':
+      Block = PostsGird;
+      break;
+    case 'ComponentBlocksContactsBlock':
+      Block = ContactsBlock;
+      break;
+    case 'ComponentBlocksLocationMap':
+      Block = LocationMap;
       break;
     default:
       break;
