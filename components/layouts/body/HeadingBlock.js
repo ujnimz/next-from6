@@ -3,7 +3,7 @@ import {useInView} from 'react-intersection-observer';
 import {useAnimation} from 'framer-motion';
 import Heading from '../../elements/Heading';
 
-const HeadingBlock = ({title, tag, headingStyle, align, bgImage}) => {
+const HeadingBlock = ({title, tag, headingStyle, headingAlign, bgImage}) => {
   // Viewport animation
   const [viewRef, inView] = useInView({threshold: 0.7});
   const controls = useAnimation();
@@ -66,7 +66,7 @@ const HeadingBlock = ({title, tag, headingStyle, align, bgImage}) => {
           <Heading
             title={title}
             tag={tag}
-            align={align}
+            align={headingAlign}
             textColor={styleConfig[headingStyle].color}
             spanColor={styleConfig[headingStyle].spanColor}
             controls={controls}

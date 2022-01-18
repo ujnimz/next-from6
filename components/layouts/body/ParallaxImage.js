@@ -6,7 +6,7 @@ import SingleImage from '../../elements/SingleImage';
 
 function ParallaxImage({image, animate, blockHeight}) {
   const {width} = useWindowDimensions();
-  console.log(width);
+
   const {scrollY} = useViewportScroll();
   const y2 =
     animate === 'left' || animate === 'right'

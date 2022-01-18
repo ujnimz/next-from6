@@ -6,7 +6,6 @@ import {
   useTransform,
 } from 'framer-motion';
 import ParticlesCavas from '../../elements/ParticlesCavas';
-import Bulb from '../../icons/Bulb';
 import Rocket from '../../icons/Rocket';
 import Atom from '../../icons/Atom';
 import CloudA from '../../icons/CloudA';
@@ -42,9 +41,6 @@ const HomeSlider = () => {
     <AnimatePresence>
       <header className='relative flex h-screen overflow-hidden'>
         <div className='relative flex flex-col justify-between w-full z-30 p-5'>
-          <div className='absolute top-0 left-0 h-screen w-full overflow-hidden'>
-            <ParticlesCavas />
-          </div>
           <div className='flex justify-evenly mt-28 p-10'>
             <motion.div
               className='w-36 h-36'
@@ -147,6 +143,10 @@ const HomeSlider = () => {
             >
               <Atom />
             </motion.div>
+          </div>
+
+          <div className='absolute top-0 left-0 h-screen w-full overflow-hidden'>
+            <ParticlesCavas />
           </div>
         </div>
 

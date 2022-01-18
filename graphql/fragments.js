@@ -5,7 +5,7 @@ export const HEADING_CONTENT = gql`
     title
     tag
     headingStyle
-    align
+    headingAlign
     bgImage {
       data {
         attributes {

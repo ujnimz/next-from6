@@ -409,7 +409,7 @@ export const GET_SINGLE_WORK = gql`
         attributes {
           title
           slug
-          date
+          clientName
           seoContent {
             metaTitle
             metaDescription
@@ -504,7 +504,7 @@ export const GET_SINGLE_POST = gql`
   ${POSTS_GRID_CONTENT}
   ${CONTACTS_CONTENT}
   ${LOCATION_MAP_CONTENT}
-  query getSingleWork($slug: String!) {
+  query getSinglePost($slug: String!) {
     posts(filters: {slug: {eq: $slug}}) {
       data {
         attributes {
