@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import {motion} from 'framer-motion';
 import NextArrow from '../icons/NextArrow';
+import SingleImage from './SingleImage';
 
 const ServiceItem = ({service}) => {
   const [onLink, setOnLink] = useState(false);
@@ -21,14 +22,7 @@ const ServiceItem = ({service}) => {
             animate={onLink ? {scale: 1.1} : {scale: 1}}
             transition={{duration: 0.5, ease: 'easeInOut'}}
           >
-            <Image
-              className='block'
-              src={`http://localhost:1337${image.data.attributes.url}`}
-              alt={image.data.attributes.alternativeText}
-              layout='responsive'
-              height={image.data.attributes.height}
-              width={image.data.attributes.width}
-            />
+            <SingleImage image={image} />
           </motion.div>
         </div>
 

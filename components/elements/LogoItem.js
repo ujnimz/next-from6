@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import Image from 'next/image';
 import {motion} from 'framer-motion';
+import SingleImage from './SingleImage';
 
 const LogoItem = ({logo}) => {
   const [onLink, setOnLink] = useState(false);
@@ -17,16 +17,11 @@ const LogoItem = ({logo}) => {
           animate={onLink ? {scale: 1.1} : {scale: 1}}
           transition={{duration: 0.5, ease: 'easeInOut'}}
         >
-          <Image
-            //loader={myLoader}
+          <SingleImage
+            image={image}
             className={`transition-grayscale ${
               onLink ? 'grayscale-0' : 'grayscale'
             }`}
-            layout='responsive'
-            src={`http://localhost:1337${image.data.attributes.url}`}
-            alt={image.data.attributes.alternativeText}
-            height={image.data.attributes.height}
-            width={image.data.attributes.width}
           />
         </motion.div>
       </div>

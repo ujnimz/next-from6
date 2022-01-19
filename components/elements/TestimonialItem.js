@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import {motion} from 'framer-motion';
+import SingleImage from './SingleImage';
 
 const TestimonialItem = ({testimonial}) => {
   const [onLink, setOnLink] = useState(false);
@@ -22,15 +23,7 @@ const TestimonialItem = ({testimonial}) => {
         animate={onLink ? {scale: 1.1} : {scale: 1}}
         transition={{duration: 0.5, ease: 'easeInOut'}}
       >
-        <Image
-          //loader={myLoader}
-          className='rounded-full'
-          src={`http://localhost:1337${avatar.data.attributes.url}`}
-          alt={avatar.data.attributes.alternativeText}
-          layout='responsive'
-          height={avatar.data.attributes.height}
-          width={avatar.data.attributes.width}
-        />
+        <SingleImage image={avatar} className='rounded-full' />
       </motion.div>
       <div>
         <span className='text-lg text-center'>{name}</span>

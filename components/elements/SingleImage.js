@@ -6,7 +6,7 @@ const SingleImage = ({image, ...rest}) => {
     <Image
       //loader={myLoader}
       layout='responsive'
-      src={`${process.env.NEXT_PUBLIC_IMAGE_HOST}${url}`}
+      src={`${url}`}
       alt={alternativeText}
       height={height}
       width={width}

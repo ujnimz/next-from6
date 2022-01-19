@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Image from 'next/image';
 import {motion} from 'framer-motion';
+import SingleImage from './SingleImage';
 
 const TeamMember = ({member}) => {
   const [onLink, setOnLink] = useState(false);
@@ -43,13 +44,7 @@ const TeamMember = ({member}) => {
             variants={itemHoverVariants}
             animate={onLink ? 'visible' : 'hidden'}
           >
-            <Image
-              layout='responsive'
-              src={`http://localhost:1337${member.hoverImage.data.attributes.url}`}
-              alt={member.hoverImage.data.attributes.alternativeText}
-              height={member.hoverImage.data.attributes.height}
-              width={member.hoverImage.data.attributes.width}
-            />
+            <SingleImage image={member.hoverImage} />
           </motion.div>
 
           <motion.div
@@ -57,13 +52,7 @@ const TeamMember = ({member}) => {
             variants={itemVariants}
             animate={onLink ? 'hidden' : 'visible'}
           >
-            <Image
-              layout='responsive'
-              src={`http://localhost:1337${member.image.data.attributes.url}`}
-              alt={member.image.data.attributes.alternativeText}
-              height={member.image.data.attributes.height}
-              width={member.image.data.attributes.width}
-            />
+            <SingleImage image={member.image} />
           </motion.div>
         </div>
 

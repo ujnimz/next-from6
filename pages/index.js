@@ -10,7 +10,7 @@ const Home = ({data, loading}) => {
 
   if (data.homePage.data) {
     const {seoContent, pageContent} = data.homePage.data.attributes;
-
+    console.log(pageContent);
     return (
       <>
         <CustomHeader seoMeta={seoContent} />
@@ -34,6 +34,7 @@ export const getStaticProps = async () => {
   const {data, loading, error} = await apolloCon.query({
     query: GET_HOME_PAGE,
   });
+
   return {
     props: {
       data,
