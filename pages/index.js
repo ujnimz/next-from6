@@ -10,7 +10,7 @@ const Home = ({data, loading}) => {
 
   if (data.homePage.data) {
     const {seoContent, pageContent} = data.homePage.data.attributes;
-    console.log(pageContent);
+
     return (
       <>
         <CustomHeader seoMeta={seoContent} />
