@@ -156,7 +156,7 @@ const HomeSlider = ({data}) => {
           muted
           className='absolute z-10 w-screen h-screen top-0 left-0 filter blur-xs transform scale-110 object-cover'
         >
-          <source src={`${video.data.attributes.url}`} type='video/mp4' />
+          <source src={`./${video.data.attributes.url}`} type='video/mp4' />
           Your browser does not support the video tag.
         </video>
       </header>
