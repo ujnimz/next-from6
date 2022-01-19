@@ -51,7 +51,6 @@ const postss = [
 ];
 
 const PostsGird = ({posts}) => {
-  console.log(posts);
   // Viewport animation
   const [viewRef, inView] = useInView({threshold: 0.5});
   const controls = useAnimation();
