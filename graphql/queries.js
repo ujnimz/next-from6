@@ -40,6 +40,18 @@ export const GET_HOME_PAGE = gql`
             metaTitle
             metaDescription
           }
+          slider {
+            video {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+            sliderTexts {
+              text
+            }
+          }
           pageContent {
             __typename
             ...HeadingFields

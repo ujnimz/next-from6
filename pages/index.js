@@ -9,14 +9,14 @@ const Home = ({data, loading}) => {
   if (loading) return <div>Loading...</div>;
 
   if (data.homePage.data) {
-    const {seoContent, pageContent} = data.homePage.data.attributes;
+    const {seoContent, pageContent, slider} = data.homePage.data.attributes;
 
     return (
       <>
         <CustomHeader seoMeta={seoContent} />
 
         <main>
-          <HomeSlider />
+          <HomeSlider data={slider} />
           <BlockManager blocks={pageContent} />
         </main>
       </>

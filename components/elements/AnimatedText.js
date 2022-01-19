@@ -1,7 +1,7 @@
 import React from 'react';
 import {motion, AnimatePresence} from 'framer-motion';
 
-const AnimatedText = () => {
+const AnimatedText = ({textArray}) => {
   const [currentIndex, setCurrentIndex] = React.useState(0);
   const textArr = [
     'We are an Agency that get things done',
@@ -53,7 +53,7 @@ const AnimatedText = () => {
         animate='center'
         exit='exit'
       >
-        {textArr[currentIndex].split('').map((char, index) => (
+        {textArray[currentIndex].text.split('').map((char, index) => (
           <motion.span key={index} variants={charVariants}>
             {char}
           </motion.span>
