@@ -1,4 +1,5 @@
 module.exports = {
+  basePath: '/from6/html/nextjs',
   reactStrictMode: true,
   trailingSlash: true,
   images: {
