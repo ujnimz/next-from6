@@ -92,7 +92,7 @@ const FeaturedWork = ({text, link, image, height = 100}) => {
     .replace('[', "<span class='font-bold text-primary'>")
     .replace(']', '</span>');
 
-  const imageUrl = `http://localhost:1337${image.data.attributes.url}`;
+  const imageUrl = `${process.env.NEXT_PUBLIC_IMAGE_HOST}${image.data.attributes.url}`;
 
   return (
     <div>
