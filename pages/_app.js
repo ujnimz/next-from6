@@ -21,7 +21,7 @@ function MyApp({Component, pageProps, data, dataLoading}) {
     // router.events.on('routeChangeStart', handleStart);
     // router.events.on('routeChangeComplete', handleComplete);
     // router.events.on('routeChangeError', handleComplete);
-    setTimeout(() => setLoading(false), 3000);
+    setTimeout(() => setLoading(false), 0);
   }, []);
 
   return (
