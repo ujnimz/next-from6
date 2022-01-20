@@ -41,7 +41,21 @@ export const GET_HOME_PAGE = gql`
             metaDescription
           }
           slider {
-            video {
+            mp4Video {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+            ogvVideo {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+            webmVideo {
               data {
                 attributes {
                   url

@@ -14,7 +14,7 @@ import Baloon from '../../icons/Baloon';
 import AnimatedText from '../../elements/AnimatedText';
 
 const HomeSlider = ({data}) => {
-  const {sliderTexts, video} = data;
+  const {sliderTexts, ogvVideo, webmVideo, mp4Video} = data;
   const [windowHeight, setWindowHeight] = useState(null);
 
   useEffect(() => {
@@ -154,10 +154,15 @@ const HomeSlider = ({data}) => {
           autoPlay
           loop
           muted
-          playsinline
+          playsInline
           className='absolute z-10 w-screen h-screen top-0 left-0 filter blur-xs transform scale-110 object-cover'
         >
-          <source src={`./${video.data.attributes.url}`} type='video/mp4' />
+          <source src={`./${ogvVideo.data.attributes.url}`} type='video/ogv' />
+          <source
+            src={`./${webmVideo.data.attributes.url}`}
+            type='video/webm'
+          />
+          <source src={`./${mp4Video.data.attributes.url}`} type='video/mp4' />
           Your browser does not support the video tag.
         </video>
       </header>
