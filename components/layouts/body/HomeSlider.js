@@ -154,6 +154,7 @@ const HomeSlider = ({data}) => {
           autoPlay
           loop
           muted
+          playsinline
           className='absolute z-10 w-screen h-screen top-0 left-0 filter blur-xs transform scale-110 object-cover'
         >
           <source src={`./${video.data.attributes.url}`} type='video/mp4' />
