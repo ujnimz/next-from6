@@ -10,7 +10,7 @@ function ParallaxImage({image, animate, blockHeight}) {
   const {scrollY} = useViewportScroll();
   const y2 =
     animate === 'left' || animate === 'right'
-      ? useTransform(scrollY, [0, 1500], [0, animate === 'right' ? 250 : -250])
+      ? useTransform(scrollY, [0, 1500], [0, animate === 'right' ? 250 : 250])
       : 0;
 
   const x2 =
@@ -33,7 +33,7 @@ function ParallaxImage({image, animate, blockHeight}) {
       <div className='bg-accent flex justify-center'>
         <motion.div
           //className='w-full'
-          style={{y: x2, x: y2, width: width + 250}}
+          style={{y: x2, x: y2, width: width + 400}}
         >
           <SingleImage image={image} />
         </motion.div>

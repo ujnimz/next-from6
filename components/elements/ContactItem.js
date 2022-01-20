@@ -11,7 +11,7 @@ const ContactItem = ({contact, color = 'text-secondary-content'}) => {
       <motion.a
         onHoverStart={() => setOnLink(true)}
         onHoverEnd={() => setOnLink(false)}
-        className='flex items-stretch mb-3 cursor-pointer'
+        className='flex justify-center items-stretch w-full sm:w-1/2 md:w-1/3 mb-4 cursor-pointer'
       >
         <div className='w-10 h-10 mr-3'>
           <F6Icon colorClass={color} icon={contact.icon} />

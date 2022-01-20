@@ -16,7 +16,7 @@ const About = ({data, loading}) => {
         <CustomHeader seoMeta={seoContent} />
 
         <main>
-          {/* <PageHero image={heroImage} /> */}
+          <PageHero image={heroImage} />
           <BlockManager blocks={pageContent} />
         </main>
       </>
