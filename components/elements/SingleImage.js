@@ -10,6 +10,8 @@ const SingleImage = ({image, ...rest}) => {
       alt={alternativeText}
       height={height}
       width={width}
+      placeholder='blur'
+      blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOcOmtuPQAF5QJN8XXMfAAAAABJRU5ErkJggg=='
       {...rest}
     />
   );

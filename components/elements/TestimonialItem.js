@@ -11,7 +11,7 @@ const TestimonialItem = ({testimonial}) => {
 
   return (
     <motion.div
-      className='flex justify-center items-center flex-col max-w-3xl'
+      className='flex justify-center items-center flex-col max-w-3xl mx-6'
       onHoverStart={() => setOnLink(true)}
       onHoverEnd={() => setOnLink(false)}
     >

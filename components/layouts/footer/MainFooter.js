@@ -9,7 +9,7 @@ const MainFooter = ({data}) => {
   return (
     <footer className='flex flex-col items-center justify-center bg-charcoal text-neutral-content'>
       <div className='container flex justify-between lg:justify-center items-stretch px-3 lg:px-0 py-10 lg:py-14 flex flex-wrap'>
-        <div className='flex flex-col items-center md:items-start w-full md:w-1/4 mb-6 md:mb-0'>
+        <div className='flex flex-col items-center md:items-start w-full md:w-1/2 lg:w-1/4 mb-6 md:mb-0'>
           <div className='mb-6'>
             <h3 className='text-tangerine text-2xl '>{contactTitle}</h3>
           </div>
@@ -19,7 +19,7 @@ const MainFooter = ({data}) => {
           ))}
         </div>
 
-        <div className='flex flex-col items-center md:items-end w-full md:w-1/4'>
+        <div className='flex flex-col items-center md:items-end w-full md:w-1/2 lg:w-1/4'>
           <div className='mb-6'>
             <h3 className='text-tangerine text-2xl '>{socialTitle}</h3>
           </div>

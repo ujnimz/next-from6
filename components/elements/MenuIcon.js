@@ -13,7 +13,7 @@ const Path = props => (
 const MenuIcon = ({isOpen, toggleOpen}) => {
   return (
     <div
-      className='flex justify-center items-center cursor-pointer'
+      className='flex justify-center items-center cursor-pointer px-2'
       style={{width: 50, height: 50}}
       onClick={() => toggleOpen(!isOpen)}
     >

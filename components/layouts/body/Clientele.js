@@ -76,7 +76,7 @@ const Clientele = ({clientele, sliderType}) => {
         ) : (
           <div className='flex justify-center flex-wrap'>
             {clientele.map((logo, index) => (
-              <div key={index} className='w-1/6'>
+              <div key={index} className='w-1/3 md:w-1/4 lg:w-1/6'>
                 <LogoItem logo={logo} key={index} />
               </div>
             ))}

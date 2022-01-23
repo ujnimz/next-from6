@@ -195,7 +195,7 @@ export const IMAGE_CONTENT = gql`
 
 export const MEMBERS_CONTENT = gql`
   fragment MembersFields on ComponentBlocksMembers {
-    members {
+    members(pagination: {limit: 30}) {
       name
       jobTitle
       image {

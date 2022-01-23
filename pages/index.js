@@ -30,9 +30,10 @@ const Home = ({data, loading}) => {
   );
 };
 
-export const getStaticProps = async () => {
+export const getStaticProps = async context => {
   const {data, loading, error} = await apolloCon.query({
     query: GET_HOME_PAGE,
+    variables: {locale: context.locale},
   });
 
   return {
