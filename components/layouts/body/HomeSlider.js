@@ -11,7 +11,7 @@ import Atom from '../../icons/Atom';
 import CloudA from '../../icons/CloudA';
 import CloudB from '../../icons/CloudB';
 import Baloon from '../../icons/Baloon';
-import AnimatedText from '../../elements/AnimatedText';
+import TextSlider from '../../elements/TextSlider';
 
 const HomeSlider = ({data}) => {
   const {sliderTexts, ogvVideo, webmVideo, mp4Video} = data;
@@ -109,7 +109,8 @@ const HomeSlider = ({data}) => {
               transition: {duration: 1, ease: 'circOut'},
             }}
           >
-            <AnimatedText textArray={sliderTexts} />
+            {/* <AnimatedText textArray={sliderTexts} /> */}
+            <TextSlider textArray={sliderTexts} />
           </motion.div>
 
           <div className='flex justify-around p-10'>

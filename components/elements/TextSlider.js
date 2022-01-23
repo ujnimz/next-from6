@@ -1,23 +1,22 @@
 import React from 'react';
-import Typical from 'react-typical';
+import Typewriter from 'typewriter-effect';
 
-const TextSlider = () => {
-  const textArr = [
-    'We are an Agency that get things done',
-    3000,
-    'We combine insight, creativity and technology',
-    3000,
-    'We work hard to be the best agency to work with',
-    3000,
-  ];
+const TextSlider = ({textArray}) => {
+  const textArr = textArray.map(item => item.text);
 
   return (
-    <div>
-      <Typical
-        className='text-4xl md:text-6xl font-bold text-center text-white max-w-xl'
-        steps={textArr}
-        loop={Infinity}
-        wrapper='h1'
+    <div className='text-4xl md:text-6xl font-bold text-center text-white max-w-xl'>
+      <Typewriter
+        options={{
+          strings: textArr,
+          autoStart: true,
+          loop: true,
+          autoStart: true,
+          cursor: '_',
+          delay: 20,
+          deleteSpeed: 10,
+          pauseFor: 3000,
+        }}
       />
     </div>
   );
