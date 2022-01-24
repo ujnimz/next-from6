@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 import Paragraph from '../../elements/Paragraph';
 
 const TextBlock = ({paragraphs}) => {
@@ -15,6 +15,10 @@ const TextBlock = ({paragraphs}) => {
       </div>
     </div>
   );
+};
+
+TextBlock.propTypes = {
+  paragraphs: PropTypes.array.isRequired,
 };
 
 export default TextBlock;

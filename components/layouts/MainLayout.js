@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 import MainHeader from './header/MainHeader';
 import MainFooter from './footer/MainFooter';
 
@@ -11,6 +11,11 @@ const MainLayout = ({children, data}) => {
       <MainFooter data={footer} />
     </div>
   );
+};
+
+MainLayout.propTypes = {
+  children: PropTypes.object.isRequired,
+  data: PropTypes.object.isRequired,
 };
 
 export default MainLayout;

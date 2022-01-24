@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
+import PropTypes from 'prop-types';
 import {motion} from 'framer-motion';
 import SingleImage from './SingleImage';
 
@@ -27,6 +28,10 @@ const LogoItem = ({logo}) => {
       </div>
     </motion.div>
   );
+};
+
+LogoItem.propTypes = {
+  logo: PropTypes.object.isRequired,
 };
 
 export default LogoItem;

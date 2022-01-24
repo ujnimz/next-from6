@@ -1,4 +1,5 @@
-import React, {useState, useEffect} from 'react';
+import {useState, useEffect} from 'react';
+import PropTypes from 'prop-types';
 import Link from 'next/link';
 import {
   motion,
@@ -140,35 +141,19 @@ const FeaturedWork = ({text, link, image, height = 100}) => {
                   </motion.div>
                 </div>
               </motion.div>
-
-              {/* <motion.div className='bg-secondary p-3 lg:p-10 notch-large block lg:hidden'>
-                <div className='mb-6'>
-                  <h3
-                    className='text-secondary-content font-regular text-3xl'
-                    dangerouslySetInnerHTML={{__html: newTitle}}
-                  />
-                </div>
-
-                <div className='flex items-center'>
-                  <span className='text-secondary-content font-regular text-sm '>
-                    Find out more
-                  </span>
-
-                  <motion.div
-                    className='w-5 h-5 ml-5'
-                    variants={linkVariants}
-                    animate={onLink ? 'nowOn' : 'nowOut'}
-                  >
-                    <NextArrow />
-                  </motion.div>
-                </div>
-              </motion.div> */}
             </a>
           </Link>
         </motion.div>
       </motion.div>
     </div>
   );
+};
+
+FeaturedWork.propTypes = {
+  text: PropTypes.string.isRequired,
+  link: PropTypes.string.isRequired,
+  image: PropTypes.object.isRequired,
+  height: PropTypes.number,
 };
 
 export default FeaturedWork;

@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import PropTypes from 'prop-types';
 
 const CustomHeader = ({seoMeta}) => {
   const {metaTitle = '', metaDescription = ''} = seoMeta;
@@ -33,6 +34,10 @@ const CustomHeader = ({seoMeta}) => {
       <meta name='twitter:card' content='summary_large_image' />
     </Head>
   );
+};
+
+CustomHeader.propTypes = {
+  seoMeta: PropTypes.object.isRequired,
 };
 
 export default CustomHeader;

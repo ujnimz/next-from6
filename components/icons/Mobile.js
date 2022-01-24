@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 import {motion} from 'framer-motion';
 
 const Mobile = ({colorClass = 'text-primary'}) => {
@@ -17,6 +17,10 @@ const Mobile = ({colorClass = 'text-primary'}) => {
       </svg>
     </motion.div>
   );
+};
+
+Mobile.propTypes = {
+  colorClass: PropTypes.string,
 };
 
 export default Mobile;

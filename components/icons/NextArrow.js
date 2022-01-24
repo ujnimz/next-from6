@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 
 const NextArrow = ({colorClass = 'text-primary'}) => {
   return (
@@ -11,6 +11,10 @@ const NextArrow = ({colorClass = 'text-primary'}) => {
       <path d='M0,10.16H13.72L7.39,16.48,9,18.06l9-9L9,0,7.45,1.58,13.72,7.9H0Z' />
     </svg>
   );
+};
+
+NextArrow.propTypes = {
+  colorClass: PropTypes.string,
 };
 
 export default NextArrow;

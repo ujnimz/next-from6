@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import Image from 'next/image';
+import {useState} from 'react';
+import PropTypes from 'prop-types';
 import Link from 'next/link';
 import {motion} from 'framer-motion';
 import NextArrow from '../icons/NextArrow';
@@ -50,6 +50,10 @@ const ServiceItem = ({service}) => {
       </motion.a>
     </Link>
   );
+};
+
+ServiceItem.propTypes = {
+  service: PropTypes.object.isRequired,
 };
 
 export default ServiceItem;

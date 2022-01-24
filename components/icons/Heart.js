@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 import {motion} from 'framer-motion';
 
 const Heart = ({colorClass = 'text-primary'}) => {
@@ -22,6 +22,10 @@ const Heart = ({colorClass = 'text-primary'}) => {
       </svg>
     </motion.div>
   );
+};
+
+Heart.propTypes = {
+  colorClass: PropTypes.string,
 };
 
 export default Heart;

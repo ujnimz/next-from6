@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 import BlogItem from '../../elements/BlogItem';
 
 const PostsGird = ({posts}) => {
@@ -11,6 +11,10 @@ const PostsGird = ({posts}) => {
       </div>
     </div>
   );
+};
+
+PostsGird.propTypes = {
+  posts: PropTypes.object.isRequired,
 };
 
 export default PostsGird;

@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 import {motion} from 'framer-motion';
 
 const Path = props => (
@@ -41,6 +41,11 @@ const MenuIcon = ({isOpen, toggleOpen}) => {
       </svg>
     </div>
   );
+};
+
+MenuIcon.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  toggleOpen: PropTypes.func.isRequired,
 };
 
 export default MenuIcon;

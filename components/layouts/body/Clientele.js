@@ -1,11 +1,12 @@
-import React, {useEffect} from 'react';
+import {useEffect} from 'react';
+import PropTypes from 'prop-types';
 import {motion, useAnimation} from 'framer-motion';
 import {useInView} from 'react-intersection-observer';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import LogoItem from '../../elements/LogoItem';
 
-const Clientele = ({clientele, sliderType}) => {
+const Clientele = ({clientele, sliderType = 'carousel'}) => {
   // Viewport animation
   const [viewRef, inView] = useInView({threshold: 0.5});
   const controls = useAnimation();
@@ -85,6 +86,11 @@ const Clientele = ({clientele, sliderType}) => {
       </motion.div>
     </div>
   );
+};
+
+Clientele.propTypes = {
+  clientele: PropTypes.array.isRequired,
+  sliderType: PropTypes.string,
 };
 
 export default Clientele;

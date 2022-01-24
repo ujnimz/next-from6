@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 import Link from 'next/link';
 import {motion, useCycle} from 'framer-motion';
 import MenuIcon from '../elements/MenuIcon';
@@ -101,6 +101,10 @@ const MainNavigation = ({navItems}) => {
       </motion.nav>
     </div>
   );
+};
+
+MainNavigation.propTypes = {
+  navItems: PropTypes.array.isRequired,
 };
 
 export default MainNavigation;

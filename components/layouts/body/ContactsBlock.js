@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 import ContactItem from '../../elements/ContactItem';
 
 const ContactsBlock = ({contacts}) => {
@@ -15,6 +15,10 @@ const ContactsBlock = ({contacts}) => {
       </div>
     </div>
   );
+};
+
+ContactsBlock.propTypes = {
+  contacts: PropTypes.array.isRequired,
 };
 
 export default ContactsBlock;

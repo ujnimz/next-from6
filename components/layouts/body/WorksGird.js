@@ -1,5 +1,5 @@
-import React, {useEffect, useState, useRef} from 'react';
-//import Isotope from 'isotope-layout';
+import {useEffect, useState, useRef} from 'react';
+import PropTypes from 'prop-types';
 import WorkItem from '../../elements/WorkItem';
 
 const WorksGird = ({works}) => {
@@ -65,6 +65,10 @@ const WorksGird = ({works}) => {
       </div>
     </div>
   );
+};
+
+WorksGird.propTypes = {
+  works: PropTypes.object.isRequired,
 };
 
 export default WorksGird;

@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
+import PropTypes from 'prop-types';
 import {motion} from 'framer-motion';
 
 const Social = ({type = '', colorClass = 'text-primary'}) => {
@@ -53,6 +54,10 @@ const Social = ({type = '', colorClass = 'text-primary'}) => {
       ></svg>
     </motion.div>
   );
+};
+
+Social.propTypes = {
+  colorClass: PropTypes.string,
 };
 
 export default Social;

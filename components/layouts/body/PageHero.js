@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import SingleImage from '../../elements/SingleImage';
 
 const PageHero = ({image, full}) => {
@@ -10,6 +11,11 @@ const PageHero = ({image, full}) => {
       </div>
     </div>
   );
+};
+
+PageHero.propTypes = {
+  image: PropTypes.object.isRequired,
+  full: PropTypes.string,
 };
 
 export default PageHero;

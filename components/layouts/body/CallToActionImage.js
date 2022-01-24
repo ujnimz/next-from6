@@ -1,4 +1,5 @@
-import React, {useEffect} from 'react';
+import {useEffect} from 'react';
+import PropTypes from 'prop-types';
 import {motion, useAnimation} from 'framer-motion';
 import {useInView} from 'react-intersection-observer';
 import From6Button from '../../elements/From6Button';
@@ -69,6 +70,13 @@ const CallToActionImage = ({title, bgImage, buttonText, buttonLink}) => {
       </div>
     </div>
   );
+};
+
+CallToActionImage.propTypes = {
+  title: PropTypes.string.isRequired,
+  bgImage: PropTypes.string.isRequired,
+  buttonText: PropTypes.string.isRequired,
+  buttonLink: PropTypes.string.isRequired,
 };
 
 export default CallToActionImage;

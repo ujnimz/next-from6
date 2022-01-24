@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 import Typewriter from 'typewriter-effect';
 
 const TextSlider = ({textArray}) => {
@@ -20,6 +20,10 @@ const TextSlider = ({textArray}) => {
       />
     </div>
   );
+};
+
+TextSlider.propTypes = {
+  textArray: PropTypes.array.isRequired,
 };
 
 export default TextSlider;

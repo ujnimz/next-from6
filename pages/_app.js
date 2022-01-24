@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react';
-//import {useRouter} from 'next/router';
+import PropTypes from 'prop-types';
 import '../styles/globals.css';
 import MainLayout from '../components/layouts/MainLayout';
 import Loading from '../components/layouts/body/Loading';
@@ -46,6 +46,13 @@ MyApp.getInitialProps = async ctx => {
     data,
     dataLoading: loading,
   };
+};
+
+MyApp.propTypes = {
+  Component: PropTypes.func.isRequired,
+  pageProps: PropTypes.object.isRequired,
+  data: PropTypes.object.isRequired,
+  dataLoading: PropTypes.bool.isRequired,
 };
 
 export default MyApp;

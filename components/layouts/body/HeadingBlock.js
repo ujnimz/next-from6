@@ -1,4 +1,5 @@
-import React, {useEffect} from 'react';
+import {useEffect} from 'react';
+import PropTypes from 'prop-types';
 import {useInView} from 'react-intersection-observer';
 import {useAnimation} from 'framer-motion';
 import Heading from '../../elements/Heading';
@@ -75,6 +76,14 @@ const HeadingBlock = ({title, tag, headingStyle, headingAlign, bgImage}) => {
       </div>
     </div>
   );
+};
+
+HeadingBlock.propTypes = {
+  title: PropTypes.string.isRequired,
+  tag: PropTypes.string.isRequired,
+  headingStyle: PropTypes.string.isRequired,
+  headingAlign: PropTypes.string.isRequired,
+  bgImage: PropTypes.object.isRequired,
 };
 
 export default HeadingBlock;

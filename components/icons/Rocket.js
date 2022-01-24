@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 import {motion} from 'framer-motion';
 
 const Rocket = ({colorClass = 'text-primary'}) => {
@@ -29,6 +29,10 @@ const Rocket = ({colorClass = 'text-primary'}) => {
       </motion.svg>
     </motion.div>
   );
+};
+
+Rocket.propTypes = {
+  colorClass: PropTypes.string,
 };
 
 export default Rocket;

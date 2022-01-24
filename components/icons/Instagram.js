@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 import {motion} from 'framer-motion';
 
 const Email = ({colorClass = 'text-primary'}) => {
@@ -17,6 +17,10 @@ const Email = ({colorClass = 'text-primary'}) => {
       </svg>
     </motion.div>
   );
+};
+
+Email.propTypes = {
+  colorClass: PropTypes.string,
 };
 
 export default Email;

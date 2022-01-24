@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 import {motion} from 'framer-motion';
 
 const Call = ({colorClass = 'text-primary'}) => {
@@ -62,6 +62,10 @@ const Call = ({colorClass = 'text-primary'}) => {
       </svg>
     </motion.div>
   );
+};
+
+Call.propTypes = {
+  colorClass: PropTypes.string,
 };
 
 export default Call;

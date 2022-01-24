@@ -1,4 +1,5 @@
-import React, {useEffect, useState} from 'react';
+import {useEffect} from 'react';
+import PropTypes from 'prop-types';
 import {motion, useAnimation} from 'framer-motion';
 import {useInView} from 'react-intersection-observer';
 import Carousel from 'react-multi-carousel';
@@ -77,6 +78,11 @@ const ServicesSlider = ({services, spacing}) => {
       </motion.div>
     </div>
   );
+};
+
+ServicesSlider.propTypes = {
+  services: PropTypes.object.isRequired,
+  spacing: PropTypes.string.isRequired,
 };
 
 export default ServicesSlider;

@@ -1,10 +1,11 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
+import PropTypes from 'prop-types';
 import Link from 'next/link';
 import {motion} from 'framer-motion';
 import F6Icon from '../icons';
 
 const From6Button = ({
-  solid,
+  solid = true,
   buttonLink = '/',
   title = 'Button Text',
   buttonStyle,
@@ -48,6 +49,13 @@ const From6Button = ({
       </div>
     </Link>
   );
+};
+
+From6Button.propTypes = {
+  solid: PropTypes.bool,
+  buttonLink: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  buttonStyle: PropTypes.object.isRequired,
 };
 
 export default From6Button;

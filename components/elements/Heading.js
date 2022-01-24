@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 import {motion} from 'framer-motion';
 
 const Heading = ({title, tag, align, textColor, spanColor, controls}) => {
@@ -41,6 +41,15 @@ const Heading = ({title, tag, align, textColor, spanColor, controls}) => {
       </HeadingTag>
     </motion.div>
   );
+};
+
+Heading.propTypes = {
+  title: PropTypes.string.isRequired,
+  tag: PropTypes.string.isRequired,
+  align: PropTypes.string.isRequired,
+  textColor: PropTypes.string.isRequired,
+  spanColor: PropTypes.string.isRequired,
+  controls: PropTypes.object.isRequired,
 };
 
 export default Heading;

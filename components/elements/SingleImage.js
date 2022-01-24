@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import Image from 'next/image';
 
 const SingleImage = ({image, ...rest}) => {
@@ -15,6 +16,11 @@ const SingleImage = ({image, ...rest}) => {
       {...rest}
     />
   );
+};
+
+SingleImage.propTypes = {
+  image: PropTypes.object.isRequired,
+  rest: PropTypes.object,
 };
 
 export default SingleImage;

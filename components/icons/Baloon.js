@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 import {motion} from 'framer-motion';
 
 const Baloon = ({colorClass = 'text-primary'}) => {
@@ -33,6 +33,10 @@ const Baloon = ({colorClass = 'text-primary'}) => {
       </svg>
     </motion.div>
   );
+};
+
+Baloon.propTypes = {
+  colorClass: PropTypes.string,
 };
 
 export default Baloon;

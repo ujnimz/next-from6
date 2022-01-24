@@ -1,4 +1,5 @@
-import React, {useState, useEffect} from 'react';
+import {useState, useEffect} from 'react';
+import PropTypes from 'prop-types';
 import Link from 'next/link';
 import {motion, useAnimation} from 'framer-motion';
 import {useInView} from 'react-intersection-observer';
@@ -86,6 +87,10 @@ const BlogItem = ({post}) => {
       </motion.div>
     </Link>
   );
+};
+
+BlogItem.propTypes = {
+  post: PropTypes.object.isRequired,
 };
 
 export default BlogItem;

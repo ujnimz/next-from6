@@ -1,52 +1,10 @@
-import React, {useEffect, useState} from 'react';
+import {useEffect} from 'react';
+import PropTypes from 'prop-types';
 import {motion, useAnimation} from 'framer-motion';
 import {useInView} from 'react-intersection-observer';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import TestimonialItem from '../../elements/TestimonialItem';
-
-const testimonialsss = [
-  {
-    id: 0,
-    avatar: '/images/testimonials/testimonial-image-1.jpeg',
-    text: 'For 8 years, From6 have been our trusted partners, they’re a part of the team.',
-    author: 'James Williamson',
-    title: 'Group Sales & Marketing Director',
-    company: 'BFC',
-  },
-  {
-    id: 1,
-    avatar: '/images/testimonials/testimonial-image-1.jpeg',
-    text: 'When we embarked on our journey of transformation, From6’s “inside-out” approach was key in shaping and communicating our values, purpose, mission and brand promise across all internal and external touch points.',
-    author: 'Hisham Abu Alfateh',
-    title: 'Manager Marketing and Corporate Communications',
-    company: 'National Bank of Bahrain',
-  },
-  {
-    id: 2,
-    avatar: '/images/testimonials/testimonial-image-1.jpeg',
-    text: 'From6 are more than an agency, they are in the truest sense of the word partners. At every step of the project they were there for us.',
-    author: 'Ben Leon',
-    title: 'Interim COO',
-    company: 'SalamAir',
-  },
-  {
-    id: 3,
-    avatar: '/images/testimonials/testimonial-image-1.jpeg',
-    text: 'Collaborative and supportive are fundamental values in any relationship. It’s a pleasure to work with a team who lives by them.',
-    author: 'Clotilde Malauzat',
-    title: 'Director of Enrollment and Marketing Communications',
-    company: 'AUBH',
-  },
-  {
-    id: 4,
-    avatar: '/images/testimonials/testimonial-image-1.jpeg',
-    text: 'They were given a task and they made it happen. They got the core of who we wanted to be quickly and they brought it to life.',
-    author: 'Hasan Jarrar',
-    title: 'CEO',
-    company: 'BISB',
-  },
-];
 
 function LogoSlider({testimonials}) {
   const {data} = testimonials;
@@ -119,5 +77,9 @@ function LogoSlider({testimonials}) {
     </div>
   );
 }
+
+LogoSlider.propTypes = {
+  testimonials: PropTypes.object.isRequired,
+};
 
 export default LogoSlider;

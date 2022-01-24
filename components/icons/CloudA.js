@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 import {motion} from 'framer-motion';
 
 const CloudA = ({colorClass = 'text-primary'}) => {
@@ -29,6 +29,10 @@ const CloudA = ({colorClass = 'text-primary'}) => {
       </svg>
     </motion.div>
   );
+};
+
+CloudA.propTypes = {
+  colorClass: PropTypes.string,
 };
 
 export default CloudA;

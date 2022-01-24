@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import HeadingBlock from '../layouts/body/HeadingBlock';
 import TextBlock from '../layouts/body/TextBlock';
 import FeaturedWork from '../layouts/body/FeaturedWork';
@@ -72,6 +73,12 @@ const BlockManager = ({blocks}) => {
 
 BlockManager.defaultProps = {
   blocks: [],
+};
+
+BlockManager.propTypes = {
+  __typename: PropTypes.string,
+  rest: PropTypes.object,
+  index: PropTypes.number,
 };
 
 export default BlockManager;

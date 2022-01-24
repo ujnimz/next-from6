@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import PageHero from '../components/layouts/body/PageHero';
 import BlockManager from '../components/shared/BlockManager';
 import CustomHeader from '../components/shared/CustomHeader';
@@ -40,6 +41,11 @@ export const getStaticProps = async () => {
       loading,
     },
   };
+};
+
+About.propTypes = {
+  data: PropTypes.object.isRequired,
+  loading: PropTypes.bool.isRequired,
 };
 
 export default About;

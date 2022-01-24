@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import {marked} from 'marked';
 import DOMPurify from 'dompurify';
 
@@ -20,6 +21,11 @@ const Paragraph = ({text, align}) => {
       />
     </div>
   );
+};
+
+Paragraph.propTypes = {
+  text: PropTypes.string.isRequired,
+  align: PropTypes.string.isRequired,
 };
 
 export default Paragraph;

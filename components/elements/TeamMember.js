@@ -1,11 +1,12 @@
-import React, {useState} from 'react';
-import Image from 'next/image';
+import {useState} from 'react';
+import PropTypes from 'prop-types';
 import {motion} from 'framer-motion';
 import SingleImage from './SingleImage';
 
 const TeamMember = ({member}) => {
   const [onLink, setOnLink] = useState(false);
 
+  const {image, hoverImage, name, jobTitle} = member;
   const itemVariants = {
     hidden: {
       opacity: 0,
@@ -44,7 +45,7 @@ const TeamMember = ({member}) => {
             variants={itemHoverVariants}
             animate={onLink ? 'visible' : 'hidden'}
           >
-            <SingleImage image={member.hoverImage} />
+            <SingleImage image={hoverImage} />
           </motion.div>
 
           <motion.div
@@ -52,19 +53,21 @@ const TeamMember = ({member}) => {
             variants={itemVariants}
             animate={onLink ? 'hidden' : 'visible'}
           >
-            <SingleImage image={member.image} />
+            <SingleImage image={image} />
           </motion.div>
         </div>
 
         <div className='flex flex-col items-start justify-between flex-1 py-2'>
-          <h3 className='text-base-content text-lg lg:text-xl'>
-            {member.name}
-          </h3>
-          <p className='text-accent text-sm font-light'>{member.jobTitle}</p>
+          <h3 className='text-base-content text-lg lg:text-xl'>{name}</h3>
+          <p className='text-accent text-sm font-light'>{jobTitle}</p>
         </div>
       </motion.div>
     </div>
   );
+};
+
+TeamMember.propTypes = {
+  member: PropTypes.object.isRequired,
 };
 
 export default TeamMember;

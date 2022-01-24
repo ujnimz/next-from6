@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 import Link from 'next/link';
 import Social from '../../icons/Social';
 import ContactItem from '../../elements/ContactItem';
@@ -41,6 +41,10 @@ const MainFooter = ({data}) => {
       </div>
     </footer>
   );
+};
+
+MainFooter.propTypes = {
+  data: PropTypes.object.isRequired,
 };
 
 export default MainFooter;

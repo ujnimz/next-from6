@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 import {motion} from 'framer-motion';
 
 const Magnifier = ({colorClass = 'text-primary'}) => {
@@ -16,6 +16,10 @@ const Magnifier = ({colorClass = 'text-primary'}) => {
       </svg>
     </motion.div>
   );
+};
+
+Magnifier.propTypes = {
+  colorClass: PropTypes.string,
 };
 
 export default Magnifier;

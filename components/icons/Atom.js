@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 import {motion} from 'framer-motion';
 
 const Atom = ({colorClass = 'text-primary'}) => {
@@ -101,6 +101,10 @@ const Atom = ({colorClass = 'text-primary'}) => {
       </svg>
     </motion.div>
   );
+};
+
+Atom.propTypes = {
+  colorClass: PropTypes.string,
 };
 
 export default Atom;

@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 import TeamMember from '../../elements/TeamMember';
 
 const Team = ({members}) => {
@@ -11,6 +11,10 @@ const Team = ({members}) => {
       </div>
     </div>
   );
+};
+
+Team.propTypes = {
+  members: PropTypes.array.isRequired,
 };
 
 export default Team;

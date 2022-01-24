@@ -1,10 +1,10 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 import {useViewportScroll, motion, useTransform} from 'framer-motion';
 import {useInView} from 'react-intersection-observer';
 import useWindowDimensions from '../../../themes/useWindowDimensions';
 import SingleImage from '../../elements/SingleImage';
 
-function ParallaxImage({image, animate, blockHeight}) {
+function ParallaxImage({image, animate}) {
   const {width} = useWindowDimensions();
 
   const {scrollY} = useViewportScroll();
@@ -41,5 +41,10 @@ function ParallaxImage({image, animate, blockHeight}) {
     </div>
   );
 }
+
+ParallaxImage.propTypes = {
+  image: PropTypes.object.isRequired,
+  animate: PropTypes.string.isRequired,
+};
 
 export default ParallaxImage;

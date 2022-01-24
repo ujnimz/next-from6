@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import Image from 'next/image';
+import {useState} from 'react';
+import PropTypes from 'prop-types';
 import Link from 'next/link';
 import {motion} from 'framer-motion';
 import SingleImage from './SingleImage';
@@ -51,6 +51,10 @@ const WorkItem = ({work}) => {
       </motion.div>
     </div>
   );
+};
+
+WorkItem.propTypes = {
+  work: PropTypes.object.isRequired,
 };
 
 export default WorkItem;

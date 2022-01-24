@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import HomeSlider from '../components/layouts/body/HomeSlider';
 import BlockManager from '../components/shared/BlockManager';
 import CustomHeader from '../components/shared/CustomHeader';
@@ -42,6 +43,11 @@ export const getStaticProps = async context => {
       loading,
     },
   };
+};
+
+Home.propTypes = {
+  data: PropTypes.object.isRequired,
+  loading: PropTypes.bool.isRequired,
 };
 
 export default Home;

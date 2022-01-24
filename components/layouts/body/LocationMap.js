@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 
 const LocationMap = ({iframeSrc, mapHeight}) => {
   return (
@@ -15,6 +15,11 @@ const LocationMap = ({iframeSrc, mapHeight}) => {
       ></iframe>
     </div>
   );
+};
+
+LocationMap.propTypes = {
+  iframeSrc: PropTypes.string.isRequired,
+  mapHeight: PropTypes.number,
 };
 
 export default LocationMap;

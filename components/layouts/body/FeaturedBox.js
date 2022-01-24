@@ -1,4 +1,5 @@
-import React, {useEffect} from 'react';
+import {useEffect} from 'react';
+import PropTypes from 'prop-types';
 import {motion, useAnimation} from 'framer-motion';
 import {useInView} from 'react-intersection-observer';
 //import Magnifier from '../../icons/Magnifier';
@@ -13,7 +14,6 @@ const FeaturedBox = ({
   buttonText,
   buttonLink,
   style,
-  isSolid,
   bgImage,
 }) => {
   // Viewport animation
@@ -183,6 +183,16 @@ const FeaturedBox = ({
       </div>
     </div>
   );
+};
+
+FeaturedBox.propTypes = {
+  text: PropTypes.string.isRequired,
+  leftIcon: PropTypes.string.isRequired,
+  rightIcon: PropTypes.string.isRequired,
+  buttonText: PropTypes.string.isRequired,
+  buttonLink: PropTypes.string.isRequired,
+  style: PropTypes.string.isRequired,
+  bgImage: PropTypes.object,
 };
 
 export default FeaturedBox;

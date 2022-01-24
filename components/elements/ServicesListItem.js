@@ -1,4 +1,5 @@
-import React, {useEffect} from 'react';
+import {useEffect} from 'react';
+import PropTypes from 'prop-types';
 import {motion, useAnimation} from 'framer-motion';
 import {useInView} from 'react-intersection-observer';
 
@@ -72,6 +73,10 @@ const ServicesListItem = ({service}) => {
       </div>
     </div>
   );
+};
+
+ServicesListItem.propTypes = {
+  service: PropTypes.array.isRequired,
 };
 
 export default ServicesListItem;

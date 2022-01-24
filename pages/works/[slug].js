@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import PageHero from '../../components/layouts/body/PageHero';
 import BlockManager from '../../components/shared/BlockManager';
 import CustomHeader from '../../components/shared/CustomHeader';
@@ -54,5 +55,10 @@ export async function getStaticProps({params}) {
   // Pass post data to the page via props
   return {props: {data: data.works.data[0], loading}};
 }
+
+SingleWork.propTypes = {
+  data: PropTypes.object.isRequired,
+  loading: PropTypes.bool.isRequired,
+};
 
 export default SingleWork;

@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 import {motion} from 'framer-motion';
 
 const Bulb = ({colorClass = 'text-primary'}) => {
@@ -69,6 +69,10 @@ const Bulb = ({colorClass = 'text-primary'}) => {
       </svg>
     </motion.div>
   );
+};
+
+Bulb.propTypes = {
+  colorClass: PropTypes.string,
 };
 
 export default Bulb;

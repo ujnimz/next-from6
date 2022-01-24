@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import ServicesListItem from '../../elements/ServicesListItem';
 
 const ServicesList = ({services}) => {
@@ -10,6 +11,10 @@ const ServicesList = ({services}) => {
       </div>
     </div>
   );
+};
+
+ServicesList.propTypes = {
+  services: PropTypes.object.isRequired,
 };
 
 export default ServicesList;
