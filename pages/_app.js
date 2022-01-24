@@ -50,7 +50,7 @@ MyApp.getInitialProps = async ctx => {
 
 MyApp.propTypes = {
   Component: PropTypes.func.isRequired,
-  pageProps: PropTypes.object.isRequired,
+  pageProps: PropTypes.object,
   data: PropTypes.object.isRequired,
   dataLoading: PropTypes.bool.isRequired,
 };
