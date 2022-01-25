@@ -4,6 +4,8 @@ import Social from '../../icons/Social';
 import ContactItem from '../../elements/ContactItem';
 
 const MainFooter = ({data}) => {
+  if (!data) return <div>No Footer Data</div>;
+
   const {contactTitle, contacts, socialTitle, socialIcons, copyrightText} =
     data.data.attributes;
   return (
@@ -44,7 +46,7 @@ const MainFooter = ({data}) => {
 };
 
 MainFooter.propTypes = {
-  data: PropTypes.object.isRequired,
+  data: PropTypes.object,
 };
 
 export default MainFooter;

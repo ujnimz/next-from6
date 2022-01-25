@@ -4,7 +4,10 @@ import Logo from '../../elements/Logo';
 import MainNavigation from '../../navigations/MainNavigation';
 
 const MainHeader = ({data}) => {
+  if (!data) return <div>No Header Data</div>;
+
   const {navItems} = data.data.attributes;
+
   return (
     <div className='fixed w-full z-50'>
       <div className='flex justify-between items-start flex-wrap'>

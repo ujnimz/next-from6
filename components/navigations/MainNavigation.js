@@ -3,7 +3,6 @@ import Link from 'next/link';
 import {motion, useCycle} from 'framer-motion';
 import MenuIcon from '../elements/MenuIcon';
 import ThemeSwitch from '../elements/ThemeSwitch';
-import LocaleSwitch from '../elements/LocaleSwitch';
 
 const MainNavigation = ({navItems}) => {
   const [isOpen, toggleOpen] = useCycle(false, true);
@@ -48,7 +47,7 @@ const MainNavigation = ({navItems}) => {
     },
     closed: {
       height: 50,
-      width: 120,
+      width: 100,
       transition: {
         delay: 0.5,
         type: 'spring',
@@ -67,13 +66,12 @@ const MainNavigation = ({navItems}) => {
       >
         <motion.div
           className='absolute top-0 right-0 bottom-0 bg-primary -z-10 rounded-2xl'
-          style={{width: 200, height: 50}}
           variants={sidebar}
         />
 
         <div className='flex justify-between'>
           <MenuIcon toggleOpen={toggleOpen} isOpen={isOpen} />
-          <LocaleSwitch />
+          {/* <LocaleSwitch /> */}
           <ThemeSwitch />
         </div>
 

@@ -9,6 +9,8 @@ import {GET_HOME_PAGE} from '../graphql/queries';
 const Home = ({data, loading}) => {
   if (loading) return <div>Loading...</div>;
 
+  if (!data.homePage) return <div>No Page Data.</div>;
+
   if (data.homePage.data) {
     const {seoContent, pageContent, slider} = data.homePage.data.attributes;
 

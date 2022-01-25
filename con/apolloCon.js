@@ -12,7 +12,7 @@ const defaultOptions = {
 };
 
 export const apolloCon = new ApolloClient({
-  uri: 'http://localhost:1337/graphql',
+  uri: `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/graphql`,
   cache: new InMemoryCache(),
   defaultOptions,
 });
