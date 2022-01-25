@@ -6,12 +6,7 @@ module.exports = {
     //loader: 'imgix',
     //path: 'https://from6-nextjs.herokuapp.com',
     //path: 'https://from6-com.mo.cloudinary.net',
-    domains: [
-      'localhost',
-      'from6-com.mo.cloudinary.net',
-      'from6.imgix.net',
-      'from6-nextjs.herokuapp.com',
-    ],
+    domains: ['localhost', 'from6-com.mo.cloudinary.net', 'from6.imgix.net'],
   },
   // i18n: {
   //   locales: ['en', 'ar'],
