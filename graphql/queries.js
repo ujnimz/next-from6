@@ -31,8 +31,8 @@ export const GET_HOME_PAGE = gql`
   ${POSTS_GRID_CONTENT}
   ${CONTACTS_CONTENT}
   ${LOCATION_MAP_CONTENT}
-  query getHomePage($locale: I18NLocaleCode!) {
-    homePage(locale: $locale) {
+  query getHomePage {
+    homePage {
       data {
         attributes {
           title
