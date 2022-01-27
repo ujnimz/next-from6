@@ -4,6 +4,7 @@ import {
   TEXT_CONTENT,
   FEATURED_WORK_CONTENT,
   FEATURED_BOX_CONTENT,
+  CALL_TO_ACTION_CONTENT,
   SERVICES_SLIDER_CONTENT,
   SERVICES_LIST_CONTENT,
   CLIENTELE_CONTENT,
@@ -21,6 +22,7 @@ export const GET_HOME_PAGE = gql`
   ${TEXT_CONTENT}
   ${FEATURED_WORK_CONTENT}
   ${FEATURED_BOX_CONTENT}
+  ${CALL_TO_ACTION_CONTENT}
   ${SERVICES_SLIDER_CONTENT}
   ${SERVICES_LIST_CONTENT}
   ${CLIENTELE_CONTENT}
@@ -72,6 +74,7 @@ export const GET_HOME_PAGE = gql`
             ...TextFields
             ...FeaturedWorkFields
             ...FeaturedBoxFields
+            ...CallToActionFields
             ...ServicesSliderFields
             ...ServicesListFields
             ...ClienteleFields
@@ -94,6 +97,7 @@ export const GET_ABOUT_PAGE = gql`
   ${TEXT_CONTENT}
   ${FEATURED_WORK_CONTENT}
   ${FEATURED_BOX_CONTENT}
+  ${CALL_TO_ACTION_CONTENT}
   ${SERVICES_SLIDER_CONTENT}
   ${SERVICES_LIST_CONTENT}
   ${CLIENTELE_CONTENT}
@@ -129,6 +133,7 @@ export const GET_ABOUT_PAGE = gql`
             ...TextFields
             ...FeaturedWorkFields
             ...FeaturedBoxFields
+            ...CallToActionFields
             ...ServicesSliderFields
             ...ServicesListFields
             ...ClienteleFields
@@ -151,6 +156,7 @@ export const GET_SERVICES_PAGE = gql`
   ${TEXT_CONTENT}
   ${FEATURED_WORK_CONTENT}
   ${FEATURED_BOX_CONTENT}
+  ${CALL_TO_ACTION_CONTENT}
   ${SERVICES_SLIDER_CONTENT}
   ${SERVICES_LIST_CONTENT}
   ${CLIENTELE_CONTENT}
@@ -186,6 +192,7 @@ export const GET_SERVICES_PAGE = gql`
             ...TextFields
             ...FeaturedWorkFields
             ...FeaturedBoxFields
+            ...CallToActionFields
             ...ServicesSliderFields
             ...ServicesListFields
             ...ClienteleFields
@@ -208,6 +215,7 @@ export const GET_WORK_PAGE = gql`
   ${TEXT_CONTENT}
   ${FEATURED_WORK_CONTENT}
   ${FEATURED_BOX_CONTENT}
+  ${CALL_TO_ACTION_CONTENT}
   ${SERVICES_SLIDER_CONTENT}
   ${SERVICES_LIST_CONTENT}
   ${CLIENTELE_CONTENT}
@@ -243,6 +251,7 @@ export const GET_WORK_PAGE = gql`
             ...TextFields
             ...FeaturedWorkFields
             ...FeaturedBoxFields
+            ...CallToActionFields
             ...ServicesSliderFields
             ...ServicesListFields
             ...ClienteleFields
@@ -273,6 +282,7 @@ export const GET_BLOG_PAGE = gql`
   ${TEXT_CONTENT}
   ${FEATURED_WORK_CONTENT}
   ${FEATURED_BOX_CONTENT}
+  ${CALL_TO_ACTION_CONTENT}
   ${SERVICES_SLIDER_CONTENT}
   ${SERVICES_LIST_CONTENT}
   ${CLIENTELE_CONTENT}
@@ -308,6 +318,7 @@ export const GET_BLOG_PAGE = gql`
             ...TextFields
             ...FeaturedWorkFields
             ...FeaturedBoxFields
+            ...CallToActionFields
             ...ServicesSliderFields
             ...ServicesListFields
             ...ClienteleFields
@@ -330,6 +341,7 @@ export const GET_CONTACT_PAGE = gql`
   ${TEXT_CONTENT}
   ${FEATURED_WORK_CONTENT}
   ${FEATURED_BOX_CONTENT}
+  ${CALL_TO_ACTION_CONTENT}
   ${SERVICES_SLIDER_CONTENT}
   ${SERVICES_LIST_CONTENT}
   ${CLIENTELE_CONTENT}
@@ -365,6 +377,7 @@ export const GET_CONTACT_PAGE = gql`
             ...TextFields
             ...FeaturedWorkFields
             ...FeaturedBoxFields
+            ...CallToActionFields
             ...ServicesSliderFields
             ...ServicesListFields
             ...ClienteleFields
@@ -419,6 +432,7 @@ export const GET_SINGLE_WORK = gql`
   ${TEXT_CONTENT}
   ${FEATURED_WORK_CONTENT}
   ${FEATURED_BOX_CONTENT}
+  ${CALL_TO_ACTION_CONTENT}
   ${SERVICES_SLIDER_CONTENT}
   ${SERVICES_LIST_CONTENT}
   ${CLIENTELE_CONTENT}
@@ -474,6 +488,90 @@ export const GET_SINGLE_WORK = gql`
             ...TextFields
             ...FeaturedWorkFields
             ...FeaturedBoxFields
+            ...CallToActionFields
+            ...ServicesSliderFields
+            ...ServicesListFields
+            ...ClienteleFields
+            ...RecentTestimonialsFields
+            ...ImageFields
+            ...MembersFields
+            ...WorksGridFields
+            ...PostsGridFields
+            ...ContactsFields
+            ...LocationMapFields
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const GET_SERVICES = gql`
+  query getServices {
+    services {
+      data {
+        attributes {
+          slug
+        }
+      }
+    }
+  }
+`;
+
+export const GET_SINGLE_SERVICE = gql`
+  ${HEADING_CONTENT}
+  ${TEXT_CONTENT}
+  ${FEATURED_WORK_CONTENT}
+  ${FEATURED_BOX_CONTENT}
+  ${CALL_TO_ACTION_CONTENT}
+  ${SERVICES_SLIDER_CONTENT}
+  ${SERVICES_LIST_CONTENT}
+  ${CLIENTELE_CONTENT}
+  ${RECENT_TESTIMONIALS_CONTENT}
+  ${IMAGE_CONTENT}
+  ${MEMBERS_CONTENT}
+  ${WORKS_GRID_CONTENT}
+  ${POSTS_GRID_CONTENT}
+  ${CONTACTS_CONTENT}
+  ${LOCATION_MAP_CONTENT}
+  query getSingleService($slug: String!) {
+    services(filters: {slug: {eq: $slug}}) {
+      data {
+        attributes {
+          title
+          slug
+          seoContent {
+            metaTitle
+            metaDescription
+          }
+          thumbnail {
+            data {
+              attributes {
+                url
+                width
+                height
+                alternativeText
+              }
+            }
+          }
+          heroImage {
+            data {
+              attributes {
+                url
+                width
+                height
+                alternativeText
+              }
+            }
+          }
+          subServices
+          pageContent {
+            __typename
+            ...HeadingFields
+            ...TextFields
+            ...FeaturedWorkFields
+            ...FeaturedBoxFields
+            ...CallToActionFields
             ...ServicesSliderFields
             ...ServicesListFields
             ...ClienteleFields
@@ -520,6 +618,7 @@ export const GET_SINGLE_POST = gql`
   ${TEXT_CONTENT}
   ${FEATURED_WORK_CONTENT}
   ${FEATURED_BOX_CONTENT}
+  ${CALL_TO_ACTION_CONTENT}
   ${SERVICES_SLIDER_CONTENT}
   ${SERVICES_LIST_CONTENT}
   ${CLIENTELE_CONTENT}
@@ -567,6 +666,7 @@ export const GET_SINGLE_POST = gql`
             ...TextFields
             ...FeaturedWorkFields
             ...FeaturedBoxFields
+            ...CallToActionFields
             ...ServicesSliderFields
             ...ServicesListFields
             ...ClienteleFields

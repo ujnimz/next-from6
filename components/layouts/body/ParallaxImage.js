@@ -4,7 +4,7 @@ import {useInView} from 'react-intersection-observer';
 import useWindowDimensions from '../../../themes/useWindowDimensions';
 import SingleImage from '../../elements/SingleImage';
 
-function ParallaxImage({image, animate}) {
+const ParallaxImage = ({image, animate}) => {
   const {width} = useWindowDimensions();
 
   const {scrollY} = useViewportScroll();
@@ -40,7 +40,7 @@ function ParallaxImage({image, animate}) {
       </div>
     </div>
   );
-}
+};
 
 ParallaxImage.propTypes = {
   image: PropTypes.object.isRequired,

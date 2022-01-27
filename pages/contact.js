@@ -36,6 +36,7 @@ export const getStaticProps = async () => {
   const {data, loading, error} = await apolloCon.query({
     query: GET_CONTACT_PAGE,
   });
+  if (error) console.log(error);
   return {
     props: {
       data,

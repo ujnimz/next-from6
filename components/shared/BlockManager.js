@@ -2,8 +2,9 @@ import PropTypes from 'prop-types';
 import HeadingBlock from '../layouts/body/HeadingBlock';
 import TextBlock from '../layouts/body/TextBlock';
 import FeaturedWork from '../layouts/body/FeaturedWork';
-import Clientele from '../layouts/body/Clientele';
 import FeaturedBox from '../layouts/body/FeaturedBox';
+import CallToActionImage from '../layouts/body/CallToActionImage';
+import Clientele from '../layouts/body/Clientele';
 import TestimonialSlider from '../layouts/body/TestimonialSlider';
 import ServicesSlider from '../layouts/body/ServicesSlider';
 import ServicesList from '../layouts/body/ServicesList';
@@ -27,11 +28,14 @@ const getBlockComponent = ({__typename, ...rest}, index) => {
     case 'ComponentBlocksFeaturedWork':
       Block = FeaturedWork;
       break;
-    case 'ComponentBlocksClientele':
-      Block = Clientele;
-      break;
     case 'ComponentBlocksFeaturedBox':
       Block = FeaturedBox;
+      break;
+    case 'ComponentBlocksCallToAction':
+      Block = CallToActionImage;
+      break;
+    case 'ComponentBlocksClientele':
+      Block = Clientele;
       break;
     case 'ComponentBlocksRecentTestimonials':
       Block = TestimonialSlider;

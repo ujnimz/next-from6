@@ -8,10 +8,15 @@ import SingleImage from './SingleImage';
 const ServiceItem = ({service}) => {
   const [onLink, setOnLink] = useState(false);
 
-  const {title, slug, image} = service.attributes;
+  const {title, slug, thumbnail} = service.attributes;
 
   return (
-    <Link href={`/${slug}`}>
+    <Link
+      href={{
+        pathname: '/services/[slug]',
+        query: {slug: slug},
+      }}
+    >
       <motion.a
         className='flex flex-col cursor-pointer bg-secondary hover:bg-primary flex-1 notch-large transition-all duration-300 ease-in-out'
         onHoverStart={() => setOnLink(true)}
@@ -22,7 +27,7 @@ const ServiceItem = ({service}) => {
             animate={onLink ? {scale: 1.1} : {scale: 1}}
             transition={{duration: 0.5, ease: 'easeInOut'}}
           >
-            <SingleImage image={image} />
+            <SingleImage image={thumbnail} />
           </motion.div>
         </div>
 

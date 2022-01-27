@@ -2,11 +2,13 @@ import {useEffect, useState, useRef} from 'react';
 import PropTypes from 'prop-types';
 import WorkItem from '../../elements/WorkItem';
 
-const WorksGird = ({works}) => {
+const WorksGird = ({works, work_category}) => {
   // init one ref to store the future isotope object
   const isotope = useRef();
   // store the filter keyword in a state
-  const [filterKey, setFilterKey] = useState('*');
+  const [filterKey, setFilterKey] = useState(
+    work_category.data ? work_category.data.attributes.slug : '*',
+  );
 
   // initialize an Isotope object with configs
   useEffect(() => {
@@ -43,14 +45,25 @@ const WorksGird = ({works}) => {
     <div className='flex justify-center py-6 lg:py-10'>
       <div className='container'>
         <ul className='flex space-x-4 px-4 mb-4'>
-          <li onClick={handleFilterKeyChange('*')} className='cursor-pointer'>
+          <li
+            onClick={handleFilterKeyChange('*')}
+            className={`cursor-pointer underline-offset-8 transition-colors duration-300 ease-in-out ${
+              filterKey === '*'
+                ? 'text-primary underline '
+                : 'text-base-content'
+            }`}
+          >
             Show All
           </li>
           {uniqueCategories.map((category, index) => (
             <li
               key={index}
               onClick={handleFilterKeyChange(category.slug)}
-              className='cursor-pointer'
+              className={`cursor-pointer underline-offset-8 transition-colors duration-300 ease-in-out ${
+                filterKey === category.slug
+                  ? 'text-primary underline '
+                  : 'text-base-content'
+              }`}
             >
               {category.title}
             </li>
@@ -69,6 +82,7 @@ const WorksGird = ({works}) => {
 
 WorksGird.propTypes = {
   works: PropTypes.object.isRequired,
+  work_category: PropTypes.object.isRequired,
 };
 
 export default WorksGird;

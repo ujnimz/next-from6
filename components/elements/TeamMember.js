@@ -39,7 +39,7 @@ const TeamMember = ({member}) => {
         onHoverStart={() => setOnLink(true)}
         onHoverEnd={() => setOnLink(false)}
       >
-        <div className='relative overflow-hidden'>
+        <div className='relative overflow-hidden h-full'>
           <motion.div
             className='absolute top-0 left-0 h-full w-full'
             variants={itemHoverVariants}
@@ -49,7 +49,7 @@ const TeamMember = ({member}) => {
           </motion.div>
 
           <motion.div
-            className=''
+            className='h-full'
             variants={itemVariants}
             animate={onLink ? 'hidden' : 'visible'}
           >

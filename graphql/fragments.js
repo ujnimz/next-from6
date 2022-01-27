@@ -63,6 +63,25 @@ export const FEATURED_WORK_CONTENT = gql`
   }
 `;
 
+export const CALL_TO_ACTION_CONTENT = gql`
+  fragment CallToActionFields on ComponentBlocksCallToAction {
+    text
+    buttonLink
+    buttonText
+    buttonStyle
+    backgroundImage {
+      data {
+        attributes {
+          url
+          width
+          height
+          alternativeText
+        }
+      }
+    }
+  }
+`;
+
 export const FEATURED_BOX_CONTENT = gql`
   fragment FeaturedBoxFields on ComponentBlocksFeaturedBox {
     text
@@ -92,7 +111,7 @@ export const SERVICES_SLIDER_CONTENT = gql`
         attributes {
           title
           slug
-          image {
+          thumbnail {
             data {
               attributes {
                 url
@@ -116,16 +135,6 @@ export const SERVICES_LIST_CONTENT = gql`
           title
           slug
           subServices
-          image {
-            data {
-              attributes {
-                url
-                width
-                height
-                alternativeText
-              }
-            }
-          }
         }
       }
     }
@@ -248,6 +257,13 @@ export const WORKS_GRID_CONTENT = gql`
               }
             }
           }
+        }
+      }
+    }
+    work_category {
+      data {
+        attributes {
+          slug
         }
       }
     }

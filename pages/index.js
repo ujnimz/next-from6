@@ -9,7 +9,7 @@ import {GET_HOME_PAGE} from '../graphql/queries';
 const Home = ({data, loading}) => {
   if (loading) return <div>Loading...</div>;
 
-  if (!data.homePage) return <div>No Page Data.</div>;
+  if (!data || !data.homePage) return <div>No Page Data.</div>;
 
   if (data.homePage.data) {
     const {seoContent, pageContent, slider} = data.homePage.data.attributes;
@@ -36,9 +36,8 @@ const Home = ({data, loading}) => {
 export const getStaticProps = async context => {
   const {data, loading, error} = await apolloCon.query({
     query: GET_HOME_PAGE,
-    variables: {locale: context.locale},
   });
-
+  if (error) console.log(error);
   return {
     props: {
       data,

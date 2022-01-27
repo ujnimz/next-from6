@@ -6,7 +6,7 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import TestimonialItem from '../../elements/TestimonialItem';
 
-function LogoSlider({testimonials}) {
+const TestimonialSlider = ({testimonials}) => {
   const {data} = testimonials;
   // Viewport animation
   const [viewRef, inView] = useInView({threshold: 0.5});
@@ -76,10 +76,10 @@ function LogoSlider({testimonials}) {
       </motion.div>
     </div>
   );
-}
+};
 
-LogoSlider.propTypes = {
+TestimonialSlider.propTypes = {
   testimonials: PropTypes.object.isRequired,
 };
 
-export default LogoSlider;
+export default TestimonialSlider;

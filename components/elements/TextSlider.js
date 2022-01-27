@@ -5,7 +5,7 @@ const TextSlider = ({textArray}) => {
   const textArr = textArray.map(item => item.text);
 
   return (
-    <div className='text-4xl md:text-6xl font-bold text-center text-white max-w-xl'>
+    <div className='h-64 text-4xl md:text-6xl font-bold text-center text-white max-w-xl'>
       <Typewriter
         options={{
           strings: textArr,

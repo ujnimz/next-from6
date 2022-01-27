@@ -4,9 +4,9 @@ import BlockManager from '../../components/shared/BlockManager';
 import CustomHeader from '../../components/shared/CustomHeader';
 // GET DATA
 import {apolloCon} from '../../con/apolloCon';
-import {GET_WORKS, GET_SINGLE_WORK} from '../../graphql/queries';
+import {GET_SERVICES, GET_SINGLE_SERVICE} from '../../graphql/queries';
 
-const SingleWork = ({data, loading}) => {
+const SingleService = ({data, loading}) => {
   if (loading) return <div>Loading...</div>;
 
   if (data) {
@@ -33,11 +33,11 @@ const SingleWork = ({data, loading}) => {
 
 export const getStaticPaths = async () => {
   const {data, loading, error} = await apolloCon.query({
-    query: GET_WORKS,
+    query: GET_SERVICES,
   });
   if (error) console.log(error);
   // Get the paths we want to pre-render based on posts
-  const paths = data.works.data.map(post => ({
+  const paths = data.services.data.map(post => ({
     params: {slug: post.attributes.slug},
   }));
 
@@ -49,17 +49,17 @@ export const getStaticPaths = async () => {
 export async function getStaticProps({params}) {
   // Get single work data for params.slug
   const {data, loading, error} = await apolloCon.query({
-    query: GET_SINGLE_WORK,
+    query: GET_SINGLE_SERVICE,
     variables: {slug: params.slug},
   });
   if (error) console.log(error);
   // Pass post data to the page via props
-  return {props: {data: data.works.data[0], loading}};
+  return {props: {data: data.services.data[0], loading}};
 }
 
-SingleWork.propTypes = {
+SingleService.propTypes = {
   data: PropTypes.object.isRequired,
   loading: PropTypes.bool.isRequired,
 };
 
-export default SingleWork;
+export default SingleService;

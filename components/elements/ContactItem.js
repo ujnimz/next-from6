@@ -9,7 +9,7 @@ const ContactItem = ({contact, color = 'text-secondary-content'}) => {
 
   const {link, icon, text} = contact;
   return (
-    <div className='flex justify-center md:justify-start items-stretch w-full mb-4 cursor-pointer'>
+    <div className='flex justify-center items-stretch w-full md:w-1/3 mb-4 cursor-pointer'>
       <Link href={link}>
         <motion.a
           onHoverStart={() => setOnLink(true)}

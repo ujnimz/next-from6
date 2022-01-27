@@ -41,7 +41,7 @@ MyApp.getInitialProps = async ctx => {
   const {data, loading, error} = await apolloCon.query({
     query: GET_SETTINGS,
   });
-
+  if (error) console.log(error);
   return {
     data,
     dataLoading: loading,

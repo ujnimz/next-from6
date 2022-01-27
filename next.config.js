@@ -4,14 +4,9 @@ module.exports = {
   trailingSlash: true,
   images: {
     //loader: 'imgix',
-    //path: 'https://from6-nextjs.herokuapp.com',
+    //path: 'https://fromsix.imgix.net',
     //path: 'https://from6-com.mo.cloudinary.net',
-    domains: [
-      'localhost',
-      'from6-com.mo.cloudinary.net',
-      'from6.imgix.net',
-      'storage.googleapis.com',
-    ],
+    domains: ['localhost', 'from6-com.mo.cloudinary.net', 'fromsix.imgix.net'],
   },
   // i18n: {
   //   locales: ['en', 'ar'],

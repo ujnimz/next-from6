@@ -35,6 +35,7 @@ export const getStaticProps = async () => {
   const {data, loading, error} = await apolloCon.query({
     query: GET_ABOUT_PAGE,
   });
+  if (error) console.log(error);
   return {
     props: {
       data,

@@ -2,7 +2,9 @@ import Head from 'next/head';
 import PropTypes from 'prop-types';
 
 const CustomHeader = ({seoMeta}) => {
-  const {metaTitle = '', metaDescription = ''} = seoMeta;
+  let metaTitle = seoMeta ? seoMeta.metaTitle : '';
+  let metaDescription = seoMeta ? seoMeta.metaTitle : '';
+
   return (
     <Head>
       <title>{metaTitle}</title>

@@ -126,7 +126,7 @@ const FeaturedBox = ({
         style={
           bgImage.data
             ? {
-                backgroundImage: `url(http://localhost:1337${bgImage.data.attributes.url})`,
+                backgroundImage: `url(${process.env.NEXT_PUBLIC_IMAGE_HOST}${bgImage.data.attributes.url})`,
               }
             : {}
         }
