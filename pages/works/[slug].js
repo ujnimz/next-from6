@@ -10,7 +10,8 @@ const SingleWork = ({data, loading}) => {
   if (loading) return <div>Loading...</div>;
 
   if (data) {
-    const {seoContent, heroImage, pageContent} = data.attributes;
+    const {seoContent, heroImage, pageContent, clientName, workCategories} =
+      data.attributes;
 
     return (
       <>
@@ -18,6 +19,25 @@ const SingleWork = ({data, loading}) => {
 
         <main>
           <PageHero image={heroImage} />
+          <div className='flex justify-center bg-accent-focus'>
+            <div className='container py-4 px-4 lg:px-0 flex flex-wrap justify-between'>
+              <div className='flex w-full lg:w-1/2'>
+                <p className='text-xl font-thin text-base-content'>
+                  Client: {clientName}
+                </p>
+              </div>
+              <div className='flex'>
+                <p className='text-xl font-thin text-base-content'>Elements:</p>
+                <p className='text-xl font-thin text-base-content divide-inherit divide-x-2'>
+                  {workCategories.data.map((item, index) => (
+                    <span className='px-2' key={index}>
+                      {item.attributes.title}
+                    </span>
+                  ))}
+                </p>
+              </div>
+            </div>
+          </div>
           <BlockManager blocks={pageContent} />
         </main>
       </>

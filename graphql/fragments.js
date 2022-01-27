@@ -199,6 +199,7 @@ export const IMAGE_CONTENT = gql`
     }
     animate
     blockHeight
+    blockWidth
   }
 `;
 
