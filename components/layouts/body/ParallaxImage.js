@@ -19,12 +19,23 @@ const ParallaxImage = ({image, animate, blockHeight, blockWidth}) => {
   const {scrollY} = useViewportScroll();
   const y2 =
     animate === 'left' || animate === 'right'
-      ? useTransform(scrollY, [0, vpEnd], [0, animate === 'right' ? 100 : -100])
+      ? useTransform(
+          scrollY,
+          [0, vpEnd],
+          [
+            animate === 'right' ? -(width / 10) : width / 10,
+            animate === 'right' ? width / 10 : -(width / 10),
+          ],
+        )
       : 0;
 
   const x2 =
     animate === 'up' || animate === 'down'
-      ? useTransform(scrollY, [0, vpEnd], [0, animate === 'down' ? 100 : -100])
+      ? useTransform(
+          scrollY,
+          [0, vpEnd],
+          [animate === 'down' ? -100 : 100, animate === 'down' ? 100 : -100],
+        )
       : 0;
 
   useEffect(() => {
