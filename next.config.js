@@ -4,9 +4,9 @@ module.exports = {
   trailingSlash: true,
   images: {
     // loader: 'imgix',
-    // path: 'https://fromsix.imgix.net',
-    // loader: 'cloudinary',
-    // path: 'https://ujnimz.mo.cloudinary.net',
+    // path: 'https://froms.imgix.net',
+    loader: 'cloudinary',
+    path: 'https://ujnimz.mo.cloudinary.net',
     domains: ['localhost', 'ujnimz.mo.cloudinary.net', 'fromsix.imgix.net'],
   },
   // i18n: {
