@@ -15,10 +15,11 @@ const MainFooter = ({data}) => {
           <div className='mb-6'>
             <h3 className='text-tangerine text-2xl '>{contactTitle}</h3>
           </div>
-
-          {contacts.map((contact, index) => (
-            <ContactItem key={index} contact={contact} />
-          ))}
+          <div className='flex flex-col items-center justify-center mb-3'>
+            {contacts.map((contact, index) => (
+              <ContactItem key={index} contact={contact} />
+            ))}
+          </div>
         </div>
 
         <div className='flex flex-col items-center md:items-end w-full md:w-1/2 lg:w-1/4'>
