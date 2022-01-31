@@ -161,17 +161,17 @@ const HomeSlider = ({data}) => {
         >
           <source
             // src={`${process.env.NEXT_PUBLIC_IMAGE_HOST}${ogvVideo.data.attributes.url}`}
-            src={`./${ogvVideo.data.attributes.url}`}
+            src={`${ogvVideo.data.attributes.url}`}
             type='video/ogv'
           />
           <source
             // src={`${process.env.NEXT_PUBLIC_IMAGE_HOST}${webmVideo.data.attributes.url}`}
-            src={`./${webmVideo.data.attributes.url}`}
+            src={`${webmVideo.data.attributes.url}`}
             type='video/webm'
           />
           <source
             // src={`${process.env.NEXT_PUBLIC_IMAGE_HOST}${mp4Video.data.attributes.url}`}
-            src={`./${mp4Video.data.attributes.url}`}
+            src={`${mp4Video.data.attributes.url}`}
             type='video/mp4'
           />
           Your browser does not support the video tag.
