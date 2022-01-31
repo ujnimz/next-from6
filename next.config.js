@@ -3,11 +3,11 @@ module.exports = {
   reactStrictMode: true,
   trailingSlash: true,
   images: {
-    // loader: 'imgix',
-    // path: 'https://froms.imgix.net',
+    loader: 'imgix',
+    path: 'https://fromsix.imgix.net',
     // loader: 'cloudinary',
-    // path: 'https://from6-com.mo.cloudinary.net',
-    domains: ['localhost', 'from6-com.mo.cloudinary.net', 'froms.imgix.net'],
+    // path: 'https://ujnimz.mo.cloudinary.net',
+    domains: ['localhost', 'ujnimz.mo.cloudinary.net', 'fromsix.imgix.net'],
   },
   // i18n: {
   //   locales: ['en', 'ar'],
