@@ -4,9 +4,10 @@ module.exports = {
   trailingSlash: true,
   images: {
     //loader: 'imgix',
-    //path: 'https://fromsix.imgix.net',
-    //path: 'https://from6-com.mo.cloudinary.net',
-    domains: ['localhost', 'from6-com.mo.cloudinary.net', 'fromsix.imgix.net'],
+    //path: 'https://from6.imgix.net',
+    // loader: 'cloudinary',
+    // path: 'https://from6-com.mo.cloudinary.net',
+    domains: ['localhost', 'from6-com.mo.cloudinary.net', 'from6.imgix.net'],
   },
   // i18n: {
   //   locales: ['en', 'ar'],
