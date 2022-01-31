@@ -59,13 +59,13 @@ const MainNavigation = ({navItems}) => {
   return (
     <div className='relative flex flex-col pr-6 pt-6'>
       <motion.nav
-        className='relative'
+        className='relative drop-shadow-md'
         initial='open'
         animate={isOpen ? 'open' : 'closed'}
         variants={sidebar}
       >
         <motion.div
-          className='absolute top-0 right-0 bottom-0 bg-primary -z-10 rounded-2xl'
+          className='absolute top-0 right-0 bottom-0 bg-primary -z-10 rounded-2xl '
           variants={sidebar}
         />
 

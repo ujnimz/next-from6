@@ -141,6 +141,8 @@ const Logo = () => {
           id='From6_Logo'
           xmlns='http://www.w3.org/2000/svg'
           viewBox='0 0 435.73 180.05'
+          width='100%'
+          height='100%'
           initial='hide'
           animate='show'
           variants={mainVariants}
