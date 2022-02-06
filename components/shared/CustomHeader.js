@@ -39,7 +39,7 @@ const CustomHeader = ({seoMeta}) => {
 };
 
 CustomHeader.propTypes = {
-  seoMeta: PropTypes.object.isRequired,
+  seoMeta: PropTypes.object,
 };
 
 export default CustomHeader;

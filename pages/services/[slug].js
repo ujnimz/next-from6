@@ -1,33 +1,42 @@
 import PropTypes from 'prop-types';
+import {motion} from 'framer-motion';
 import PageHero from '../../components/layouts/body/PageHero';
 import BlockManager from '../../components/shared/BlockManager';
 import CustomHeader from '../../components/shared/CustomHeader';
+import LoadingIcon from '../../components/layouts/body/LoadingIcon';
+import NoDataScreen from '../../components/layouts/body/NoDataScreen';
 // GET DATA
 import {apolloCon} from '../../con/apolloCon';
 import {GET_SERVICES, GET_SINGLE_SERVICE} from '../../graphql/queries';
 
 const SingleService = ({data, loading}) => {
-  if (loading) return <div>Loading...</div>;
+  const variants = {
+    hidden: {opacity: 0, x: 0, y: -200},
+    enter: {opacity: 1, x: 0, y: 0},
+    exit: {opacity: 0, x: 0, y: -200},
+  };
 
-  if (data) {
-    const {seoContent, heroImage, pageContent} = data.attributes;
+  if (loading) return <LoadingIcon />;
 
-    return (
-      <>
-        <CustomHeader seoMeta={seoContent} />
+  if (!data || !data.homePage || !data.homePage.data) return <NoDataScreen />;
 
-        <main>
-          <PageHero image={heroImage} />
-          <BlockManager blocks={pageContent} />
-        </main>
-      </>
-    );
-  }
+  const {seoContent, heroImage, pageContent} = data.attributes;
 
   return (
-    <div className='flex justify-center py-12 lg:py-20 bg-accent'>
-      <h1>No data. Please publish the page.</h1>
-    </div>
+    <>
+      <CustomHeader seoMeta={seoContent} />
+
+      <motion.main
+        variants={variants}
+        initial='hidden'
+        animate='enter'
+        exit='exit'
+        transition={{type: 'spring', duration: 1}}
+      >
+        <PageHero image={heroImage} />
+        <BlockManager blocks={pageContent} />
+      </motion.main>
+    </>
   );
 };
 
