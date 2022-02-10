@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import WorkItem from '../../elements/WorkItem';
 
 const WorksGird = ({works, work_category}) => {
-  console.log(works);
   // init one ref to store the future isotope object
   const isotope = useRef();
   // store the filter keyword in a state

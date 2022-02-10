@@ -76,7 +76,7 @@ const ServicesListItem = ({service}) => {
 };
 
 ServicesListItem.propTypes = {
-  service: PropTypes.array.isRequired,
+  service: PropTypes.object.isRequired,
 };
 
 export default ServicesListItem;

@@ -8,11 +8,12 @@ const SingleImage = ({image, ...rest}) => {
   }
 
   const {url, width, height, alternativeText = 'image'} = image.data.attributes;
+  var relativeUrl = new URL(url);
   return (
     <Image
       //loader={myLoader}
       layout='responsive'
-      src={`${url}`}
+      src={`${relativeUrl.pathname}`}
       alt={alternativeText}
       height={height}
       width={width}
