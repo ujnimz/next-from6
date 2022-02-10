@@ -185,6 +185,13 @@ export const RECENT_TESTIMONIALS_CONTENT = gql`
   }
 `;
 
+export const YOUTUBE_VIDEO_CONTENT = gql`
+  fragment YouTubeVideoFields on ComponentBlocksYouTubeVideo {
+    youtubeLink
+    autoPlay
+  }
+`;
+
 export const IMAGE_CONTENT = gql`
   fragment ImageFields on ComponentBlocksImage {
     image {
@@ -198,8 +205,24 @@ export const IMAGE_CONTENT = gql`
       }
     }
     animate
-    blockHeight
-    blockWidth
+  }
+`;
+
+export const IMAGE_GRID_CONTENT = gql`
+  fragment ImageGridFields on ComponentBlocksImageGrid {
+    singleImage {
+      image {
+        data {
+          attributes {
+            url
+            width
+            height
+            alternativeText
+          }
+        }
+      }
+    }
+    numberOfCols
   }
 `;
 
@@ -234,7 +257,7 @@ export const MEMBERS_CONTENT = gql`
 
 export const WORKS_GRID_CONTENT = gql`
   fragment WorksGridFields on ComponentBlocksWorksGrid {
-    works {
+    works(pagination: {limit: 50}) {
       data {
         attributes {
           title

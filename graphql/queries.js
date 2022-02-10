@@ -9,7 +9,9 @@ import {
   SERVICES_LIST_CONTENT,
   CLIENTELE_CONTENT,
   RECENT_TESTIMONIALS_CONTENT,
+  YOUTUBE_VIDEO_CONTENT,
   IMAGE_CONTENT,
+  IMAGE_GRID_CONTENT,
   MEMBERS_CONTENT,
   WORKS_GRID_CONTENT,
   POSTS_GRID_CONTENT,
@@ -27,7 +29,9 @@ export const GET_HOME_PAGE = gql`
   ${SERVICES_LIST_CONTENT}
   ${CLIENTELE_CONTENT}
   ${RECENT_TESTIMONIALS_CONTENT}
+  ${YOUTUBE_VIDEO_CONTENT}
   ${IMAGE_CONTENT}
+  ${IMAGE_GRID_CONTENT}
   ${MEMBERS_CONTENT}
   ${WORKS_GRID_CONTENT}
   ${POSTS_GRID_CONTENT}
@@ -79,7 +83,9 @@ export const GET_HOME_PAGE = gql`
             ...ServicesListFields
             ...ClienteleFields
             ...RecentTestimonialsFields
+            ...YouTubeVideoFields
             ...ImageFields
+            ...ImageGridFields
             ...MembersFields
             ...WorksGridFields
             ...PostsGridFields
@@ -102,7 +108,9 @@ export const GET_ABOUT_PAGE = gql`
   ${SERVICES_LIST_CONTENT}
   ${CLIENTELE_CONTENT}
   ${RECENT_TESTIMONIALS_CONTENT}
+  ${YOUTUBE_VIDEO_CONTENT}
   ${IMAGE_CONTENT}
+  ${IMAGE_GRID_CONTENT}
   ${MEMBERS_CONTENT}
   ${WORKS_GRID_CONTENT}
   ${POSTS_GRID_CONTENT}
@@ -138,7 +146,9 @@ export const GET_ABOUT_PAGE = gql`
             ...ServicesListFields
             ...ClienteleFields
             ...RecentTestimonialsFields
+            ...YouTubeVideoFields
             ...ImageFields
+            ...ImageGridFields
             ...MembersFields
             ...WorksGridFields
             ...PostsGridFields
@@ -161,7 +171,9 @@ export const GET_SERVICES_PAGE = gql`
   ${SERVICES_LIST_CONTENT}
   ${CLIENTELE_CONTENT}
   ${RECENT_TESTIMONIALS_CONTENT}
+  ${YOUTUBE_VIDEO_CONTENT}
   ${IMAGE_CONTENT}
+  ${IMAGE_GRID_CONTENT}
   ${MEMBERS_CONTENT}
   ${WORKS_GRID_CONTENT}
   ${POSTS_GRID_CONTENT}
@@ -197,7 +209,9 @@ export const GET_SERVICES_PAGE = gql`
             ...ServicesListFields
             ...ClienteleFields
             ...RecentTestimonialsFields
+            ...YouTubeVideoFields
             ...ImageFields
+            ...ImageGridFields
             ...MembersFields
             ...WorksGridFields
             ...PostsGridFields
@@ -220,7 +234,9 @@ export const GET_WORK_PAGE = gql`
   ${SERVICES_LIST_CONTENT}
   ${CLIENTELE_CONTENT}
   ${RECENT_TESTIMONIALS_CONTENT}
+  ${YOUTUBE_VIDEO_CONTENT}
   ${IMAGE_CONTENT}
+  ${IMAGE_GRID_CONTENT}
   ${MEMBERS_CONTENT}
   ${WORKS_GRID_CONTENT}
   ${POSTS_GRID_CONTENT}
@@ -256,7 +272,9 @@ export const GET_WORK_PAGE = gql`
             ...ServicesListFields
             ...ClienteleFields
             ...RecentTestimonialsFields
+            ...YouTubeVideoFields
             ...ImageFields
+            ...ImageGridFields
             ...MembersFields
             ...WorksGridFields
             ...PostsGridFields
@@ -287,7 +305,9 @@ export const GET_BLOG_PAGE = gql`
   ${SERVICES_LIST_CONTENT}
   ${CLIENTELE_CONTENT}
   ${RECENT_TESTIMONIALS_CONTENT}
+  ${YOUTUBE_VIDEO_CONTENT}
   ${IMAGE_CONTENT}
+  ${IMAGE_GRID_CONTENT}
   ${MEMBERS_CONTENT}
   ${WORKS_GRID_CONTENT}
   ${POSTS_GRID_CONTENT}
@@ -323,7 +343,9 @@ export const GET_BLOG_PAGE = gql`
             ...ServicesListFields
             ...ClienteleFields
             ...RecentTestimonialsFields
+            ...YouTubeVideoFields
             ...ImageFields
+            ...ImageGridFields
             ...MembersFields
             ...WorksGridFields
             ...PostsGridFields
@@ -346,7 +368,9 @@ export const GET_CONTACT_PAGE = gql`
   ${SERVICES_LIST_CONTENT}
   ${CLIENTELE_CONTENT}
   ${RECENT_TESTIMONIALS_CONTENT}
+  ${YOUTUBE_VIDEO_CONTENT}
   ${IMAGE_CONTENT}
+  ${IMAGE_GRID_CONTENT}
   ${MEMBERS_CONTENT}
   ${WORKS_GRID_CONTENT}
   ${POSTS_GRID_CONTENT}
@@ -382,7 +406,9 @@ export const GET_CONTACT_PAGE = gql`
             ...ServicesListFields
             ...ClienteleFields
             ...RecentTestimonialsFields
+            ...YouTubeVideoFields
             ...ImageFields
+            ...ImageGridFields
             ...MembersFields
             ...WorksGridFields
             ...PostsGridFields
@@ -397,7 +423,7 @@ export const GET_CONTACT_PAGE = gql`
 
 export const GET_WORKS = gql`
   query getWorks {
-    works {
+    works(pagination: {limit: 50}) {
       data {
         attributes {
           title
@@ -437,7 +463,9 @@ export const GET_SINGLE_WORK = gql`
   ${SERVICES_LIST_CONTENT}
   ${CLIENTELE_CONTENT}
   ${RECENT_TESTIMONIALS_CONTENT}
+  ${YOUTUBE_VIDEO_CONTENT}
   ${IMAGE_CONTENT}
+  ${IMAGE_GRID_CONTENT}
   ${MEMBERS_CONTENT}
   ${WORKS_GRID_CONTENT}
   ${POSTS_GRID_CONTENT}
@@ -493,7 +521,9 @@ export const GET_SINGLE_WORK = gql`
             ...ServicesListFields
             ...ClienteleFields
             ...RecentTestimonialsFields
+            ...YouTubeVideoFields
             ...ImageFields
+            ...ImageGridFields
             ...MembersFields
             ...WorksGridFields
             ...PostsGridFields
@@ -528,7 +558,9 @@ export const GET_SINGLE_SERVICE = gql`
   ${SERVICES_LIST_CONTENT}
   ${CLIENTELE_CONTENT}
   ${RECENT_TESTIMONIALS_CONTENT}
+  ${YOUTUBE_VIDEO_CONTENT}
   ${IMAGE_CONTENT}
+  ${IMAGE_GRID_CONTENT}
   ${MEMBERS_CONTENT}
   ${WORKS_GRID_CONTENT}
   ${POSTS_GRID_CONTENT}
@@ -576,7 +608,9 @@ export const GET_SINGLE_SERVICE = gql`
             ...ServicesListFields
             ...ClienteleFields
             ...RecentTestimonialsFields
+            ...YouTubeVideoFields
             ...ImageFields
+            ...ImageGridFields
             ...MembersFields
             ...WorksGridFields
             ...PostsGridFields
@@ -623,7 +657,9 @@ export const GET_SINGLE_POST = gql`
   ${SERVICES_LIST_CONTENT}
   ${CLIENTELE_CONTENT}
   ${RECENT_TESTIMONIALS_CONTENT}
+  ${YOUTUBE_VIDEO_CONTENT}
   ${IMAGE_CONTENT}
+  ${IMAGE_GRID_CONTENT}
   ${MEMBERS_CONTENT}
   ${WORKS_GRID_CONTENT}
   ${POSTS_GRID_CONTENT}
@@ -671,7 +707,9 @@ export const GET_SINGLE_POST = gql`
             ...ServicesListFields
             ...ClienteleFields
             ...RecentTestimonialsFields
+            ...YouTubeVideoFields
             ...ImageFields
+            ...ImageGridFields
             ...MembersFields
             ...WorksGridFields
             ...PostsGridFields

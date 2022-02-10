@@ -16,7 +16,7 @@ const Paragraph = ({text, align}) => {
       className={`flex-1 mb-6 last:mb-0 ${styleConfig[align].containerWidth}`}
     >
       <div
-        className={`${styleConfig[align].textAlign} text-base-content font-light text-xl leading-snug`}
+        className={`${styleConfig[align].textAlign} text-base-content font-light text-2xl leading-snug`}
         dangerouslySetInnerHTML={{__html: cleanText}}
       />
     </div>

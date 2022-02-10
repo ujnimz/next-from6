@@ -1,10 +1,12 @@
-## This is a full stack website developed by me. This is for educational pourpose only.
+## An agency website with Next.js.
 
-## Techs used in the project
+## A full stack website with Next.js and Strapi.
+
+## Tech Stack used in the project
 
 [Next.js for Frontend](https://nextjs.org/)
 
-[Strapi for Backend](https://strapi.io/)
+[Strapi 4 for Backend](https://strapi.io/)
 
 [Heroku for Strapi deployment](http://www.heroku.com/)
 
@@ -14,11 +16,13 @@
 
 [Google Cloud Storage for media storage](https://cloud.google.com/)
 
+[Tailwind 3 for CSS Framework](https://tailwindcss.com/)
+
 ## Demo
 
 [Preview website here](https://next-from6.vercel.app/)
 
 ## .env variables
 
-NEXT_PUBLIC_STRAPI_API_URL=Link
-NEXT_PUBLIC_IMAGE_HOST= Link
+NEXT_PUBLIC_STRAPI_API_URL=
+NEXT_PUBLIC_IMAGE_HOST=

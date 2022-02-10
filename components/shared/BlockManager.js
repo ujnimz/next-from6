@@ -8,7 +8,9 @@ import Clientele from '../layouts/body/Clientele';
 import TestimonialSlider from '../layouts/body/TestimonialSlider';
 import ServicesSlider from '../layouts/body/ServicesSlider';
 import ServicesList from '../layouts/body/ServicesList';
+import YouTubeVideo from '../layouts/body/YouTubeVideo';
 import ParallaxImage from '../layouts/body/ParallaxImage';
+import ImageGird from '../layouts/body/ImageGird';
 import Team from '../layouts/body/Team';
 import WorksGird from '../layouts/body/WorksGird';
 import PostsGird from '../layouts/body/PostsGird';
@@ -46,8 +48,14 @@ const getBlockComponent = ({__typename, ...rest}, index) => {
     case 'ComponentBlocksServicesList':
       Block = ServicesList;
       break;
+    case 'ComponentBlocksYouTubeVideo':
+      Block = YouTubeVideo;
+      break;
     case 'ComponentBlocksImage':
       Block = ParallaxImage;
+      break;
+    case 'ComponentBlocksImageGrid':
+      Block = ImageGird;
       break;
     case 'ComponentBlocksMembers':
       Block = Team;

@@ -5,7 +5,7 @@ import {useInView} from 'react-intersection-observer';
 import useWindowDimensions from '../../../themes/useWindowDimensions';
 import SingleImage from '../../elements/SingleImage';
 
-const ParallaxImage = ({image, animate, blockHeight, blockWidth}) => {
+const ParallaxImage = ({image, animate}) => {
   const {width, height} = useWindowDimensions();
 
   const [vpEnd, setVpEnd] = useState(height);
@@ -55,19 +55,27 @@ const ParallaxImage = ({image, animate, blockHeight, blockWidth}) => {
   return (
     <div
       ref={ref}
-      className='flex justify-center items-center overflow-hidden'
-      style={{
-        height: heightRatio * width,
-      }}
+      className='flex justify-center items-center overflow-hidden w-full my-10 lg:my-14'
+      style={
+        animate === 'none'
+          ? {}
+          : {
+              height: heightRatio * width,
+            }
+      }
     >
-      <div>
+      <div className={animate === 'none' ? 'container mx-auto' : ''}>
         <motion.div
-          style={{
-            y: x2,
-            x: y2,
-            width: width + 400,
-            height: heightRatio * (width + 400),
-          }}
+          style={
+            animate === 'none'
+              ? {}
+              : {
+                  y: x2,
+                  x: y2,
+                  width: width + 400,
+                  height: heightRatio * (width + 400),
+                }
+          }
         >
           <SingleImage image={image} />
         </motion.div>
