@@ -1,4 +1,4 @@
-import React, {useRef, useEffect} from 'react';
+import React, {useRef, useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import {motion, useCycle} from 'framer-motion';
@@ -6,8 +6,8 @@ import MenuIcon from '../elements/MenuIcon';
 import ThemeSwitch from '../elements/ThemeSwitch';
 
 const MainNavigation = ({navItems}) => {
-  const [isOpen, toggleOpen] = useCycle(false, true);
-
+  //const [isOpen, toggleOpen] = useCycle(false, true);
+  const [isOpen, toggleOpen] = useState(false);
   const wrapperRef = useRef(null);
 
   useEffect(() => {
@@ -16,7 +16,7 @@ const MainNavigation = ({navItems}) => {
      */
     function handleClickOutside(event) {
       if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
-        toggleOpen(!isOpen);
+        toggleOpen(false);
       }
     }
     // Bind the event listener
