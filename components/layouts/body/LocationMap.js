@@ -1,18 +1,27 @@
 import PropTypes from 'prop-types';
 
-const LocationMap = ({iframeSrc, mapHeight}) => {
+const LocationMap = ({
+  placeId,
+  apiKey,
+  zoomLevel = '15',
+  mapHeight = '600',
+}) => {
   return (
     <div className='w-full'>
-      <iframe
-        src={iframeSrc}
-        width='100%'
-        height={mapHeight}
-        frameBorder='0'
-        style={{border: 0}}
-        allowFullScreen={false}
-        aria-hidden='false'
-        tabIndex='0'
-      ></iframe>
+      {placeId && apiKey ? (
+        <iframe
+          width='100%'
+          height={mapHeight}
+          frameborder='0'
+          style={{border: 0}}
+          src={`https://www.google.com/maps/embed/v1/place?key=${apiKey}&q=place_id:${placeId}&zoom=${zoomLevel}`}
+          allowfullscreen
+        ></iframe>
+      ) : (
+        <div className='flex justify-center items-center min-h-12'>
+          <p>Map cannot be displayed. Please check the Place ID and API key.</p>
+        </div>
+      )}
     </div>
   );
 };

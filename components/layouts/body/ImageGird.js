@@ -5,16 +5,16 @@ const ImageGird = ({singleImage, numberOfCols}) => {
   let classNames = '';
   switch (numberOfCols) {
     case 'two':
-      classNames = 'w-full md:w-1/2 mb-10 md:mb-0 last:mb-0';
+      classNames = 'w-full md:w-1/2 mb-10 md:mb-0 last:mb-0 notch-large';
       break;
     case 'three':
-      classNames = 'w-full md:w-1/3 mb-10 md:mb-0 last:mb-0';
+      classNames = 'w-full md:w-1/3 mb-10 md:mb-0 last:mb-0 notch-large';
       break;
     case 'four':
-      classNames = 'w-full md:w-1/4 mb-10 md:mb-0 last:mb-0';
+      classNames = 'w-full md:w-1/4 mb-10 md:mb-0 last:mb-0 notch-large';
       break;
     default:
-      classNames = 'w-full md:w-1/2 mb-10 md:mb-0 last:mb-0';
+      classNames = 'w-full md:w-1/2 mb-10 md:mb-0 last:mb-0 notch-large';
       break;
   }
 

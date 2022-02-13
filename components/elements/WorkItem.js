@@ -21,7 +21,7 @@ const WorkItem = ({work}) => {
         onHoverStart={() => setOnLink(true)}
         onHoverEnd={() => setOnLink(false)}
       >
-        <div className='overflow-hidden mb-3'>
+        <div className='overflow-hidden mb-3 notch-large'>
           <motion.div
             animate={onLink ? {scale: 1.1} : {scale: 1}}
             transition={{duration: 0.3, ease: 'easeInOut'}}

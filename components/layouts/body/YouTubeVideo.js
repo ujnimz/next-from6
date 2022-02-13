@@ -4,7 +4,7 @@ import ReactPlayer from 'react-player';
 const YouTubeVideo = ({youtubeLink, autoPlay}) => {
   return (
     <div className='flex justify-center items-stretch py-10 lg:py-14 w-full'>
-      <div className='container max-w-6xl px-4'>
+      <div className='container max-w-6xl px-4 notch-exlarge'>
         <div className='relative' style={{paddingTop: '56.25%'}}>
           <ReactPlayer
             className='absolute top-0 left-0'

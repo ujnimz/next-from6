@@ -64,7 +64,9 @@ const ParallaxImage = ({image, animate}) => {
             }
       }
     >
-      <div className={animate === 'none' ? 'container mx-auto' : ''}>
+      <div
+        className={animate === 'none' ? 'container mx-auto notch-large' : ''}
+      >
         <motion.div
           style={
             animate === 'none'

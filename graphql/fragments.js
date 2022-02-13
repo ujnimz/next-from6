@@ -40,7 +40,9 @@ export const CONTACTS_CONTENT = gql`
 
 export const LOCATION_MAP_CONTENT = gql`
   fragment LocationMapFields on ComponentBlocksLocationMap {
-    iframeSrc
+    placeId
+    apiKey
+    zoomLevel
     mapHeight
   }
 `;
@@ -252,6 +254,7 @@ export const MEMBERS_CONTENT = gql`
         }
       }
     }
+    hoverAnimate
   }
 `;
 

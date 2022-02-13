@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {motion} from 'framer-motion';
 import SingleImage from './SingleImage';
 
-const TeamMember = ({member}) => {
+const TeamMember = ({member, hoverAnimate}) => {
   const [onLink, setOnLink] = useState(false);
 
   const {image, hoverImage, name, jobTitle} = member;
@@ -39,7 +39,7 @@ const TeamMember = ({member}) => {
         onHoverStart={() => setOnLink(true)}
         onHoverEnd={() => setOnLink(false)}
       >
-        <div className='relative overflow-hidden h-full'>
+        <div className='relative overflow-hidden h-full notch-large'>
           <motion.div
             className='absolute top-0 left-0 h-full w-full'
             variants={itemHoverVariants}
@@ -51,7 +51,7 @@ const TeamMember = ({member}) => {
           <motion.div
             className='h-full'
             variants={itemVariants}
-            animate={onLink ? 'hidden' : 'visible'}
+            animate={hoverAnimate && onLink ? 'hidden' : 'visible'}
           >
             <SingleImage image={image} />
           </motion.div>
@@ -68,6 +68,7 @@ const TeamMember = ({member}) => {
 
 TeamMember.propTypes = {
   member: PropTypes.object.isRequired,
+  hoverAnimate: PropTypes.bool.isRequired,
 };
 
 export default TeamMember;

@@ -1,3 +1,4 @@
+import React, {useRef, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import {motion, useCycle} from 'framer-motion';
@@ -6,6 +7,25 @@ import ThemeSwitch from '../elements/ThemeSwitch';
 
 const MainNavigation = ({navItems}) => {
   const [isOpen, toggleOpen] = useCycle(false, true);
+
+  const wrapperRef = useRef(null);
+
+  useEffect(() => {
+    /**
+     * Close menu if clicked on outside of the wrapper
+     */
+    function handleClickOutside(event) {
+      if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
+        toggleOpen(!isOpen);
+      }
+    }
+    // Bind the event listener
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      // Unbind the event listener on clean up
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [wrapperRef]);
 
   const menuVariants = {
     open: {
@@ -57,7 +77,7 @@ const MainNavigation = ({navItems}) => {
     },
   };
   return (
-    <div className='relative flex flex-col pr-6 pt-6'>
+    <div ref={wrapperRef} className='relative flex flex-col pr-6 pt-6'>
       <motion.nav
         className='relative drop-shadow-md'
         initial='open'
@@ -87,6 +107,7 @@ const MainNavigation = ({navItems}) => {
               variants={menuItemVariants}
               whileHover={{scale: 1.1}}
               whileTap={{scale: 0.95}}
+              //onClick={() => toggleOpen(!isOpen)}
             >
               <Link href={`/${item.link}`}>
                 <a className='text-primary-content text-sm font-light text-right block p-0.5'>

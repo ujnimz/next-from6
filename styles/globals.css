@@ -4,6 +4,18 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+.notch-exlarge {
+  --notchSize: 4rem;
+
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - var(--notchSize)),
+    calc(100% - var(--notchSize)) 100%,
+    0 100%
+  );
+}
+
 .notch-large {
   --notchSize: 2.2rem;
 
