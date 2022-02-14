@@ -20,14 +20,14 @@ const Paragraph = ({text, align, controls}) => {
   var cleanText = DOMPurify.sanitize(marked.parse(text));
 
   const styleConfig = {
-    left: {textAlign: 'text-left', containerWidth: 'max-w-full'},
+    left: {textAlign: 'text-left', containerWidth: 'w-full'},
     center: {textAlign: 'text-center', containerWidth: 'max-w-5xl'},
-    right: {textAlign: 'text-right', containerWidth: 'max-w-full'},
+    right: {textAlign: 'text-right', containerWidth: 'w-full'},
   };
 
   return (
     <motion.div
-      className={`flex-1 mb-6 last:mb-0 ${styleConfig[align].containerWidth}`}
+      className={`flex-1 mx-auto mb-6 last:mb-0 ${styleConfig[align].containerWidth}`}
       variants={textVariants}
       initial='hidden'
       animate={controls}
