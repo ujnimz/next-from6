@@ -24,6 +24,7 @@ export const TEXT_CONTENT = gql`
     paragraphs {
       text
       align
+      textType
     }
   }
 `;

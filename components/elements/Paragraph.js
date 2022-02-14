@@ -3,7 +3,9 @@ import {motion} from 'framer-motion';
 import {marked} from 'marked';
 import DOMPurify from 'dompurify';
 
-const Paragraph = ({text, align, controls}) => {
+const Paragraph = ({paragraph, controls}) => {
+  const {text, align, textType} = paragraph;
+  console.log(textType);
   const textVariants = {
     hidden: {
       opacity: 0,
@@ -17,7 +19,15 @@ const Paragraph = ({text, align, controls}) => {
     },
   };
 
-  var cleanText = DOMPurify.sanitize(marked.parse(text));
+  const getListItems = text => {
+    return text.split('\n').map(item => item.replace(/- /g, ''));
+  };
+
+  const getParagraph = text => {
+    return DOMPurify.sanitize(marked.parse(text));
+  };
+
+  const ListTag = textType === 'bulletList' ? `ol` : `ol`;
 
   const styleConfig = {
     left: {textAlign: 'text-left', containerWidth: 'w-full'},
@@ -32,17 +42,36 @@ const Paragraph = ({text, align, controls}) => {
       initial='hidden'
       animate={controls}
     >
-      <div
-        className={`${styleConfig[align].textAlign} text-base-content font-light text-2xl leading-snug`}
-        dangerouslySetInnerHTML={{__html: cleanText}}
-      />
+      {textType === 'paragraph' ? (
+        <div
+          className={`${styleConfig[align].textAlign} text-base-content font-light text-2xl leading-snug`}
+          dangerouslySetInnerHTML={{__html: getParagraph(text)}}
+        />
+      ) : (
+        <ListTag
+          className={
+            textType === 'bulletList'
+              ? `list-inside list-disc`
+              : `list-inside list-decimal`
+          }
+        >
+          {getListItems(text).map((item, index) => (
+            <li
+              className='list-item font-light text-2xl leading-relaxed '
+              key={index}
+            >
+              {item}
+            </li>
+          ))}
+        </ListTag>
+      )}
     </motion.div>
   );
 };
 
 Paragraph.propTypes = {
-  text: PropTypes.string.isRequired,
-  align: PropTypes.string.isRequired,
+  paragraph: PropTypes.object.isRequired,
+  controls: PropTypes.object.isRequired,
 };
 
 export default Paragraph;

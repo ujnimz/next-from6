@@ -59,7 +59,7 @@ const TeamMember = ({member, hoverAnimate}) => {
 
         <div className='flex flex-col items-start justify-between flex-1 py-2'>
           <h3 className='text-base-content text-lg lg:text-xl'>{name}</h3>
-          <p className='text-accent text-sm font-light'>{jobTitle}</p>
+          <p className='text-neutral-focus text-sm font-light'>{jobTitle}</p>
         </div>
       </motion.div>
     </div>
