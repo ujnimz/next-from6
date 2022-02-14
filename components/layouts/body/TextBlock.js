@@ -1,15 +1,29 @@
+import {useEffect} from 'react';
 import PropTypes from 'prop-types';
+import {useInView} from 'react-intersection-observer';
+import {useAnimation} from 'framer-motion';
 import Paragraph from '../../elements/Paragraph';
 
 const TextBlock = ({paragraphs}) => {
+  // Viewport animation
+  const [viewRef, inView] = useInView({threshold: 0.7});
+  const controls = useAnimation();
+
+  useEffect(() => {
+    if (inView) {
+      controls.start('visible');
+    }
+  }, [controls, inView]);
+
   return (
-    <div className='flex justify-center py-6 lg:py-10'>
+    <div ref={viewRef} className='flex justify-center py-6 lg:py-10'>
       <div className='container flex flex-col items-center px-6 lg:px-0'>
         {paragraphs.map((paragraph, index) => (
           <Paragraph
             key={index}
             text={paragraph.text}
             align={paragraph.align}
+            controls={controls}
           />
         ))}
       </div>

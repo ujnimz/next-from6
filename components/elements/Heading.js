@@ -25,6 +25,12 @@ const Heading = ({title, tag, align, textColor, spanColor, controls}) => {
     left: {textAlign: 'text-left', containerWidth: 'max-w-full'},
     center: {textAlign: 'text-center', containerWidth: 'max-w-5xl'},
     right: {textAlign: 'text-right', containerWidth: 'max-w-full'},
+    h1: {fontSize: 'text-4xl md:text-5xl'},
+    h2: {fontSize: 'text-3xl md:text-4xl'},
+    h3: {fontSize: 'text-3xl md:text-3xl'},
+    h4: {fontSize: 'text-3xl md:text-2xl'},
+    h5: {fontSize: 'text-3xl md:text-xl'},
+    h6: {fontSize: 'text-3xl md:text-lg'},
   };
 
   return (
@@ -35,7 +41,7 @@ const Heading = ({title, tag, align, textColor, spanColor, controls}) => {
       animate={controls}
     >
       <HeadingTag
-        className={`text-4xl md:text-5xl font-light leading-none md:leading-tight ${styleConfig[align].textAlign} ${textColor}`}
+        className={`${styleConfig[tag].fontSize} font-medium leading-none md:leading-tight ${styleConfig[align].textAlign} ${textColor}`}
       >
         <span dangerouslySetInnerHTML={{__html: newTitle}} />
       </HeadingTag>

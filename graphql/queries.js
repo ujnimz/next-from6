@@ -672,6 +672,7 @@ export const GET_SINGLE_POST = gql`
           title
           slug
           date
+          author
           seoContent {
             metaTitle
             metaDescription

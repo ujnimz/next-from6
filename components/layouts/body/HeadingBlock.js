@@ -48,6 +48,27 @@ const HeadingBlock = ({title, tag, headingStyle, headingAlign, bgImage}) => {
     },
   };
 
+  const spaceConfig = {
+    h1: {
+      spacing: 'pt-6 lg:pt-12 pb-8 lg:pb-12',
+    },
+    h2: {
+      spacing: 'pt-5 lg:pt-10 pb-6 lg:pb-10',
+    },
+    h3: {
+      spacing: 'pt-4 lg:pt-8 pb-2 lg:pb-8',
+    },
+    h4: {
+      spacing: 'pt-4 lg:pt-6 pb-2 lg:pb-3',
+    },
+    h5: {
+      spacing: 'pt-4 lg:pt-6 pb-2 lg:pb-3',
+    },
+    h6: {
+      spacing: 'pt-4 lg:pt-6 pb-2 lg:pb-3',
+    },
+  };
+
   return (
     <div
       className='bg-no-repeat bg-center bg-cover'
@@ -61,7 +82,7 @@ const HeadingBlock = ({title, tag, headingStyle, headingAlign, bgImage}) => {
     >
       <div
         ref={viewRef}
-        className={`flex justify-center py-6 lg:py-10 ${styleConfig[headingStyle].bgColor}`}
+        className={`flex justify-center ${spaceConfig[tag].spacing} ${styleConfig[headingStyle].bgColor}`}
       >
         <div className='container flex justify-center px-6 lg:px-0'>
           <Heading

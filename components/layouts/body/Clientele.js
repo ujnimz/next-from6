@@ -51,7 +51,7 @@ const Clientele = ({clientele, sliderType = 'carousel'}) => {
   };
 
   return (
-    <div ref={viewRef} className='flex justify-center bg-accent-focus'>
+    <div ref={viewRef} className='flex justify-center'>
       <motion.div
         className='container py-10 lg:py-14'
         variants={divVariants}

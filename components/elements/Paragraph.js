@@ -1,8 +1,22 @@
 import PropTypes from 'prop-types';
+import {motion} from 'framer-motion';
 import {marked} from 'marked';
 import DOMPurify from 'dompurify';
 
-const Paragraph = ({text, align}) => {
+const Paragraph = ({text, align, controls}) => {
+  const textVariants = {
+    hidden: {
+      opacity: 0,
+      y: 50,
+      transition: {duration: 0.5, ease: 'easeOut'},
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {duration: 0.5, ease: 'easeOut'},
+    },
+  };
+
   var cleanText = DOMPurify.sanitize(marked.parse(text));
 
   const styleConfig = {
@@ -12,14 +26,17 @@ const Paragraph = ({text, align}) => {
   };
 
   return (
-    <div
+    <motion.div
       className={`flex-1 mb-6 last:mb-0 ${styleConfig[align].containerWidth}`}
+      variants={textVariants}
+      initial='hidden'
+      animate={controls}
     >
       <div
         className={`${styleConfig[align].textAlign} text-base-content font-light text-2xl leading-snug`}
         dangerouslySetInnerHTML={{__html: cleanText}}
       />
-    </div>
+    </motion.div>
   );
 };
 
