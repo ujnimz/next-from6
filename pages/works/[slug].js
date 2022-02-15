@@ -35,7 +35,7 @@ const SingleWork = ({data, loading}) => {
         transition={{type: 'spring', duration: 1}}
       >
         <PageHero image={heroImage} />
-        <div className='flex justify-center bg-accent-focus'>
+        <div className='flex justify-center bg-accent'>
           <div className='container py-4 px-4 lg:px-0 flex flex-wrap justify-between'>
             <div className='flex w-full lg:w-1/2'>
               <p className='text-xl font-thin text-base-content'>
