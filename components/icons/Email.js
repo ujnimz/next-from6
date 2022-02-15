@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types';
-import {motion} from 'framer-motion';
 
 const Email = ({colorClass = 'text-primary'}) => {
   return (
-    <motion.div>
+    <div>
       <svg
         className={`fill-current ${colorClass}`}
         xmlns='http://www.w3.org/2000/svg'
@@ -22,7 +21,7 @@ const Email = ({colorClass = 'text-primary'}) => {
           transform='translate(-1 -2.45)'
         />
       </svg>
-    </motion.div>
+    </div>
   );
 };
 

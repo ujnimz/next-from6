@@ -12,7 +12,7 @@ import Magnifier from './Magnifier';
 import Mobile from './Mobile';
 import NextArrow from './NextArrow';
 import Rocket from './Rocket';
-import Social from './Social';
+import Quote from './Quote';
 
 import React from 'react';
 
@@ -46,6 +46,8 @@ const F6Icon = ({colorClass, icon}) => {
       return <NextArrow colorClass={colorClass} />;
     case 'rocket':
       return <Rocket colorClass={colorClass} />;
+    case 'quote':
+      return <Quote colorClass={colorClass} />;
     default:
       return <Atom />;
   }
