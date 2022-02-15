@@ -10,6 +10,7 @@ class MyDocument extends Document {
     return (
       <Html data-theme=''>
         <Head>
+          <link rel='icon' href='/favicon.ico' />
           <script src='https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js'></script>
           <link
             rel='stylesheet'

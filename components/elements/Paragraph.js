@@ -5,7 +5,7 @@ import DOMPurify from 'dompurify';
 
 const Paragraph = ({paragraph, controls}) => {
   const {text, align, textType} = paragraph;
-  console.log(textType);
+
   const textVariants = {
     hidden: {
       opacity: 0,
