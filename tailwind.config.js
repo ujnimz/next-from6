@@ -9,7 +9,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        serif: ['Bree-Serif', 'serif'],
+        serif: ['bree-serif', 'serif'],
         sans: ['Rustico', 'sans-serif'],
       },
       fill: {

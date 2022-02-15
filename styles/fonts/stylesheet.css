@@ -1,45 +1,4 @@
 @font-face {
-  font-family: 'Bree-Serif';
-  font-weight: 700; /* Bold */
-  font-style: normal;
-  src: url('./bree/Bree-Serif-Bold.eot'); /* IE9 Compat Modes */
-  src: url('./bree/Bree-Serif-Bold.eot?#iefix') format('embedded-opentype'),
-    /* IE6-IE8 */ url('./bree/Bree-Serif-Bold.woff') format('woff'),
-    /* Modern Browsers */ url('./bree/Bree-Serif-Bold.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Bree-Serif';
-  font-weight: 400; /* Regular */
-  font-style: normal;
-  src: url('./bree/Bree-Serif-Regular.eot'); /* IE9 Compat Modes */
-  src: url('./bree/Bree-Serif-Regular.eot?#iefix') format('embedded-opentype'),
-    /* IE6-IE8 */ url('./bree/Bree-Serif-Regular.woff') format('woff'),
-    /* Modern Browsers */ url('./bree/Bree-Serif-Regular.ttf')
-      format('truetype');
-}
-
-@font-face {
-  font-family: 'Bree-Serif';
-  font-weight: 100; /* Light */
-  font-style: normal;
-  src: url('./bree/Bree-Serif-Light.eot'); /* IE9 Compat Modes */
-  src: url('./bree/Bree-Serif-Light.eot?#iefix') format('embedded-opentype'),
-    /* IE6-IE8 */ url('./bree/Bree-Serif-Light.woff') format('woff'),
-    /* Modern Browsers */ url('./bree/Bree-Serif-Light.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Bree-Serif';
-  font-weight: 400; /* Regular */
-  font-style: italic;
-  src: url('./bree/Bree-Serif-Italic.eot'); /* IE9 Compat Modes */
-  src: url('./bree/Bree-Serif-Italic.eot?#iefix') format('embedded-opentype'),
-    /* IE6-IE8 */ url('./bree/Bree-Serif-Italic.woff') format('woff'),
-    /* Modern Browsers */ url('./bree/Bree-Serif-Italic.ttf') format('truetype');
-}
-
-@font-face {
   font-family: 'Rustico';
   font-weight: 400; /* Regular */
   src: url('./rustico/Rustico-Regular.eot'); /* IE9 Compat Modes */

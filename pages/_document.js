@@ -11,6 +11,10 @@ class MyDocument extends Document {
       <Html data-theme=''>
         <Head>
           <script src='https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js'></script>
+          <link
+            rel='stylesheet'
+            href='https://use.typekit.net/ycq1pde.css'
+          ></link>
         </Head>
         <body className='font-serif antialiased'>
           <Main />
