@@ -5,17 +5,21 @@ import {motion} from 'framer-motion';
 import NextArrow from '../icons/NextArrow';
 import SingleImage from './SingleImage';
 
-const ServiceItem = ({service}) => {
+const ServiceItem = ({service, linkWorks = true}) => {
   const [onLink, setOnLink] = useState(false);
 
   const {title, slug, thumbnail} = service.attributes;
 
   return (
     <Link
-      href={{
-        pathname: '/services/[slug]',
-        query: {slug: slug},
-      }}
+      href={
+        linkWorks
+          ? 'works'
+          : {
+              pathname: '/services/[slug]',
+              query: {slug: slug},
+            }
+      }
     >
       <motion.a
         className='flex flex-col cursor-pointer bg-secondary hover:bg-primary flex-1 notch-large transition-all duration-300 ease-in-out'
