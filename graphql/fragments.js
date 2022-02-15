@@ -261,8 +261,9 @@ export const MEMBERS_CONTENT = gql`
 
 export const WORKS_GRID_CONTENT = gql`
   fragment WorksGridFields on ComponentBlocksWorksGrid {
-    works(pagination: {limit: 50}) {
+    works(sort: "id:asc", pagination: {limit: 50}) {
       data {
+        id
         attributes {
           title
           slug
@@ -300,7 +301,7 @@ export const WORKS_GRID_CONTENT = gql`
 
 export const POSTS_GRID_CONTENT = gql`
   fragment PostsGridFields on ComponentBlocksPostsGrid {
-    posts(sort: "date:desc") {
+    posts(sort: "date:desc", pagination: {limit: 50}) {
       data {
         attributes {
           title
