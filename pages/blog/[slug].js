@@ -41,7 +41,7 @@ const SinglePost = ({data, loading}) => {
                 Author: {author}
               </p>
             </div>
-            <div className='flex justify-end w-full lg:w-1/2'>
+            <div className='flex justify-start lg:justify-end w-full lg:w-1/2'>
               <p className='text-xl font-thin text-base-content'>
                 Published on: {date}
               </p>
