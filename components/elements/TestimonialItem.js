@@ -9,7 +9,7 @@ const TestimonialItem = ({testimonial}) => {
   const {message, name, jobTitle, company, avatar} = testimonial.attributes;
   return (
     <motion.div
-      className='flex justify-center items-center flex-col max-w-3xl mx-6'
+      className='flex justify-center items-center flex-col max-w-3xl mx-6 cursor-move'
       onHoverStart={() => setOnLink(true)}
       onHoverEnd={() => setOnLink(false)}
     >

@@ -35,26 +35,40 @@ const TeamMember = ({member, hoverAnimate}) => {
   return (
     <div className='flex overflow-hidden w-full md:w-1/3 border-8 p-1 border-base-100 mb-3'>
       <motion.div
-        className='flex flex-col cursor-pointer flex-1 transition-all duration-300 ease-in-out'
+        className='flex flex-col flex-1 transition-all duration-300 ease-in-out'
         onHoverStart={() => setOnLink(true)}
         onHoverEnd={() => setOnLink(false)}
       >
         <div className='relative overflow-hidden h-full notch-large'>
-          <motion.div
-            className='absolute top-0 left-0 h-full w-full'
-            variants={itemHoverVariants}
-            animate={onLink ? 'visible' : 'hidden'}
-          >
-            <SingleImage image={hoverImage} />
-          </motion.div>
+          {hoverAnimate ? (
+            <>
+              <motion.div
+                className='absolute top-0 left-0 h-full w-full'
+                variants={itemHoverVariants}
+                animate={onLink ? 'visible' : 'hidden'}
+              >
+                <SingleImage image={hoverImage} />
+              </motion.div>
 
-          <motion.div
-            className='h-full'
-            variants={itemVariants}
-            animate={hoverAnimate && onLink ? 'hidden' : 'visible'}
-          >
-            <SingleImage image={image} />
-          </motion.div>
+              <motion.div
+                className='h-full'
+                variants={itemVariants}
+                animate={onLink ? 'hidden' : 'visible'}
+              >
+                <SingleImage image={image} />
+              </motion.div>
+            </>
+          ) : (
+            <>
+              <motion.div
+                className={`h-full w-full transition-all duration-500 ${
+                  onLink ? 'brightness-110' : 'brightness-100'
+                }`}
+              >
+                <SingleImage image={image} />
+              </motion.div>
+            </>
+          )}
         </div>
 
         <div className='flex flex-col items-start justify-between flex-1 py-2'>

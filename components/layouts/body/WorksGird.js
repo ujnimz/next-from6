@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import WorkItem from '../../elements/WorkItem';
 
 const WorksGird = ({works, work_category}) => {
-  console.log(works);
   // init one ref to store the future isotope object
   const isotope = useRef();
   // store the filter keyword in a state
@@ -37,6 +36,7 @@ const WorksGird = ({works, work_category}) => {
   );
   const key = 'slug';
   const uniqueCategories = [
+    {title: 'Show All', slug: '*'},
     ...new Map(
       allCategories.map(item => [item.attributes[key], item.attributes]),
     ).values(),
@@ -45,24 +45,14 @@ const WorksGird = ({works, work_category}) => {
   return (
     <div className='flex justify-center py-6 lg:py-10'>
       <div className='container'>
-        <ul className='flex space-x-4 px-4 mb-4'>
-          <li
-            onClick={handleFilterKeyChange('*')}
-            className={`cursor-pointer underline-offset-8 transition-colors duration-300 ease-in-out ${
-              filterKey === '*'
-                ? 'text-primary underline '
-                : 'text-base-content'
-            }`}
-          >
-            Show All
-          </li>
+        <ul className='flex flex-wrap px-4 mb-4'>
           {uniqueCategories.map((category, index) => (
             <li
               key={index}
               onClick={handleFilterKeyChange(category.slug)}
-              className={`cursor-pointer underline-offset-8 transition-colors duration-300 ease-in-out ${
+              className={`cursor-pointer p-1 mr-2 mb-2 border lg:border-0 underline-offset-8 transition-colors duration-300 ease-in-out ${
                 filterKey === category.slug
-                  ? 'text-primary underline '
+                  ? 'text-primary border-primary no-underline lg:underline'
                   : 'text-base-content'
               }`}
             >

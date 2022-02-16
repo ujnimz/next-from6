@@ -5,7 +5,7 @@ import {useInView} from 'react-intersection-observer';
 import useWindowDimensions from '../../../themes/useWindowDimensions';
 import SingleImage from '../../elements/SingleImage';
 
-const PageHero = ({image}) => {
+const HeroImage = ({image}) => {
   const {width, height} = useWindowDimensions();
 
   const [vpEnd, setVpEnd] = useState(height);
@@ -31,21 +31,25 @@ const PageHero = ({image}) => {
 
   const heightRatio =
     image.data.attributes.height / image.data.attributes.width;
-  const widthRatio = image.data.attributes.width / image.data.attributes.height;
+  //const widthRatio = image.data.attributes.width / image.data.attributes.height;
 
   return (
     <div
       ref={ref}
       className='flex justify-center items-center overflow-hidden w-full'
-      style={{
-        height: heightRatio * width,
-      }}
+      style={
+        width < 600
+          ? {height: 400}
+          : {
+              height: heightRatio * width,
+            }
+      }
     >
       <div>
         <motion.div
           style={{
             y: x2,
-            width: width + 400,
+            width: width < 600 ? width + 650 : width + 400,
             height: heightRatio * (width + 200),
           }}
         >
@@ -56,8 +60,8 @@ const PageHero = ({image}) => {
   );
 };
 
-PageHero.propTypes = {
+HeroImage.propTypes = {
   image: PropTypes.object.isRequired,
 };
 
-export default PageHero;
+export default HeroImage;

@@ -1,12 +1,11 @@
 import React, {useRef, useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-import {motion, useCycle} from 'framer-motion';
+import {motion} from 'framer-motion';
 import MenuIcon from '../elements/MenuIcon';
 import ThemeSwitch from '../elements/ThemeSwitch';
 
 const MainNavigation = ({navItems}) => {
-  //const [isOpen, toggleOpen] = useCycle(false, true);
   const [isOpen, toggleOpen] = useState(false);
   const wrapperRef = useRef(null);
 

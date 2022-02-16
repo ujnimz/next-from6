@@ -67,9 +67,12 @@ const ServicesSlider = ({services, spacing}) => {
           autoPlaySpeed={4000}
           removeArrowOnDeviceType={['tablet', 'mobile']}
           arrows={false}
-          showDots
-          infinite
-          autoPlay
+          showDots={true}
+          infinite={true}
+          autoPlay={true}
+          draggable={true}
+          swipeable={true}
+          ssr={true} // means to render carousel on server-side.
         >
           {services.data.map((service, index) => (
             <ServiceItem service={service} key={index} />

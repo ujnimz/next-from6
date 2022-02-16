@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import {motion} from 'framer-motion';
-import PageHero from '../components/layouts/body/PageHero';
+import HeroImage from '../components/layouts/body/HeroImage';
 import BlockManager from '../components/shared/BlockManager';
 import CustomHeader from '../components/shared/CustomHeader';
 import LoadingIcon from '../components/layouts/body/LoadingIcon';
@@ -35,7 +35,7 @@ const Services = ({data, loading}) => {
         exit='exit'
         transition={{type: 'spring', duration: 1}}
       >
-        <PageHero image={heroImage} />
+        <HeroImage image={heroImage} />
         <BlockManager blocks={pageContent} />
       </motion.main>
     </>
