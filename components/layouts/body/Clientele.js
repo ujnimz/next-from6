@@ -61,14 +61,16 @@ const Clientele = ({clientele, sliderType = 'carousel'}) => {
         {sliderType === 'carousel' ? (
           <Carousel
             containerClass='flex justify-between w-full flex-wrap'
-            itemClass='flex overflow-hidden border-8 border-accent-focus'
+            itemClass='flex overflow-hidden border-8 border-transparent'
             responsive={responsive}
-            autoPlaySpeed={2000}
+            autoPlaySpeed={4000}
             removeArrowOnDeviceType={['tablet', 'mobile']}
             arrows={false}
             showDots={false}
-            infinite
-            autoPlay
+            infinite={true}
+            autoPlay={true}
+            draggable={true}
+            swipeable={true}
           >
             {clientele.map((logo, index) => (
               <LogoItem logo={logo} key={index} />

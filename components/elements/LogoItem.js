@@ -17,9 +17,10 @@ const LogoItem = ({logo}) => {
         <motion.div
           animate={onLink ? {scale: 1.1} : {scale: 1}}
           transition={{duration: 0.5, ease: 'easeInOut'}}
-          className={`transition-grayscale duration-300 ${
-            onLink ? 'grayscale-0' : 'grayscale'
-          }`}
+          // className={`transition-grayscale duration-300 ${
+          //   onLink ? 'grayscale-0' : 'grayscale'
+          // }`}
+          className='contrast-0'
         >
           <SingleImage image={image} />
         </motion.div>

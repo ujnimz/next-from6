@@ -65,9 +65,11 @@ const TestimonialSlider = ({testimonials}) => {
           responsive={responsive}
           autoPlaySpeed={4000}
           arrows={false}
-          showDots
-          infinite
-          autoPlay
+          showDots={true}
+          infinite={true}
+          autoPlay={true}
+          draggable={true}
+          swipeable={true}
         >
           {data.map((testimonial, index) => (
             <TestimonialItem testimonial={testimonial} key={index} />
