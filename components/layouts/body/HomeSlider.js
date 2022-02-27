@@ -15,7 +15,7 @@ import Baloon from '../../icons/Baloon';
 import TextSlider from '../../elements/TextSlider';
 
 const HomeSlider = ({data}) => {
-  const {sliderTexts, ogvVideo, webmVideo, mp4Video} = data;
+  const {sliderTexts, ogvVideo, webmVideo, mp4Video, fallbackImage} = data;
   const [windowHeight, setWindowHeight] = useState(null);
 
   useEffect(() => {
@@ -158,6 +158,7 @@ const HomeSlider = ({data}) => {
           muted
           playsInline
           className='absolute z-10 w-screen h-screen top-0 left-0 filter blur-xs transform scale-110 object-cover'
+          poster={fallbackImage.data.attributes.url}
         >
           <source
             // src={`${process.env.NEXT_PUBLIC_IMAGE_HOST}${ogvVideo.data.attributes.url}`}
@@ -173,6 +174,10 @@ const HomeSlider = ({data}) => {
             // src={`${process.env.NEXT_PUBLIC_IMAGE_HOST}${mp4Video.data.attributes.url}`}
             src={`${mp4Video.data.attributes.url}`}
             type='video/mp4'
+          />
+          <img
+            src={fallbackImage.data.attributes.url}
+            title='Your browser does not support the <video> tag'
           />
           Your browser does not support the video tag.
         </video>

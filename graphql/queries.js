@@ -71,6 +71,16 @@ export const GET_HOME_PAGE = gql`
             sliderTexts {
               text
             }
+            fallbackImage {
+              data {
+                attributes {
+                  url
+                  width
+                  height
+                  alternativeText
+                }
+              }
+            }
           }
           pageContent {
             __typename
