@@ -44,7 +44,7 @@ const SingleWork = ({data, loading}) => {
             </div>
             <div className='flex'>
               <p className='text-xl font-thin text-base-content'>Elements:</p>
-              <p className='text-xl font-thin text-base-content divide-inherit divide-x-2'>
+              <p className='text-xl font-thin text-base-content divide-base-content divide-x-2'>
                 {workCategories.data.map((item, index) => (
                   <span className='px-2' key={index}>
                     {item.attributes.title}
