@@ -635,7 +635,7 @@ export const GET_SINGLE_SERVICE = gql`
 
 export const GET_POSTS = gql`
   query getPosts {
-    posts(sort: "date:desc") {
+    posts(sort: "date:desc", pagination: {limit: 50}) {
       data {
         attributes {
           title
