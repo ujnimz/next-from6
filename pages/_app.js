@@ -13,26 +13,19 @@ function MyApp({Component, pageProps, data, dataLoading}) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // const handleStart = url => {
-    //   url !== router.pathname ? setLoading(true) : setLoading(false);
-    // };
-    // const handleComplete = url => setLoading(false);
-
-    // router.events.on('routeChangeStart', handleStart);
-    // router.events.on('routeChangeComplete', handleComplete);
-    // router.events.on('routeChangeError', handleComplete);
     setTimeout(() => setLoading(false), 3000);
   }, []);
 
+  //console.log(dataLoading);
   return (
     <>
-      {!loading && !dataLoading ? (
-        <MainLayout data={data}>
-          <Component {...pageProps} />
-        </MainLayout>
-      ) : (
-        <Loading />
-      )}
+      {/* {!loading && !dataLoading ? ( */}
+      <MainLayout data={data}>
+        <Component {...pageProps} />
+      </MainLayout>
+      {/* ) : ( */}
+      {/* <Loading /> */}
+      {/* )} */}
     </>
   );
 }
