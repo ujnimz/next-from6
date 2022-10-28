@@ -11,7 +11,10 @@ class MyDocument extends Document {
       <Html data-theme=''>
         <Head>
           <link rel='icon' href='/favicon.ico' />
-          <script src='https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js'></script>
+          <script
+            type='text/javascript'
+            src='/static/isotope.pkgd.min.js'
+          ></script>
           <link
             rel='stylesheet'
             href='https://use.typekit.net/ycq1pde.css'
